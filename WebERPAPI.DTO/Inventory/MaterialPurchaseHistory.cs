@@ -1,0 +1,32 @@
+﻿using System;
+
+namespace WebERPAPI.DTO.Inventory
+{
+    public class MaterialPurchaseHistory
+    {
+        public string GRNID { get; set; }
+
+        public string SupplierID { get; set; }
+        public string SupplierName { get; set; }
+        public Nullable<decimal> ReceiveQty { get; set; }
+        public Nullable<decimal> Rate { get; set; }
+        public Nullable<DateTime> GRNDate { get; set; }
+
+        public string POID { get; set; }
+        public string LCID { get; set; }
+        public string RequisitionID { get; set; }
+        public Nullable<decimal> PORate { get; set; }
+        public Nullable<decimal> LCRate { get; set; }
+    }
+
+    public class SupplierPurchaseHistory
+    {
+        public string CompanyID { get; set; }
+        public string MaterialCode { get; set; }
+        public string MaterialName { get; set; }
+        public Nullable<DateTime> GRNDate { get; set; }
+        public Nullable<decimal> ReceiveQty { get; set; }
+        public Nullable<decimal> Rate { get; set; }
+        public Nullable<decimal> FCRate { get; set; }
+    }
+}

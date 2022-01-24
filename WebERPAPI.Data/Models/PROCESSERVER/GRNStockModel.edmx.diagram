@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="50653cdb2d8c48169fbd5016fc602e53" Name="Diagram1">
+        <EntityTypeShape EntityType="GRNStockModel.Inventory_Stock" Width="1.5" PointX="3.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GRNStockModel.Inventory_GRN_Items" PointX="3.375" PointY="13.5" Width="1.5" />
+        <EntityTypeShape EntityType="GRNStockModel.Inventory_QRN" Width="1.5" PointX="4.625" PointY="9.25" />
+        <EntityTypeShape EntityType="GRNStockModel.Inventory_QRN_Items" Width="1.5" PointX="6.875" PointY="9.25" />
+        <AssociationConnector Association="GRNStockModel.FK_Inventory_QRN_Items_Inventory_QRN" />
+        <EntityTypeShape EntityType="GRNStockModel.Inventory_GRN" Width="1.5" PointX="1.125" PointY="10.75" />
+        <EntityTypeShape EntityType="GRNStockModel.Inventory_Item_UsageTypes" Width="1.5" PointX="0.75" PointY="4.75" />
+        <AssociationConnector Association="GRNStockModel.FK_Inventory_GRN_Items_Inventory_GRN" />
+        <AssociationConnector Association="GRNStockModel.FK_Inventory_QRN_Inventory_GRN" />
+        <EntityTypeShape EntityType="GRNStockModel.Inventory_Stock_ChangeLogs" Width="2.5" PointX="3.125" PointY="4.625" />
+        <EntityTypeShape EntityType="GRNStockModel.Inventory_UserStores" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GRNStockModel.Inventory_Stock_ChangeTypes" Width="1.5" PointX="0.875" PointY="18.375" />
+        <AssociationConnector Association="GRNStockModel.FK_Inventory_Stock_ChangeLogs_Inventory_Stock_ChangeTypes" />
+        <EntityTypeShape EntityType="GRNStockModel.Inventory_Stock_Opening" Width="1.5" PointX="6.375" PointY="0.75" />
+        <EntityTypeShape EntityType="GRNStockModel.Stockbatch" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="GRNStockModel.GRNVat" Width="1.5" PointX="9.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

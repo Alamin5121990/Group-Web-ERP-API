@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PrescriptionTarget">
+          <Key>
+            <PropertyRef Name="YearNo" />
+            <PropertyRef Name="MonthNo" />
+            <PropertyRef Name="WorkAreaID" />
+          </Key>
+          <Property Name="YearNo" Type="int" Nullable="false" />
+          <Property Name="MonthNo" Type="int" Nullable="false" />
+          <Property Name="MonthName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkAreaType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkAreaID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="WorkAreaName" Type="varchar" MaxLength="500" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="20" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="200" />
+          <Property Name="Designation" Type="varchar" MaxLength="100" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="50" />
+          <Property Name="DOJ" Type="datetime" />
+          <Property Name="TargetQty" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AddedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="DMModelStoreContainer">
+          <EntitySet Name="PrescriptionTarget" EntityType="Self.PrescriptionTarget" Schema="dbo" store:Type="Tables" />
+          </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PrescriptionTarget">
+          <Key>
+            <PropertyRef Name="YearNo" />
+            <PropertyRef Name="MonthNo" />
+            <PropertyRef Name="WorkAreaID" />
+          </Key>
+          <Property Name="YearNo" Type="Int32" Nullable="false" />
+          <Property Name="MonthNo" Type="Int32" Nullable="false" />
+          <Property Name="MonthName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WorkAreaType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WorkAreaID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WorkAreaName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOJ" Type="DateTime" Precision="3" />
+          <Property Name="TargetQty" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AddedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="DMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PrescriptionTargets" EntityType="Self.PrescriptionTarget" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DMModelStoreContainer" CdmEntityContainer="DMEntities">
+          <EntitySetMapping Name="PrescriptionTargets">
+            <EntityTypeMapping TypeName="DMModel.PrescriptionTarget">
+              <MappingFragment StoreEntitySet="PrescriptionTarget">
+                <ScalarProperty Name="YearNo" ColumnName="YearNo" />
+                <ScalarProperty Name="MonthNo" ColumnName="MonthNo" />
+                <ScalarProperty Name="MonthName" ColumnName="MonthName" />
+                <ScalarProperty Name="WorkAreaType" ColumnName="WorkAreaType" />
+                <ScalarProperty Name="WorkAreaID" ColumnName="WorkAreaID" />
+                <ScalarProperty Name="WorkAreaName" ColumnName="WorkAreaName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="TargetQty" ColumnName="TargetQty" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

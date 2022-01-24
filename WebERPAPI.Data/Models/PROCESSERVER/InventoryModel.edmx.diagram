@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e0ceafd2e3574a55bb7a4e72c9120398" Name="Diagram1" ZoomLevel="88" DisplayType="true" ShowGrid="false" SnapToGrid="false">
+        <EntityTypeShape EntityType="InventoryModel.Bill_GroupType" Width="2.0130596887125272" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Bill_Payment_Advance" Width="2.0130596887125272" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Bill_Payment_Details" Width="2.0130596887125272" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Bill_Payment_Status" Width="2.0130596887125272" PointX="4.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Bill_PaymentType" Width="2.0130596887125272" PointX="10.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.BillDetail" Width="2.0130596887125272" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Internal_Approval" Width="2.0130596887125272" PointX="22.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Internal_Approval_Details" Width="2.0130596887125272" PointX="25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.GRNDetail" Width="2.0130596887125272" PointX="25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.LC" Width="2.0130596887125272" PointX="8" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Material" Width="2.0130596887125272" PointX="8" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.POReq" Width="2.0130596887125272" PointX="8" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.POReqDetail" Width="2.0130596887125272" PointX="10.25" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.PriorityStatu" Width="2.0130596887125272" PointX="12.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Invitation_Details" Width="2.0130596887125272" PointX="25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Invitations" Width="2.0130596887125272" PointX="22.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Received" Width="2.0130596887125272" PointX="17.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Received_Details" Width="2.0130596887125272" PointX="20" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Supplier_TDS" Width="2.0130596887125272" PointX="2.75" PointY="22.75" IsExpanded="true" />
+        <AssociationConnector Association="InventoryModel.FK_Comparative_Study_Internal_Approval_Details_Comparative_Study_Internal_Approval" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryModel.FK_POReqDetail_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryModel.FK_POReqDetail_POReq" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryModel.FK_Quotation_Invitation_Details_Quotation_Invitations" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryModel.FK_Quotation_Received_Details_Quotation_Received" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="InventoryModel.RequisitionFollowUp" Width="2.0130596887125272" PointX="4.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.IntermediateMaterialConversion" Width="2.0130596887125272" PointX="22.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.DosageForm" Width="2.0130596887125272" PointX="22.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.ProductionLocation" Width="2.0130596887125272" PointX="22.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.ProductionScheduleIgnoredMaterial" Width="2.0130596887125272" PointX="24.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.BankInfo" Width="2.0130596887125272" PointX="24.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.ProductPriority" Width="2.0130596887125272" PointX="0.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.ProductProcess" Width="2.0130596887125272" PointX="24.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.ProcessDef" Width="2.0130596887125272" PointX="26.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Challan_Approval_Request" Width="2.0130596887125272" PointX="17.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.CodeMap" Width="2.0130596887125272" PointX="19.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.PODetail" Width="2.0130596887125272" PointX="10.25" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="InventoryModel.FK_PODetail_Material" />
+        <AssociationConnector Association="InventoryModel.FK_PODetail_POReq" />
+        <EntityTypeShape EntityType="InventoryModel.Currency" Width="2.0130596887125272" PointX="26.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Received_Import" Width="2.0130596887125272" PointX="12.75" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Received_Import_Details" Width="2.5130596887125272" PointX="15" PointY="22.125" IsExpanded="true" />
+        <AssociationConnector Association="InventoryModel.FK_Quotation_Received_Import_Details_Quotation_Received_Import" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Import_InternalApproval" Width="2.0130596887125272" PointX="17.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Import_InternalApproval_Details" Width="2.0130596887125272" PointX="20" PointY="18" IsExpanded="true" />
+        <AssociationConnector Association="InventoryModel.FK_Comparative_Study_Import_InternalApproval_Details_Comparative_Study_Import_InternalApproval" />
+        <EntityTypeShape EntityType="InventoryModel.ProformaInvoice_Invitation" Width="2.0130596887125272" PointX="17.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.ProformaInvoice_Invitation_Details" Width="2.0130596887125272" PointX="20" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.ProformaInvoice" Width="2.0130596887125272" PointX="17.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.ProformaInvoice_Details" Width="2.0130596887125272" PointX="20" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="InventoryModel.FK_ProformaInvoice_Details_ProformaInvoice" />
+        <EntityTypeShape EntityType="InventoryModel.Proforma_BlockList" Width="2.0130596887125272" PointX="17.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Proforma_BlockList_Details" Width="2.0130596887125272" PointX="20" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="InventoryModel.FK_Proforma_BlockList_Details_Proforma_BlockList" />
+        <AssociationConnector Association="InventoryModel.FK_ProformaInvoice_Invitation_Details_ProformaInvoice_Invitation" />
+        <EntityTypeShape EntityType="InventoryModel.BankOfSupplier" Width="2.0130596887125272" PointX="26.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.LCDetail" Width="2.0130596887125272" PointX="10.25" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="InventoryModel.FK_LC_LCDetail" />
+        <EntityTypeShape EntityType="InventoryModel.PromoItem" Width="2.0130596887125272" PointX="4.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Remarks" Width="2.0130596887125272" PointX="27.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.POMaster" Width="2.0130596887125272" PointX="8" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="InventoryModel.FK_PODetail_POMaster" />
+        <EntityTypeShape EntityType="InventoryModel.Supplier_Categories" Width="2.0130596887125272" PointX="27.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Supplier_Types" Width="2.0130596887125272" PointX="21.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.BillMaster" Width="2.0130596887125272" PointX="0.75" PointY="15.25" IsExpanded="true" />
+        <AssociationConnector Association="InventoryModel.FK_BillDetails_BillMaster" />
+        <EntityTypeShape EntityType="InventoryModel.Supplier" Width="2.0130596887125272" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="InventoryModel.FK_LC_Suppler" />
+        <AssociationConnector Association="InventoryModel.FK_POMaster_Supplier" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Import_Details" Width="2.0130596887125272" PointX="15" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.MaterialSourceApproval_ChangesHistory" Width="2.0130596887125272" PointX="27.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.MaterialSourceApproval_Remarks" Width="2.0130596887125272" PointX="12.375" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.MaterialSourceApproval" Width="2.0130596887125272" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.PartsAndMachineAccessoriesLog" Width="2.0130596887125272" PointX="3.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Product_ProductionLocations" Width="2.0130596887125272" PointX="27.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.GRNMaster" Width="2.0130596887125272" PointX="22.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="InventoryModel.FK_GRNDetail_GRNMaster" />
+        <EntityTypeShape EntityType="InventoryModel.Supplier_Design_Submit" Width="2.0130596887125272" PointX="0.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.BillDist" Width="2.0130596887125272" PointX="3" PointY="32.875" IsExpanded="true" />
+        <AssociationConnector Association="InventoryModel.FK_BillDist_BillMaster" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study" Width="2.0130596887125272" PointX="12.75" PointY="12.951863606770836" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Import" Width="1.5" PointX="12.75" PointY="0.75" />
+        <AssociationConnector Association="InventoryModel.FK_Comparative_Study_Import_Details_Comparative_Study_Import" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

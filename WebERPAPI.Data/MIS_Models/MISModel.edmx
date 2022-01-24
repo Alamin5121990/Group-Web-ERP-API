@@ -1,0 +1,1331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AreaMaster">
+          <Key>
+            <PropertyRef Name="AreaCode" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RegionCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OAID" Type="int" />
+          <Property Name="ZoneID" Type="int" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="AreaName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="20" />
+          <Property Name="STPercent" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="STValue" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="SampleCategory" Type="varchar" MaxLength="100" />
+          <Property Name="IsInActive" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BOMMaster">
+          <Key>
+            <PropertyRef Name="BOMID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BOMID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BOMDate" Type="date" Nullable="false" />
+          <Property Name="CommercialProductID" Type="int" />
+          <Property Name="CommercialCode" Type="varchar" MaxLength="20" />
+          <Property Name="ProductID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BatchQty" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="BatchUOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BatchWeight" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="BatchWeightUOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TheoOutput" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="TheoOutputUOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StdOutput" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="StdOutputUOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="APIPhilarWeight" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="APIPhilarUOM" Type="varchar" MaxLength="50" />
+          <Property Name="APIPhilarM" Type="varchar" MaxLength="50" />
+          <Property Name="IsInActive" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachinenameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="BrandId" />
+          </Key>
+          <Property Name="BrandId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BrandWiseYearlyComparison">
+          <Key>
+            <PropertyRef Name="BrandId" />
+            <PropertyRef Name="ReportColumnTypeId" />
+            <PropertyRef Name="YearNo" />
+            <PropertyRef Name="MonthNo" />
+          </Key>
+          <Property Name="BrandId" Type="int" Nullable="false" />
+          <Property Name="ReportColumnTypeId" Type="int" Nullable="false" />
+          <Property Name="ReportDurationTypeId" Type="tinyint" Nullable="false" />
+          <Property Name="YearNo" Type="int" Nullable="false" />
+          <Property Name="MonthNo" Type="int" Nullable="false" />
+          <Property Name="ColumnValue" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="SalesWithVAT" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="NetSales" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Remarks" Type="varchar" MaxLength="150" />
+          <Property Name="CreatedById" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DepotAndSalesLocationMapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepotLocationID" Type="int" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationCode" Type="varchar" MaxLength="15" />
+          <Property Name="LocationName" Type="varchar" MaxLength="100" />
+          <Property Name="LocationTypeId" Type="int" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="LocationType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MIS.dbo.LocationWiseSales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LocationWiseSales">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="BrandId" />
+            <PropertyRef Name="ZoneId" />
+            <PropertyRef Name="RegionId" />
+            <PropertyRef Name="AreaId" />
+            <PropertyRef Name="TerritoryID" />
+            <PropertyRef Name="ProductId" />
+            <PropertyRef Name="YearNo" />
+            <PropertyRef Name="MonthNo" />
+            <PropertyRef Name="InvoiceDate" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
+          <Property Name="ZoneId" Type="int" Nullable="false" />
+          <Property Name="RegionId" Type="int" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="TerritoryID" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="YearNo" Type="int" Nullable="false" />
+          <Property Name="MonthNo" Type="int" Nullable="false" />
+          <Property Name="InvoiceDate" Type="date" Nullable="false" />
+          <Property Name="SoldQuantity" Type="int" />
+          <Property Name="SoldValue" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="OAMaster">
+          <Key>
+            <PropertyRef Name="OACode" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OACode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OAName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="20" />
+          <Property Name="STPercent" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="STValue" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="IsInActive" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Product_Forecast_Sample_Quantity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="YearNo" Type="int" />
+          <Property Name="MonthNo" Type="int" />
+          <Property Name="SampleID" Type="varchar" MaxLength="15" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="SPSQuantity" Type="int" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyID" Type="varchar" MaxLength="50" />
+          <Property Name="ProductName" Type="varchar" MaxLength="200" />
+          <Property Name="ProductType" Type="varchar" MaxLength="50" />
+          <Property Name="ProductForm" Type="varchar" MaxLength="50" />
+          <Property Name="DosageForm" Type="varchar" MaxLength="50" />
+          <Property Name="GenericName" Type="varchar" MaxLength="500" />
+          <Property Name="DarNo" Type="varchar" MaxLength="50" />
+          <Property Name="PackSize" Type="varchar" MaxLength="50" />
+          <Property Name="UOM" Type="varchar" MaxLength="20" />
+          <Property Name="SalesCode" Type="varchar" MaxLength="4" />
+          <Property Name="PPS" Type="varchar" MaxLength="20" />
+          <Property Name="SPS" Type="varchar" MaxLength="20" />
+          <Property Name="MPS" Type="varchar" MaxLength="20" />
+          <Property Name="Strength" Type="varchar" MaxLength="10" />
+          <Property Name="TP" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="VatPayable" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MRP" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ShelfMonth" Type="int" />
+          <Property Name="ShelfYear" Type="int" />
+          <Property Name="ProductionLeadTime" Type="int" />
+          <Property Name="QALeadTime" Type="int" />
+          <Property Name="Location" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MachinenameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="ShowingStatus" Type="bit" />
+          <Property Name="Addedby" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MIS.dbo.ProductWiseYearlyComparison' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ProductWiseYearlyComparison">
+          <Key>
+            <PropertyRef Name="BrandId" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="ReportColumnTypeId" />
+            <PropertyRef Name="ReportDurationTypeId" />
+            <PropertyRef Name="ColumnValue" />
+          </Key>
+          <Property Name="BrandId" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ReportColumnTypeId" Type="int" Nullable="false" />
+          <Property Name="ReportDurationTypeId" Type="tinyint" Nullable="false" />
+          <Property Name="YearNo" Type="int" />
+          <Property Name="MonthNo" Type="tinyint" />
+          <Property Name="DayNo" Type="int" />
+          <Property Name="ReportDate" Type="date" />
+          <Property Name="ColumnValue" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Remarks" Type="varchar" MaxLength="150" />
+          <Property Name="CreatedById" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MIS.dbo.RegionMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RegionMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="RegionCode" />
+            <PropertyRef Name="ZoneCode" />
+            <PropertyRef Name="RegionName" />
+            <PropertyRef Name="STPercent" />
+            <PropertyRef Name="STValue" />
+            <PropertyRef Name="Budget" />
+            <PropertyRef Name="IsInActive" />
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="MachineNameIP" />
+            <PropertyRef Name="Transfered" />
+            <PropertyRef Name="HOTransfered" />
+            <PropertyRef Name="Addedby" />
+            <PropertyRef Name="DateAdded" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegionCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OAID" Type="int" />
+          <Property Name="ZoneID" Type="int" />
+          <Property Name="ZoneCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RegionName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="20" />
+          <Property Name="STPercent" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="STValue" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Budget" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="SampleCategory" Type="varchar" MaxLength="100" />
+          <Property Name="IsInActive" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ReportColumnType">
+          <Key>
+            <PropertyRef Name="ReportColumnTypeId" />
+          </Key>
+          <Property Name="ReportColumnTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReportColumnTypeName" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="date" />
+          <Property Name="CreatedById" Type="int" />
+        </EntityType>
+        <EntityType Name="ReportDurationType">
+          <Key>
+            <PropertyRef Name="ReportDurationTypeId" />
+          </Key>
+          <Property Name="ReportDurationTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReportDurationTypeName" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedById" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MIS.dbo.SalesTarget' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SalesTarget">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandId" Type="int" />
+          <Property Name="ZoneId" Type="int" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="Average" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MIS.dbo.SyncEventLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SyncEventLog">
+          <Key>
+            <PropertyRef Name="SyncId" />
+          </Key>
+          <Property Name="SyncId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProcedureName" Type="varchar" MaxLength="50" />
+          <Property Name="LogDetails" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TerritoryMaster">
+          <Key>
+            <PropertyRef Name="TerritoryCode" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TerritoryCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OAID" Type="int" />
+          <Property Name="ZoneID" Type="int" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="AreaID" Type="int" />
+          <Property Name="AreaCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TerritoryName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="20" />
+          <Property Name="TeamCode" Type="varchar" MaxLength="10" />
+          <Property Name="STPercent" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="STValue" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="SampleCategory" Type="varchar" MaxLength="100" />
+          <Property Name="IsInActive" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MIS.dbo.ZoneMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ZoneMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ZoneCode" />
+            <PropertyRef Name="OACode" />
+            <PropertyRef Name="ZoneName" />
+            <PropertyRef Name="STPercent" />
+            <PropertyRef Name="STValue" />
+            <PropertyRef Name="IsInActive" />
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="MachineNameIP" />
+            <PropertyRef Name="Transfered" />
+            <PropertyRef Name="HOTransfered" />
+            <PropertyRef Name="Addedby" />
+            <PropertyRef Name="DateAdded" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZoneCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OAID" Type="int" />
+          <Property Name="OACode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ZoneName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="20" />
+          <Property Name="STPercent" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="STValue" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="IsInActive" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MIS.dbo.ZoneWiseSales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ZoneWiseSales">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandId" Type="int" />
+          <Property Name="ZoneId" Type="int" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="AreaId" Type="int" />
+          <Property Name="TerritoryID" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="YearNo" Type="int" />
+          <Property Name="MonthNo" Type="int" />
+          <Property Name="InvoiceDate" Type="date" />
+          <Property Name="SoldQuantity" Type="int" />
+          <Property Name="SoldValue" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UpdatedOn" Type="date" />
+        </EntityType>
+        <Association Name="FK_TerritoryMaster_AreaMaster">
+          <End Role="AreaMaster" Type="Self.AreaMaster" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TerritoryMaster" Type="Self.TerritoryMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AreaMaster">
+              <PropertyRef Name="AreaCode" />
+            </Principal>
+            <Dependent Role="TerritoryMaster">
+              <PropertyRef Name="AreaCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MISModelStoreContainer">
+          <EntitySet Name="AreaMaster" EntityType="Self.AreaMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BOMMaster" EntityType="Self.BOMMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BrandWiseYearlyComparison" EntityType="Self.BrandWiseYearlyComparison" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DepotAndSalesLocationMapping" EntityType="Self.DepotAndSalesLocationMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationType" EntityType="Self.LocationType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OAMaster" EntityType="Self.OAMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_Forecast_Sample_Quantity" EntityType="Self.Product_Forecast_Sample_Quantity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportColumnType" EntityType="Self.ReportColumnType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportDurationType" EntityType="Self.ReportDurationType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TerritoryMaster" EntityType="Self.TerritoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationWiseSales" EntityType="Self.LocationWiseSales" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LocationWiseSales].[ID] AS [ID], 
+    [LocationWiseSales].[BrandId] AS [BrandId], 
+    [LocationWiseSales].[ZoneId] AS [ZoneId], 
+    [LocationWiseSales].[RegionId] AS [RegionId], 
+    [LocationWiseSales].[AreaId] AS [AreaId], 
+    [LocationWiseSales].[TerritoryID] AS [TerritoryID], 
+    [LocationWiseSales].[ProductId] AS [ProductId], 
+    [LocationWiseSales].[YearNo] AS [YearNo], 
+    [LocationWiseSales].[MonthNo] AS [MonthNo], 
+    [LocationWiseSales].[InvoiceDate] AS [InvoiceDate], 
+    [LocationWiseSales].[SoldQuantity] AS [SoldQuantity], 
+    [LocationWiseSales].[SoldValue] AS [SoldValue]
+    FROM [dbo].[LocationWiseSales] AS [LocationWiseSales]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ProductWiseYearlyComparison" EntityType="Self.ProductWiseYearlyComparison" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ProductWiseYearlyComparison].[BrandId] AS [BrandId], 
+    [ProductWiseYearlyComparison].[ProductID] AS [ProductID], 
+    [ProductWiseYearlyComparison].[ReportColumnTypeId] AS [ReportColumnTypeId], 
+    [ProductWiseYearlyComparison].[ReportDurationTypeId] AS [ReportDurationTypeId], 
+    [ProductWiseYearlyComparison].[YearNo] AS [YearNo], 
+    [ProductWiseYearlyComparison].[MonthNo] AS [MonthNo], 
+    [ProductWiseYearlyComparison].[DayNo] AS [DayNo], 
+    [ProductWiseYearlyComparison].[ReportDate] AS [ReportDate], 
+    [ProductWiseYearlyComparison].[ColumnValue] AS [ColumnValue], 
+    [ProductWiseYearlyComparison].[Remarks] AS [Remarks], 
+    [ProductWiseYearlyComparison].[CreatedById] AS [CreatedById], 
+    [ProductWiseYearlyComparison].[CreatedOn] AS [CreatedOn]
+    FROM [dbo].[ProductWiseYearlyComparison] AS [ProductWiseYearlyComparison]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RegionMaster" EntityType="Self.RegionMaster" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RegionMaster].[ID] AS [ID], 
+    [RegionMaster].[RegionCode] AS [RegionCode], 
+    [RegionMaster].[OAID] AS [OAID], 
+    [RegionMaster].[ZoneID] AS [ZoneID], 
+    [RegionMaster].[ZoneCode] AS [ZoneCode], 
+    [RegionMaster].[RegionName] AS [RegionName], 
+    [RegionMaster].[EmployeeID] AS [EmployeeID], 
+    [RegionMaster].[STPercent] AS [STPercent], 
+    [RegionMaster].[STValue] AS [STValue], 
+    [RegionMaster].[Budget] AS [Budget], 
+    [RegionMaster].[SampleCategory] AS [SampleCategory], 
+    [RegionMaster].[IsInActive] AS [IsInActive], 
+    [RegionMaster].[Location] AS [Location], 
+    [RegionMaster].[MachineNameIP] AS [MachineNameIP], 
+    [RegionMaster].[Transfered] AS [Transfered], 
+    [RegionMaster].[HOTransfered] AS [HOTransfered], 
+    [RegionMaster].[Addedby] AS [Addedby], 
+    [RegionMaster].[DateAdded] AS [DateAdded], 
+    [RegionMaster].[Updatedby] AS [Updatedby], 
+    [RegionMaster].[DateUpdated] AS [DateUpdated]
+    FROM [dbo].[RegionMaster] AS [RegionMaster]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SalesTarget" EntityType="Self.SalesTarget" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SalesTarget].[ID] AS [ID], 
+    [SalesTarget].[BrandId] AS [BrandId], 
+    [SalesTarget].[ZoneId] AS [ZoneId], 
+    [SalesTarget].[RegionId] AS [RegionId], 
+    [SalesTarget].[Average] AS [Average], 
+    [SalesTarget].[CreatedOn] AS [CreatedOn]
+    FROM [dbo].[SalesTarget] AS [SalesTarget]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SyncEventLog" EntityType="Self.SyncEventLog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SyncEventLog].[SyncId] AS [SyncId], 
+    [SyncEventLog].[ProcedureName] AS [ProcedureName], 
+    [SyncEventLog].[LogDetails] AS [LogDetails], 
+    [SyncEventLog].[CreatedOn] AS [CreatedOn]
+    FROM [dbo].[SyncEventLog] AS [SyncEventLog]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ZoneMaster" EntityType="Self.ZoneMaster" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ZoneMaster].[ID] AS [ID], 
+    [ZoneMaster].[ZoneCode] AS [ZoneCode], 
+    [ZoneMaster].[OAID] AS [OAID], 
+    [ZoneMaster].[OACode] AS [OACode], 
+    [ZoneMaster].[ZoneName] AS [ZoneName], 
+    [ZoneMaster].[EmployeeID] AS [EmployeeID], 
+    [ZoneMaster].[STPercent] AS [STPercent], 
+    [ZoneMaster].[STValue] AS [STValue], 
+    [ZoneMaster].[IsInActive] AS [IsInActive], 
+    [ZoneMaster].[Location] AS [Location], 
+    [ZoneMaster].[MachineNameIP] AS [MachineNameIP], 
+    [ZoneMaster].[Transfered] AS [Transfered], 
+    [ZoneMaster].[HOTransfered] AS [HOTransfered], 
+    [ZoneMaster].[Addedby] AS [Addedby], 
+    [ZoneMaster].[DateAdded] AS [DateAdded], 
+    [ZoneMaster].[Updatedby] AS [Updatedby], 
+    [ZoneMaster].[DateUpdated] AS [DateUpdated]
+    FROM [dbo].[ZoneMaster] AS [ZoneMaster]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ZoneWiseSales" EntityType="Self.ZoneWiseSales" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ZoneWiseSales].[ID] AS [ID], 
+    [ZoneWiseSales].[BrandId] AS [BrandId], 
+    [ZoneWiseSales].[ZoneId] AS [ZoneId], 
+    [ZoneWiseSales].[RegionId] AS [RegionId], 
+    [ZoneWiseSales].[AreaId] AS [AreaId], 
+    [ZoneWiseSales].[TerritoryID] AS [TerritoryID], 
+    [ZoneWiseSales].[ProductId] AS [ProductId], 
+    [ZoneWiseSales].[YearNo] AS [YearNo], 
+    [ZoneWiseSales].[MonthNo] AS [MonthNo], 
+    [ZoneWiseSales].[InvoiceDate] AS [InvoiceDate], 
+    [ZoneWiseSales].[SoldQuantity] AS [SoldQuantity], 
+    [ZoneWiseSales].[SoldValue] AS [SoldValue], 
+    [ZoneWiseSales].[UpdatedOn] AS [UpdatedOn]
+    FROM [dbo].[ZoneWiseSales] AS [ZoneWiseSales]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_TerritoryMaster_AreaMaster" Association="Self.FK_TerritoryMaster_AreaMaster">
+            <End Role="AreaMaster" EntitySet="AreaMaster" />
+            <End Role="TerritoryMaster" EntitySet="TerritoryMaster" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MISEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BrandWiseYearlyComparisons" EntityType="MISModel.BrandWiseYearlyComparison" />
+          <EntitySet Name="ReportColumnTypes" EntityType="MISModel.ReportColumnType" />
+          <EntitySet Name="ReportDurationTypes" EntityType="MISModel.ReportDurationType" />
+          <EntitySet Name="ProductWiseYearlyComparisons" EntityType="MISModel.ProductWiseYearlyComparison" />
+          <EntitySet Name="ZoneWiseSales" EntityType="MISModel.ZoneWiseSale" />
+          <EntitySet Name="SalesTargets" EntityType="MISModel.SalesTarget" />
+          <EntitySet Name="LocationWiseSales" EntityType="MISModel.LocationWiseSale" />
+          <EntitySet Name="SyncEventLogs" EntityType="MISModel.SyncEventLog" />
+          <EntitySet Name="BOMMasters" EntityType="MISModel.BOMMaster" />
+          <EntitySet Name="DepotAndSalesLocationMappings" EntityType="MISModel.DepotAndSalesLocationMapping" />
+          <EntitySet Name="LocationTypes" EntityType="MISModel.LocationType" />
+          <EntitySet Name="Locations" EntityType="MISModel.Location" />
+          <EntitySet Name="Products" EntityType="MISModel.Product" />
+          <EntitySet Name="AreaMasters" EntityType="MISModel.AreaMaster" />
+          <EntitySet Name="OAMasters" EntityType="MISModel.OAMaster" />
+          <EntitySet Name="RegionMasters" EntityType="MISModel.RegionMaster" />
+          <EntitySet Name="ZoneMasters" EntityType="MISModel.ZoneMaster" />
+          <EntitySet Name="TerritoryMasters" EntityType="MISModel.TerritoryMaster" />
+          <AssociationSet Name="FK_TerritoryMaster_AreaMaster" Association="MISModel.FK_TerritoryMaster_AreaMaster">
+            <End Role="AreaMaster" EntitySet="AreaMasters" />
+            <End Role="TerritoryMaster" EntitySet="TerritoryMasters" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BrandWiseYearlyComparison">
+          <Key>
+            <PropertyRef Name="BrandId" />
+            <PropertyRef Name="ReportColumnTypeId" />
+            <PropertyRef Name="YearNo" />
+            <PropertyRef Name="MonthNo" />
+          </Key>
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <Property Name="ReportColumnTypeId" Type="Int32" Nullable="false" />
+          <Property Name="ReportDurationTypeId" Type="Byte" Nullable="false" />
+          <Property Name="YearNo" Type="Int32" Nullable="false" />
+          <Property Name="MonthNo" Type="Int32" Nullable="false" />
+          <Property Name="ColumnValue" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SalesWithVAT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetSales" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Remarks" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedById" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ReportColumnType">
+          <Key>
+            <PropertyRef Name="ReportColumnTypeId" />
+          </Key>
+          <Property Name="ReportColumnTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReportColumnTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <Property Name="CreatedById" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ReportDurationType">
+          <Key>
+            <PropertyRef Name="ReportDurationTypeId" />
+          </Key>
+          <Property Name="ReportDurationTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReportDurationTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedById" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProductWiseYearlyComparison">
+          <Key>
+            <PropertyRef Name="BrandId" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="ReportColumnTypeId" />
+            <PropertyRef Name="ReportDurationTypeId" />
+            <PropertyRef Name="ColumnValue" />
+          </Key>
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ReportColumnTypeId" Type="Int32" Nullable="false" />
+          <Property Name="ReportDurationTypeId" Type="Byte" Nullable="false" />
+          <Property Name="YearNo" Type="Int32" />
+          <Property Name="MonthNo" Type="Byte" />
+          <Property Name="DayNo" Type="Int32" />
+          <Property Name="ReportDate" Type="DateTime" Precision="0" />
+          <Property Name="ColumnValue" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Remarks" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedById" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ZoneWiseSale">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandId" Type="Int32" />
+          <Property Name="ZoneId" Type="Int32" />
+          <Property Name="RegionId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="YearNo" Type="Int32" />
+          <Property Name="MonthNo" Type="Int32" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="0" />
+          <Property Name="SoldQuantity" Type="Int32" />
+          <Property Name="SoldValue" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+          <Property Name="AreaId" Type="Int32" />
+          <Property Name="TerritoryID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SalesTarget">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandId" Type="Int32" />
+          <Property Name="ZoneId" Type="Int32" />
+          <Property Name="RegionId" Type="Int32" />
+          <Property Name="Average" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="LocationWiseSale">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="BrandId" />
+            <PropertyRef Name="ZoneId" />
+            <PropertyRef Name="RegionId" />
+            <PropertyRef Name="AreaId" />
+            <PropertyRef Name="TerritoryID" />
+            <PropertyRef Name="ProductId" />
+            <PropertyRef Name="YearNo" />
+            <PropertyRef Name="MonthNo" />
+            <PropertyRef Name="InvoiceDate" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <Property Name="ZoneId" Type="Int32" Nullable="false" />
+          <Property Name="RegionId" Type="Int32" Nullable="false" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <Property Name="TerritoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="YearNo" Type="Int32" Nullable="false" />
+          <Property Name="MonthNo" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SoldQuantity" Type="Int32" />
+          <Property Name="SoldValue" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="SyncEventLog">
+          <Key>
+            <PropertyRef Name="SyncId" />
+          </Key>
+          <Property Name="SyncId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProcedureName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LogDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="BOMMaster">
+          <Key>
+            <PropertyRef Name="BOMID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BOMID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BOMDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CommercialProductID" Type="Int32" />
+          <Property Name="CommercialCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ProductID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BatchQty" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="BatchUOM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BatchWeight" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="BatchWeightUOM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TheoOutput" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="TheoOutputUOM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StdOutput" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="StdOutputUOM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APIPhilarWeight" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="APIPhilarUOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APIPhilarM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsInActive" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachinenameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DepotAndSalesLocationMapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepotLocationID" Type="Int32" />
+          <Property Name="RegionID" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="LocationType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LocationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LocationTypeId" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductForm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DosageForm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GenericName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DarNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PackSize" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UOM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SalesCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="PPS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SPS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MPS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Strength" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VatPayable" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MRP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ShelfMonth" Type="Int32" />
+          <Property Name="ShelfYear" Type="Int32" />
+          <Property Name="ProductionLeadTime" Type="Int32" />
+          <Property Name="QALeadTime" Type="Int32" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MachinenameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="ShowingStatus" Type="Boolean" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="AreaMaster">
+          <Key>
+            <PropertyRef Name="AreaCode" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RegionCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OAID" Type="Int32" />
+          <Property Name="ZoneID" Type="Int32" />
+          <Property Name="RegionID" Type="Int32" />
+          <Property Name="AreaName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STPercent" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="STValue" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="SampleCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsInActive" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TerritoryMasters" Relationship="MISModel.FK_TerritoryMaster_AreaMaster" FromRole="AreaMaster" ToRole="TerritoryMaster" />
+        </EntityType>
+        <EntityType Name="OAMaster">
+          <Key>
+            <PropertyRef Name="OACode" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OACode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OAName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STPercent" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="STValue" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="IsInActive" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="RegionMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="RegionCode" />
+            <PropertyRef Name="ZoneCode" />
+            <PropertyRef Name="RegionName" />
+            <PropertyRef Name="STPercent" />
+            <PropertyRef Name="STValue" />
+            <PropertyRef Name="Budget" />
+            <PropertyRef Name="IsInActive" />
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="MachineNameIP" />
+            <PropertyRef Name="Transfered" />
+            <PropertyRef Name="HOTransfered" />
+            <PropertyRef Name="Addedby" />
+            <PropertyRef Name="DateAdded" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegionCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OAID" Type="Int32" />
+          <Property Name="ZoneID" Type="Int32" />
+          <Property Name="ZoneCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RegionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STPercent" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="STValue" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="Budget" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="SampleCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsInActive" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ZoneMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ZoneCode" />
+            <PropertyRef Name="OACode" />
+            <PropertyRef Name="ZoneName" />
+            <PropertyRef Name="STPercent" />
+            <PropertyRef Name="STValue" />
+            <PropertyRef Name="IsInActive" />
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="MachineNameIP" />
+            <PropertyRef Name="Transfered" />
+            <PropertyRef Name="HOTransfered" />
+            <PropertyRef Name="Addedby" />
+            <PropertyRef Name="DateAdded" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZoneCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OAID" Type="Int32" />
+          <Property Name="OACode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ZoneName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STPercent" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="STValue" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="IsInActive" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TerritoryMaster">
+          <Key>
+            <PropertyRef Name="TerritoryCode" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TerritoryCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OAID" Type="Int32" />
+          <Property Name="ZoneID" Type="Int32" />
+          <Property Name="RegionID" Type="Int32" />
+          <Property Name="AreaID" Type="Int32" />
+          <Property Name="AreaCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TerritoryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TeamCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="STPercent" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="STValue" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="SampleCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsInActive" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AreaMaster" Relationship="MISModel.FK_TerritoryMaster_AreaMaster" FromRole="TerritoryMaster" ToRole="AreaMaster" />
+        </EntityType>
+        <Association Name="FK_TerritoryMaster_AreaMaster">
+          <End Type="MISModel.AreaMaster" Role="AreaMaster" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MISModel.TerritoryMaster" Role="TerritoryMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AreaMaster">
+              <PropertyRef Name="AreaCode" />
+            </Principal>
+            <Dependent Role="TerritoryMaster">
+              <PropertyRef Name="AreaCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MISModelStoreContainer" CdmEntityContainer="MISEntities">
+          <EntitySetMapping Name="BrandWiseYearlyComparisons">
+            <EntityTypeMapping TypeName="MISModel.BrandWiseYearlyComparison">
+              <MappingFragment StoreEntitySet="BrandWiseYearlyComparison">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="NetSales" ColumnName="NetSales" />
+                <ScalarProperty Name="SalesWithVAT" ColumnName="SalesWithVAT" />
+                <ScalarProperty Name="ColumnValue" ColumnName="ColumnValue" />
+                <ScalarProperty Name="MonthNo" ColumnName="MonthNo" />
+                <ScalarProperty Name="YearNo" ColumnName="YearNo" />
+                <ScalarProperty Name="ReportDurationTypeId" ColumnName="ReportDurationTypeId" />
+                <ScalarProperty Name="ReportColumnTypeId" ColumnName="ReportColumnTypeId" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportColumnTypes">
+            <EntityTypeMapping TypeName="MISModel.ReportColumnType">
+              <MappingFragment StoreEntitySet="ReportColumnType">
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ReportColumnTypeName" ColumnName="ReportColumnTypeName" />
+                <ScalarProperty Name="ReportColumnTypeId" ColumnName="ReportColumnTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportDurationTypes">
+            <EntityTypeMapping TypeName="MISModel.ReportDurationType">
+              <MappingFragment StoreEntitySet="ReportDurationType">
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ReportDurationTypeName" ColumnName="ReportDurationTypeName" />
+                <ScalarProperty Name="ReportDurationTypeId" ColumnName="ReportDurationTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductWiseYearlyComparisons">
+            <EntityTypeMapping TypeName="MISModel.ProductWiseYearlyComparison">
+              <MappingFragment StoreEntitySet="ProductWiseYearlyComparison">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="ColumnValue" ColumnName="ColumnValue" />
+                <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+                <ScalarProperty Name="DayNo" ColumnName="DayNo" />
+                <ScalarProperty Name="MonthNo" ColumnName="MonthNo" />
+                <ScalarProperty Name="YearNo" ColumnName="YearNo" />
+                <ScalarProperty Name="ReportDurationTypeId" ColumnName="ReportDurationTypeId" />
+                <ScalarProperty Name="ReportColumnTypeId" ColumnName="ReportColumnTypeId" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZoneWiseSales">
+            <EntityTypeMapping TypeName="MISModel.ZoneWiseSale">
+              <MappingFragment StoreEntitySet="ZoneWiseSales">
+                <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="SoldValue" ColumnName="SoldValue" />
+                <ScalarProperty Name="SoldQuantity" ColumnName="SoldQuantity" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="MonthNo" ColumnName="MonthNo" />
+                <ScalarProperty Name="YearNo" ColumnName="YearNo" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesTargets">
+            <EntityTypeMapping TypeName="MISModel.SalesTarget">
+              <MappingFragment StoreEntitySet="SalesTarget">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Average" ColumnName="Average" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationWiseSales">
+            <EntityTypeMapping TypeName="MISModel.LocationWiseSale">
+              <MappingFragment StoreEntitySet="LocationWiseSales">
+                <ScalarProperty Name="SoldValue" ColumnName="SoldValue" />
+                <ScalarProperty Name="SoldQuantity" ColumnName="SoldQuantity" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="MonthNo" ColumnName="MonthNo" />
+                <ScalarProperty Name="YearNo" ColumnName="YearNo" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SyncEventLogs">
+            <EntityTypeMapping TypeName="MISModel.SyncEventLog">
+              <MappingFragment StoreEntitySet="SyncEventLog">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="LogDetails" ColumnName="LogDetails" />
+                <ScalarProperty Name="ProcedureName" ColumnName="ProcedureName" />
+                <ScalarProperty Name="SyncId" ColumnName="SyncId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOMMasters">
+            <EntityTypeMapping TypeName="MISModel.BOMMaster">
+              <MappingFragment StoreEntitySet="BOMMaster">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachinenameIP" ColumnName="MachinenameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IsInActive" ColumnName="IsInActive" />
+                <ScalarProperty Name="APIPhilarM" ColumnName="APIPhilarM" />
+                <ScalarProperty Name="APIPhilarUOM" ColumnName="APIPhilarUOM" />
+                <ScalarProperty Name="APIPhilarWeight" ColumnName="APIPhilarWeight" />
+                <ScalarProperty Name="StdOutputUOM" ColumnName="StdOutputUOM" />
+                <ScalarProperty Name="StdOutput" ColumnName="StdOutput" />
+                <ScalarProperty Name="TheoOutputUOM" ColumnName="TheoOutputUOM" />
+                <ScalarProperty Name="TheoOutput" ColumnName="TheoOutput" />
+                <ScalarProperty Name="BatchWeightUOM" ColumnName="BatchWeightUOM" />
+                <ScalarProperty Name="BatchWeight" ColumnName="BatchWeight" />
+                <ScalarProperty Name="BatchUOM" ColumnName="BatchUOM" />
+                <ScalarProperty Name="BatchQty" ColumnName="BatchQty" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CommercialCode" ColumnName="CommercialCode" />
+                <ScalarProperty Name="CommercialProductID" ColumnName="CommercialProductID" />
+                <ScalarProperty Name="BOMDate" ColumnName="BOMDate" />
+                <ScalarProperty Name="BOMID" ColumnName="BOMID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepotAndSalesLocationMappings">
+            <EntityTypeMapping TypeName="MISModel.DepotAndSalesLocationMapping">
+              <MappingFragment StoreEntitySet="DepotAndSalesLocationMapping">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="DepotLocationID" ColumnName="DepotLocationID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationTypes">
+            <EntityTypeMapping TypeName="MISModel.LocationType">
+              <MappingFragment StoreEntitySet="LocationType">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LocationTypeName" ColumnName="LocationTypeName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="MISModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LocationTypeId" ColumnName="LocationTypeId" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="MISModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="ShowingStatus" ColumnName="ShowingStatus" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachinenameIP" ColumnName="MachinenameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="QALeadTime" ColumnName="QALeadTime" />
+                <ScalarProperty Name="ProductionLeadTime" ColumnName="ProductionLeadTime" />
+                <ScalarProperty Name="ShelfYear" ColumnName="ShelfYear" />
+                <ScalarProperty Name="ShelfMonth" ColumnName="ShelfMonth" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="VatPayable" ColumnName="VatPayable" />
+                <ScalarProperty Name="Vat" ColumnName="Vat" />
+                <ScalarProperty Name="TP" ColumnName="TP" />
+                <ScalarProperty Name="Strength" ColumnName="Strength" />
+                <ScalarProperty Name="MPS" ColumnName="MPS" />
+                <ScalarProperty Name="SPS" ColumnName="SPS" />
+                <ScalarProperty Name="PPS" ColumnName="PPS" />
+                <ScalarProperty Name="SalesCode" ColumnName="SalesCode" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="PackSize" ColumnName="PackSize" />
+                <ScalarProperty Name="DarNo" ColumnName="DarNo" />
+                <ScalarProperty Name="GenericName" ColumnName="GenericName" />
+                <ScalarProperty Name="DosageForm" ColumnName="DosageForm" />
+                <ScalarProperty Name="ProductForm" ColumnName="ProductForm" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaMasters">
+            <EntityTypeMapping TypeName="MISModel.AreaMaster">
+              <MappingFragment StoreEntitySet="AreaMaster">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IsInActive" ColumnName="IsInActive" />
+                <ScalarProperty Name="SampleCategory" ColumnName="SampleCategory" />
+                <ScalarProperty Name="STValue" ColumnName="STValue" />
+                <ScalarProperty Name="STPercent" ColumnName="STPercent" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+                <ScalarProperty Name="OAID" ColumnName="OAID" />
+                <ScalarProperty Name="RegionCode" ColumnName="RegionCode" />
+                <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OAMasters">
+            <EntityTypeMapping TypeName="MISModel.OAMaster">
+              <MappingFragment StoreEntitySet="OAMaster">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IsInActive" ColumnName="IsInActive" />
+                <ScalarProperty Name="STValue" ColumnName="STValue" />
+                <ScalarProperty Name="STPercent" ColumnName="STPercent" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="OAName" ColumnName="OAName" />
+                <ScalarProperty Name="OACode" ColumnName="OACode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegionMasters">
+            <EntityTypeMapping TypeName="MISModel.RegionMaster">
+              <MappingFragment StoreEntitySet="RegionMaster">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IsInActive" ColumnName="IsInActive" />
+                <ScalarProperty Name="SampleCategory" ColumnName="SampleCategory" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="STValue" ColumnName="STValue" />
+                <ScalarProperty Name="STPercent" ColumnName="STPercent" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+                <ScalarProperty Name="ZoneCode" ColumnName="ZoneCode" />
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+                <ScalarProperty Name="OAID" ColumnName="OAID" />
+                <ScalarProperty Name="RegionCode" ColumnName="RegionCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZoneMasters">
+            <EntityTypeMapping TypeName="MISModel.ZoneMaster">
+              <MappingFragment StoreEntitySet="ZoneMaster">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IsInActive" ColumnName="IsInActive" />
+                <ScalarProperty Name="STValue" ColumnName="STValue" />
+                <ScalarProperty Name="STPercent" ColumnName="STPercent" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+                <ScalarProperty Name="OACode" ColumnName="OACode" />
+                <ScalarProperty Name="OAID" ColumnName="OAID" />
+                <ScalarProperty Name="ZoneCode" ColumnName="ZoneCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TerritoryMasters">
+            <EntityTypeMapping TypeName="MISModel.TerritoryMaster">
+              <MappingFragment StoreEntitySet="TerritoryMaster">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IsInActive" ColumnName="IsInActive" />
+                <ScalarProperty Name="SampleCategory" ColumnName="SampleCategory" />
+                <ScalarProperty Name="STValue" ColumnName="STValue" />
+                <ScalarProperty Name="STPercent" ColumnName="STPercent" />
+                <ScalarProperty Name="TeamCode" ColumnName="TeamCode" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="TerritoryName" ColumnName="TerritoryName" />
+                <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+                <ScalarProperty Name="OAID" ColumnName="OAID" />
+                <ScalarProperty Name="TerritoryCode" ColumnName="TerritoryCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

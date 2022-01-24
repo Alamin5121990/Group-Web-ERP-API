@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0e7aeae7599445faa6d0ce139aa0a962" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="MISModel.BrandWiseYearlyComparison" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="MISModel.ReportColumnType" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MISModel.ReportDurationType" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="MISModel.ProductWiseYearlyComparison" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="MISModel.ZoneWiseSale" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="MISModel.SalesTarget" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MISModel.LocationWiseSale" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="MISModel.SyncEventLog" Width="1.5" PointX="9.375" PointY="8.75" />
+        <EntityTypeShape EntityType="MISModel.BOMMaster" Width="2.125" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MISModel.DepotAndSalesLocationMapping" Width="1.5" PointX="5.375" PointY="11.75" />
+        <EntityTypeShape EntityType="MISModel.LocationType" Width="1.5" PointX="13.375" PointY="7.75" />
+        <EntityTypeShape EntityType="MISModel.Location" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MISModel.AreaMaster" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="MISModel.OAMaster" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="MISModel.RegionMaster" Width="1.5" PointX="7.75" PointY="11.75" />
+        <EntityTypeShape EntityType="MISModel.ZoneMaster" Width="1.5" PointX="9.75" PointY="11.75" />
+        <EntityTypeShape EntityType="MISModel.TerritoryMaster" Width="1.5" PointX="3" PointY="14.5" />
+        <AssociationConnector Association="MISModel.FK_TerritoryMaster_AreaMaster" />
+        <EntityTypeShape EntityType="MISModel.Employee_Department" Width="1.5" PointX="12.375" PointY="10.75" />
+        <EntityTypeShape EntityType="MISModel.SalesAverage_Daily" Width="1.5" PointX="12.375" PointY="13.75" />
+        <EntityTypeShape EntityType="MISModel.Material_Profile" Width="1.5" PointX="14.375" PointY="3.75" />
+        <EntityTypeShape EntityType="MISModel.Material_PurchaseTimeline" Width="1.5" PointX="14.375" PointY="10.75" />
+        <EntityTypeShape EntityType="MISModel.Material_Product_Required_Batch" Width="1.5" PointX="15.375" PointY="6.75" />
+        <EntityTypeShape EntityType="MISModel.Product" Width="1.5" PointX="14.375" PointY="15.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

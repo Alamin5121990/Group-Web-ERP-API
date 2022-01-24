@@ -1,0 +1,1273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NonProductionCSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bill_PaymentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentTypeName" Type="varchar" MaxLength="50" />
+          <Property Name="ShowInPaymentPlan" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CheckCancelledList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VoucherNo" Type="varchar" MaxLength="50" />
+          <Property Name="VoucherDate" Type="datetime" />
+          <Property Name="Reason" Type="varchar" MaxLength="50" />
+          <Property Name="AddedBy" Type="varchar" MaxLength="50" />
+          <Property Name="AddedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Inventory_Comparative_Study">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CSCode" Type="varchar" MaxLength="15" />
+          <Property Name="Remarks" Type="varchar" MaxLength="5000" />
+          <Property Name="IsChecked" Type="bit" />
+          <Property Name="CheckedByID" Type="varchar" MaxLength="15" />
+          <Property Name="CheckedOn" Type="datetime" />
+          <Property Name="CheckedRemarks" Type="varchar" MaxLength="500" />
+          <Property Name="IsVerified" Type="bit" />
+          <Property Name="IsManagementApproved" Type="bit" />
+          <Property Name="IsReviewed" Type="bit" />
+          <Property Name="IsRecommended" Type="bit" />
+          <Property Name="ReviewRemarks" Type="varchar" MaxLength="500" />
+          <Property Name="ReviewedOn" Type="datetime" />
+          <Property Name="ReviewedByID" Type="varchar" MaxLength="15" />
+          <Property Name="VerifiedOn" Type="datetime" />
+          <Property Name="VerifiedRemarks" Type="varchar" MaxLength="500" />
+          <Property Name="VerifiedByID" Type="varchar" MaxLength="15" />
+          <Property Name="RecommendedOn" Type="datetime" />
+          <Property Name="RecommendationRemarks" Type="varchar" MaxLength="500" />
+          <Property Name="RecommendedByID" Type="varchar" MaxLength="15" />
+          <Property Name="ManagementApprovedOn" Type="datetime" />
+          <Property Name="ManagementApprovedById" Type="varchar" MaxLength="15" />
+          <Property Name="ManagementApprovalRemarks" Type="varchar" MaxLength="500" />
+          <Property Name="IsAuditDone" Type="bit" />
+          <Property Name="AuditById" Type="varchar" MaxLength="15" />
+          <Property Name="AuditOn" Type="datetime" />
+          <Property Name="AuditRemarks" Type="varchar" MaxLength="500" />
+          <Property Name="IsCanceled" Type="bit" />
+          <Property Name="ReasonToCancel" Type="varchar" MaxLength="1500" />
+          <Property Name="CanceledByID" Type="varchar" MaxLength="15" />
+          <Property Name="CanceledOn" Type="datetime" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="UpdatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="RollBackByID" Type="varchar" MaxLength="15" />
+          <Property Name="RollBackRemark" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Inventory_Comparative_Study_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CSID" Type="int" />
+          <Property Name="RequisitionID" Type="int" />
+          <Property Name="ItemID" Type="int" />
+          <Property Name="SupplierCode" Type="varchar" MaxLength="15" />
+          <Property Name="ManufacturerCode" Type="varchar" MaxLength="15" />
+          <Property Name="Quantity" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Inventory_Purchase_Order_AdvancePaid">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupplierCode" Type="varchar" MaxLength="15" />
+          <Property Name="POID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdvancePercent" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AdvanceAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IsUrgent" Type="bit" />
+          <Property Name="IsReceivedFromAccounts" Type="bit" />
+          <Property Name="Remarks" Type="varchar" MaxLength="1500" />
+          <Property Name="CreatedByID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ApprovedOn" Type="datetime" />
+          <Property Name="ApprovedById" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApprovalRemarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="RollBackById" Type="varchar" MaxLength="50" />
+          <Property Name="RollBackOn" Type="datetime" />
+          <Property Name="RollBackRemarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedByID" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="IsCanceled" Type="bit" />
+          <Property Name="CancelRemarks" Type="nvarchar" MaxLength="1500" />
+        </EntityType>
+        <EntityType Name="Inventory_Purchase_Order_Detail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="POID" Type="int" Nullable="false" />
+          <Property Name="RequisitionID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Rate" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VATPercent" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="OrderNo" Type="int" Nullable="false" />
+          <Property Name="CreatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Inventory_Purchase_Orders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="POCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="MainGroupID" Type="int" Nullable="false" />
+          <Property Name="InventoryTypeID" Type="int" />
+          <Property Name="SupplierCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ManufacturerCode" Type="varchar" MaxLength="15" />
+          <Property Name="RequiredDate" Type="datetime" Nullable="false" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="BillPaymentTypeID" Type="int" Nullable="false" />
+          <Property Name="Remarks" Type="varchar" MaxLength="5000" />
+          <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="VATAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="CarryingCost" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="LabourCost" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="OtherCostName" Type="varchar" MaxLength="200" />
+          <Property Name="OtherCost" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="ApprovedByID" Type="varchar" MaxLength="15" />
+          <Property Name="ApprovedDate" Type="datetime" />
+          <Property Name="ApprovalRemarks" Type="varchar" MaxLength="5000" />
+          <Property Name="IsClosed" Type="bit" />
+          <Property Name="ClosedByID" Type="varchar" MaxLength="15" />
+          <Property Name="ClosedOn" Type="datetime" />
+          <Property Name="ClosedRemarks" Type="varchar" MaxLength="5000" />
+          <Property Name="IsCanceled" Type="bit" Nullable="false" />
+          <Property Name="CanceledOn" Type="datetime" />
+          <Property Name="CanceledReason" Type="varchar" MaxLength="5000" />
+          <Property Name="CanceledByID" Type="varchar" MaxLength="15" />
+          <Property Name="IsVerified" Type="bit" />
+          <Property Name="VerifiedOn" Type="datetime" />
+          <Property Name="VerifiedByID" Type="varchar" MaxLength="15" />
+          <Property Name="VerifiedRemarks" Type="varchar" MaxLength="5000" />
+          <Property Name="TermsAndConditions" Type="varchar" MaxLength="5000" />
+          <Property Name="CreatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Inventory_Quotation_Invitation_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuotationID" Type="int" Nullable="false" />
+          <Property Name="RequisitionID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="SupplierCode" Type="varchar" MaxLength="15" />
+          <Property Name="ManufacturerCode" Type="varchar" MaxLength="15" />
+          <Property Name="Quantity" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Inventory_Quotation_Invitations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuotationCode" Type="varchar" MaxLength="25" />
+          <Property Name="MainGroupID" Type="int" />
+          <Property Name="LastReceiveDate" Type="date" />
+          <Property Name="IsQuotationReceived" Type="bit" />
+          <Property Name="IsCanceled" Type="bit" />
+          <Property Name="IsEmailSent" Type="bit" />
+          <Property Name="ReasonToCanceled" Type="varchar" MaxLength="1500" />
+          <Property Name="CanceledBy" Type="varchar" MaxLength="15" />
+          <Property Name="CanceledOn" Type="datetime" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="Remarks" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="Inventory_Quotation_Received">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsReceiveComplete" Type="bit" />
+          <Property Name="Remarks" Type="varchar" MaxLength="500" />
+          <Property Name="IsCanceled" Type="bit" />
+          <Property Name="ReasonToCanceled" Type="varchar" MaxLength="1500" />
+          <Property Name="CanceledBy" Type="varchar" MaxLength="15" />
+          <Property Name="CanceledOn" Type="datetime" />
+          <Property Name="CreatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Inventory_Quotation_Received_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuotationID" Type="int" Nullable="false" />
+          <Property Name="ReceiveID" Type="int" Nullable="false" />
+          <Property Name="RequisitionID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="SupplierCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ManufacturerCode" Type="varchar" MaxLength="15" />
+          <Property Name="Quantity" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="CreditDays" Type="int" />
+          <Property Name="BillPaymentTypeID" Type="int" />
+          <Property Name="VendorRemarks" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedByID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="CurrencyId" Type="int" />
+          <Property Name="SupplierSpecification" Type="varchar(max)" />
+          <Property Name="IsSpecificationMatched" Type="bit" />
+          <Property Name="RemarksForSupplierSpec" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Inventory_Quotation_Received_OtherCost">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuotationID" Type="int" Nullable="false" />
+          <Property Name="SupplierCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CarryingCost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LabourCost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OtherCostName" Type="varchar" MaxLength="200" />
+          <Property Name="OtherCost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inventory_Requisition_AdvancePaid">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequisitionID" Type="int" />
+          <Property Name="AdvanceAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IsUrgent" Type="bit" />
+          <Property Name="Remarks" Type="varchar" MaxLength="1500" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedByID" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Inventory_Requisition_Item_Specifications">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequisitionItemID" Type="int" />
+          <Property Name="RequisitionID" Type="int" />
+          <Property Name="ItemID" Type="int" />
+          <Property Name="SpecificationValue" Type="varchar" MaxLength="150" />
+          <Property Name="SpecificationName" Type="varchar" MaxLength="150" />
+          <Property Name="UOM" Type="varchar" MaxLength="10" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedByID" Type="varchar" MaxLength="15" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedByID" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Inventory_Spot_Purchase">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseCode" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="PurchaseDate" Type="datetime" Nullable="false" />
+          <Property Name="Remarks" Type="varchar" MaxLength="5000" />
+          <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VATAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" />
+          <Property Name="ApprovedByID" Type="int" />
+          <Property Name="ApprovedDate" Type="datetime" />
+          <Property Name="ApprovalRemarks" Type="varchar" MaxLength="5000" />
+          <Property Name="IsCanceled" Type="bit" />
+          <Property Name="CanceledOn" Type="datetime" />
+          <Property Name="CanceledRemarks" Type="varchar" MaxLength="5000" />
+          <Property Name="CreatedByID" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByID" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Inventory_Spot_Purchase_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseID" Type="int" Nullable="false" />
+          <Property Name="RequisitionID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Rate" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VATPercent" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Supplier" Type="varchar" MaxLength="15" />
+          <Property Name="CreatedByID" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByID" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Inventory_Comparative_Study_Details_Inventory_Comparative_Study">
+          <End Role="Inventory_Comparative_Study" Type="Self.Inventory_Comparative_Study" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Inventory_Comparative_Study_Details" Type="Self.Inventory_Comparative_Study_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_Comparative_Study">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory_Comparative_Study_Details">
+              <PropertyRef Name="CSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Purchase_Order_Detail_Inventory_Purchase_Orders">
+          <End Role="Inventory_Purchase_Orders" Type="Self.Inventory_Purchase_Orders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Inventory_Purchase_Order_Detail" Type="Self.Inventory_Purchase_Order_Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_Purchase_Orders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory_Purchase_Order_Detail">
+              <PropertyRef Name="POID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Quotation_Invitation_Details_Inventory_Quotation_Invitations">
+          <End Role="Inventory_Quotation_Invitations" Type="Self.Inventory_Quotation_Invitations" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Inventory_Quotation_Invitation_Details" Type="Self.Inventory_Quotation_Invitation_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_Quotation_Invitations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory_Quotation_Invitation_Details">
+              <PropertyRef Name="QuotationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Invitations">
+          <End Role="Inventory_Quotation_Invitations" Type="Self.Inventory_Quotation_Invitations" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Inventory_Quotation_Received_Details" Type="Self.Inventory_Quotation_Received_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_Quotation_Invitations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory_Quotation_Received_Details">
+              <PropertyRef Name="QuotationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Received">
+          <End Role="Inventory_Quotation_Received" Type="Self.Inventory_Quotation_Received" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Inventory_Quotation_Received_Details" Type="Self.Inventory_Quotation_Received_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_Quotation_Received">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory_Quotation_Received_Details">
+              <PropertyRef Name="ReceiveID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NonProductionCSModelStoreContainer">
+          <EntitySet Name="Bill_PaymentType" EntityType="Self.Bill_PaymentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CheckCancelledList" EntityType="Self.CheckCancelledList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Comparative_Study" EntityType="Self.Inventory_Comparative_Study" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Comparative_Study_Details" EntityType="Self.Inventory_Comparative_Study_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Purchase_Order_AdvancePaid" EntityType="Self.Inventory_Purchase_Order_AdvancePaid" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Purchase_Order_Detail" EntityType="Self.Inventory_Purchase_Order_Detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Purchase_Orders" EntityType="Self.Inventory_Purchase_Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Quotation_Invitation_Details" EntityType="Self.Inventory_Quotation_Invitation_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Quotation_Invitations" EntityType="Self.Inventory_Quotation_Invitations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Quotation_Received" EntityType="Self.Inventory_Quotation_Received" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Quotation_Received_Details" EntityType="Self.Inventory_Quotation_Received_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Quotation_Received_OtherCost" EntityType="Self.Inventory_Quotation_Received_OtherCost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Requisition_AdvancePaid" EntityType="Self.Inventory_Requisition_AdvancePaid" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Requisition_Item_Specifications" EntityType="Self.Inventory_Requisition_Item_Specifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Spot_Purchase" EntityType="Self.Inventory_Spot_Purchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Spot_Purchase_Details" EntityType="Self.Inventory_Spot_Purchase_Details" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Inventory_Comparative_Study_Details_Inventory_Comparative_Study" Association="Self.FK_Inventory_Comparative_Study_Details_Inventory_Comparative_Study">
+            <End Role="Inventory_Comparative_Study" EntitySet="Inventory_Comparative_Study" />
+            <End Role="Inventory_Comparative_Study_Details" EntitySet="Inventory_Comparative_Study_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Purchase_Order_Detail_Inventory_Purchase_Orders" Association="Self.FK_Inventory_Purchase_Order_Detail_Inventory_Purchase_Orders">
+            <End Role="Inventory_Purchase_Orders" EntitySet="Inventory_Purchase_Orders" />
+            <End Role="Inventory_Purchase_Order_Detail" EntitySet="Inventory_Purchase_Order_Detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Quotation_Invitation_Details_Inventory_Quotation_Invitations" Association="Self.FK_Inventory_Quotation_Invitation_Details_Inventory_Quotation_Invitations">
+            <End Role="Inventory_Quotation_Invitations" EntitySet="Inventory_Quotation_Invitations" />
+            <End Role="Inventory_Quotation_Invitation_Details" EntitySet="Inventory_Quotation_Invitation_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Invitations" Association="Self.FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Invitations">
+            <End Role="Inventory_Quotation_Invitations" EntitySet="Inventory_Quotation_Invitations" />
+            <End Role="Inventory_Quotation_Received_Details" EntitySet="Inventory_Quotation_Received_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Received" Association="Self.FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Received">
+            <End Role="Inventory_Quotation_Received" EntitySet="Inventory_Quotation_Received" />
+            <End Role="Inventory_Quotation_Received_Details" EntitySet="Inventory_Quotation_Received_Details" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NonProductionCSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bill_PaymentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ShowInPaymentPlan" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="NonProductionCSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bill_PaymentType" EntityType="Self.Bill_PaymentType" />
+          <EntitySet Name="Inventory_Purchase_Order_Detail" EntityType="NonProductionCSModel.Inventory_Purchase_Order_Detail" />
+          <EntitySet Name="Inventory_Quotation_Invitation_Details" EntityType="NonProductionCSModel.Inventory_Quotation_Invitation_Details" />
+          <EntitySet Name="Inventory_Purchase_Orders" EntityType="NonProductionCSModel.Inventory_Purchase_Orders" />
+          <AssociationSet Name="FK_Inventory_Purchase_Order_Detail_Inventory_Purchase_Orders" Association="NonProductionCSModel.FK_Inventory_Purchase_Order_Detail_Inventory_Purchase_Orders">
+            <End Role="Inventory_Purchase_Orders" EntitySet="Inventory_Purchase_Orders" />
+            <End Role="Inventory_Purchase_Order_Detail" EntitySet="Inventory_Purchase_Order_Detail" />
+          </AssociationSet>
+          <EntitySet Name="Inventory_Requisition_AdvancePaid" EntityType="NonProductionCSModel.Inventory_Requisition_AdvancePaid" />
+          <EntitySet Name="Inventory_Quotation_Invitations" EntityType="NonProductionCSModel.Inventory_Quotation_Invitations" />
+          <AssociationSet Name="FK_Inventory_Quotation_Invitation_Details_Inventory_Quotation_Invitations" Association="NonProductionCSModel.FK_Inventory_Quotation_Invitation_Details_Inventory_Quotation_Invitations">
+            <End Role="Inventory_Quotation_Invitations" EntitySet="Inventory_Quotation_Invitations" />
+            <End Role="Inventory_Quotation_Invitation_Details" EntitySet="Inventory_Quotation_Invitation_Details" />
+          </AssociationSet>
+          <EntitySet Name="Inventory_Spot_Purchase" EntityType="NonProductionCSModel.Inventory_Spot_Purchase" />
+          <EntitySet Name="Inventory_Spot_Purchase_Details" EntityType="NonProductionCSModel.Inventory_Spot_Purchase_Details" />
+          <EntitySet Name="Inventory_Requisition_Item_Specifications" EntityType="NonProductionCSModel.Inventory_Requisition_Item_Specifications" />
+          <EntitySet Name="Inventory_Quotation_Received_OtherCost" EntityType="NonProductionCSModel.Inventory_Quotation_Received_OtherCost" />
+          <EntitySet Name="Inventory_Purchase_Order_AdvancePaid" EntityType="NonProductionCSModel.Inventory_Purchase_Order_AdvancePaid" />
+          <EntitySet Name="CheckCancelledLists" EntityType="NonProductionCSModel.CheckCancelledList" />
+          <EntitySet Name="Inventory_Quotation_Received" EntityType="NonProductionCSModel.Inventory_Quotation_Received" />
+          <EntitySet Name="Inventory_Quotation_Received_Details" EntityType="NonProductionCSModel.Inventory_Quotation_Received_Details" />
+          <AssociationSet Name="FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Invitations" Association="NonProductionCSModel.FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Invitations">
+            <End Role="Inventory_Quotation_Invitations" EntitySet="Inventory_Quotation_Invitations" />
+            <End Role="Inventory_Quotation_Received_Details" EntitySet="Inventory_Quotation_Received_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Received" Association="NonProductionCSModel.FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Received">
+            <End Role="Inventory_Quotation_Received" EntitySet="Inventory_Quotation_Received" />
+            <End Role="Inventory_Quotation_Received_Details" EntitySet="Inventory_Quotation_Received_Details" />
+          </AssociationSet>
+          <EntitySet Name="Inventory_Comparative_Study_Details" EntityType="NonProductionCSModel.Inventory_Comparative_Study_Details" />
+          <EntitySet Name="Inventory_Comparative_Study" EntityType="NonProductionCSModel.Inventory_Comparative_Study" />
+          <AssociationSet Name="FK_Inventory_Comparative_Study_Details_Inventory_Comparative_Study" Association="NonProductionCSModel.FK_Inventory_Comparative_Study_Details_Inventory_Comparative_Study">
+            <End Role="Inventory_Comparative_Study" EntitySet="Inventory_Comparative_Study" />
+            <End Role="Inventory_Comparative_Study_Details" EntitySet="Inventory_Comparative_Study_Details" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Inventory_Purchase_Order_Detail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="POID" Type="Int32" Nullable="false" />
+          <Property Name="RequisitionID" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="Rate" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="VATPercent" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="CreatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Inventory_Purchase_Orders" Relationship="NonProductionCSModel.FK_Inventory_Purchase_Order_Detail_Inventory_Purchase_Orders" FromRole="Inventory_Purchase_Order_Detail" ToRole="Inventory_Purchase_Orders" />
+        </EntityType>
+        <EntityType Name="Inventory_Quotation_Invitation_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuotationID" Type="Int32" Nullable="false" />
+          <Property Name="RequisitionID" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="SupplierCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ManufacturerCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Inventory_Quotation_Invitations" Relationship="NonProductionCSModel.FK_Inventory_Quotation_Invitation_Details_Inventory_Quotation_Invitations" FromRole="Inventory_Quotation_Invitation_Details" ToRole="Inventory_Quotation_Invitations" />
+        </EntityType>
+        <EntityType Name="Inventory_Purchase_Orders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="POCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="InventoryTypeID" Type="Int32" />
+          <Property Name="MainGroupID" Type="Int32" Nullable="false" />
+          <Property Name="SupplierCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ManufacturerCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RequiredDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="BillPaymentTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="VATAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="ApprovedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="3" />
+          <Property Name="ApprovalRemarks" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="IsClosed" Type="Boolean" />
+          <Property Name="ClosedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ClosedOn" Type="DateTime" Precision="3" />
+          <Property Name="ClosedRemarks" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="IsCanceled" Type="Boolean" Nullable="false" />
+          <Property Name="CanceledOn" Type="DateTime" Precision="3" />
+          <Property Name="CanceledReason" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="CanceledByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="IsVerified" Type="Boolean" />
+          <Property Name="VerifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="VerifiedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="VerifiedRemarks" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="TermsAndConditions" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Inventory_Purchase_Order_Detail" Relationship="NonProductionCSModel.FK_Inventory_Purchase_Order_Detail_Inventory_Purchase_Orders" FromRole="Inventory_Purchase_Orders" ToRole="Inventory_Purchase_Order_Detail" />
+          <Property Name="CarryingCost" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="LabourCost" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="OtherCostName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OtherCost" Type="Decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <Association Name="FK_Inventory_Purchase_Order_Detail_Inventory_Purchase_Orders">
+          <End Type="NonProductionCSModel.Inventory_Purchase_Orders" Role="Inventory_Purchase_Orders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="NonProductionCSModel.Inventory_Purchase_Order_Detail" Role="Inventory_Purchase_Order_Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_Purchase_Orders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory_Purchase_Order_Detail">
+              <PropertyRef Name="POID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Inventory_Requisition_AdvancePaid">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequisitionID" Type="Int32" />
+          <Property Name="AdvanceAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IsUrgent" Type="Boolean" />
+          <Property Name="Remarks" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedByID" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Inventory_Quotation_Invitations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuotationCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="MainGroupID" Type="Int32" />
+          <Property Name="LastReceiveDate" Type="DateTime" Precision="0" />
+          <Property Name="IsQuotationReceived" Type="Boolean" />
+          <Property Name="IsCanceled" Type="Boolean" />
+          <Property Name="IsEmailSent" Type="Boolean" />
+          <Property Name="ReasonToCanceled" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="CanceledBy" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CanceledOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Inventory_Quotation_Invitation_Details" Relationship="NonProductionCSModel.FK_Inventory_Quotation_Invitation_Details_Inventory_Quotation_Invitations" FromRole="Inventory_Quotation_Invitations" ToRole="Inventory_Quotation_Invitation_Details" />
+          <NavigationProperty Name="Inventory_Quotation_Received_Details" Relationship="NonProductionCSModel.FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Invitations" FromRole="Inventory_Quotation_Invitations" ToRole="Inventory_Quotation_Received_Details" />
+        </EntityType>
+        <Association Name="FK_Inventory_Quotation_Invitation_Details_Inventory_Quotation_Invitations">
+          <End Type="NonProductionCSModel.Inventory_Quotation_Invitations" Role="Inventory_Quotation_Invitations" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="NonProductionCSModel.Inventory_Quotation_Invitation_Details" Role="Inventory_Quotation_Invitation_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_Quotation_Invitations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory_Quotation_Invitation_Details">
+              <PropertyRef Name="QuotationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Inventory_Spot_Purchase">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseCode" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Remarks" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="TotalPrice" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="VATAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="TotalAmount" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="IsApproved" Type="Boolean" />
+          <Property Name="ApprovedByID" Type="Int32" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="3" />
+          <Property Name="ApprovalRemarks" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="IsCanceled" Type="Boolean" />
+          <Property Name="CanceledOn" Type="DateTime" Precision="3" />
+          <Property Name="CanceledRemarks" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedByID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByID" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Inventory_Spot_Purchase_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseID" Type="Int32" Nullable="false" />
+          <Property Name="RequisitionID" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="Rate" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="VATPercent" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Supplier" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedByID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByID" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Inventory_Requisition_Item_Specifications">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequisitionID" Type="Int32" />
+          <Property Name="ItemID" Type="Int32" />
+          <Property Name="SpecificationValue" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SpecificationName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="UOM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RequisitionItemID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Inventory_Quotation_Received_OtherCost">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuotationID" Type="Int32" Nullable="false" />
+          <Property Name="SupplierCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CarryingCost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LabourCost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OtherCostName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OtherCost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Inventory_Purchase_Order_AdvancePaid">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="POID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdvancePercent" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AdvanceAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IsUrgent" Type="Boolean" />
+          <Property Name="IsReceivedFromAccounts" Type="Boolean" />
+          <Property Name="Remarks" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedByID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedOn" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedById" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovalRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="RollBackById" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RollBackOn" Type="DateTime" Precision="3" />
+          <Property Name="RollBackRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedByID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="IsCanceled" Type="Boolean" />
+          <Property Name="CancelRemarks" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CheckCancelledList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VoucherNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VoucherDate" Type="DateTime" Precision="3" />
+          <Property Name="Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Inventory_Quotation_Received">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsReceiveComplete" Type="Boolean" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsCanceled" Type="Boolean" />
+          <Property Name="ReasonToCanceled" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="CanceledBy" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CanceledOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Inventory_Quotation_Received_Details" Relationship="NonProductionCSModel.FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Received" FromRole="Inventory_Quotation_Received" ToRole="Inventory_Quotation_Received_Details" />
+        </EntityType>
+        <EntityType Name="Inventory_Quotation_Received_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuotationID" Type="Int32" Nullable="false" />
+          <Property Name="ReceiveID" Type="Int32" Nullable="false" />
+          <Property Name="RequisitionID" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="SupplierCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ManufacturerCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="Rate" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="CreditDays" Type="Int32" />
+          <Property Name="BillPaymentTypeID" Type="Int32" />
+          <Property Name="VendorRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedByID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyId" Type="Int32" />
+          <Property Name="SupplierSpecification" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsSpecificationMatched" Type="Boolean" />
+          <Property Name="RemarksForSupplierSpec" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Inventory_Quotation_Invitations" Relationship="NonProductionCSModel.FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Invitations" FromRole="Inventory_Quotation_Received_Details" ToRole="Inventory_Quotation_Invitations" />
+          <NavigationProperty Name="Inventory_Quotation_Received" Relationship="NonProductionCSModel.FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Received" FromRole="Inventory_Quotation_Received_Details" ToRole="Inventory_Quotation_Received" />
+        </EntityType>
+        <Association Name="FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Invitations">
+          <End Type="NonProductionCSModel.Inventory_Quotation_Invitations" Role="Inventory_Quotation_Invitations" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="NonProductionCSModel.Inventory_Quotation_Received_Details" Role="Inventory_Quotation_Received_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_Quotation_Invitations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory_Quotation_Received_Details">
+              <PropertyRef Name="QuotationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Received">
+          <End Type="NonProductionCSModel.Inventory_Quotation_Received" Role="Inventory_Quotation_Received" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="NonProductionCSModel.Inventory_Quotation_Received_Details" Role="Inventory_Quotation_Received_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_Quotation_Received">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory_Quotation_Received_Details">
+              <PropertyRef Name="ReceiveID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Inventory_Comparative_Study_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CSID" Type="Int32" />
+          <Property Name="RequisitionID" Type="Int32" />
+          <Property Name="ItemID" Type="Int32" />
+          <Property Name="SupplierCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ManufacturerCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Inventory_Comparative_Study" Relationship="NonProductionCSModel.FK_Inventory_Comparative_Study_Details_Inventory_Comparative_Study" FromRole="Inventory_Comparative_Study_Details" ToRole="Inventory_Comparative_Study" />
+        </EntityType>
+        <EntityType Name="Inventory_Comparative_Study">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CSCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="IsChecked" Type="Boolean" />
+          <Property Name="CheckedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CheckedOn" Type="DateTime" Precision="3" />
+          <Property Name="CheckedRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsVerified" Type="Boolean" />
+          <Property Name="IsManagementApproved" Type="Boolean" />
+          <Property Name="IsReviewed" Type="Boolean" />
+          <Property Name="IsRecommended" Type="Boolean" />
+          <Property Name="ReviewRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ReviewedOn" Type="DateTime" Precision="3" />
+          <Property Name="ReviewedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="VerifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="VerifiedRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="VerifiedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RecommendedOn" Type="DateTime" Precision="3" />
+          <Property Name="RecommendationRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RecommendedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ManagementApprovedOn" Type="DateTime" Precision="3" />
+          <Property Name="ManagementApprovedById" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ManagementApprovalRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsAuditDone" Type="Boolean" />
+          <Property Name="AuditById" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AuditOn" Type="DateTime" Precision="3" />
+          <Property Name="AuditRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsCanceled" Type="Boolean" />
+          <Property Name="ReasonToCancel" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="CanceledByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CanceledOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="RollBackByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RollBackRemark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Inventory_Comparative_Study_Details" Relationship="NonProductionCSModel.FK_Inventory_Comparative_Study_Details_Inventory_Comparative_Study" FromRole="Inventory_Comparative_Study" ToRole="Inventory_Comparative_Study_Details" />
+        </EntityType>
+        <Association Name="FK_Inventory_Comparative_Study_Details_Inventory_Comparative_Study">
+          <End Type="NonProductionCSModel.Inventory_Comparative_Study" Role="Inventory_Comparative_Study" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="NonProductionCSModel.Inventory_Comparative_Study_Details" Role="Inventory_Comparative_Study_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_Comparative_Study">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory_Comparative_Study_Details">
+              <PropertyRef Name="CSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NonProductionCSModelStoreContainer" CdmEntityContainer="NonProductionCSEntities">
+          <EntitySetMapping Name="Bill_PaymentType">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Bill_PaymentType">
+              <MappingFragment StoreEntitySet="Bill_PaymentType">
+                <ScalarProperty Name="ShowInPaymentPlan" ColumnName="ShowInPaymentPlan" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PaymentTypeName" ColumnName="PaymentTypeName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Purchase_Order_Detail">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Purchase_Order_Detail">
+              <MappingFragment StoreEntitySet="Inventory_Purchase_Order_Detail">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="VATPercent" ColumnName="VATPercent" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="RequisitionID" ColumnName="RequisitionID" />
+                <ScalarProperty Name="POID" ColumnName="POID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Quotation_Invitation_Details">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Quotation_Invitation_Details">
+              <MappingFragment StoreEntitySet="Inventory_Quotation_Invitation_Details">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ManufacturerCode" ColumnName="ManufacturerCode" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="RequisitionID" ColumnName="RequisitionID" />
+                <ScalarProperty Name="QuotationID" ColumnName="QuotationID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Purchase_Orders">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Purchase_Orders">
+              <MappingFragment StoreEntitySet="Inventory_Purchase_Orders">
+                <ScalarProperty Name="OtherCost" ColumnName="OtherCost" />
+                <ScalarProperty Name="OtherCostName" ColumnName="OtherCostName" />
+                <ScalarProperty Name="LabourCost" ColumnName="LabourCost" />
+                <ScalarProperty Name="CarryingCost" ColumnName="CarryingCost" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="TermsAndConditions" ColumnName="TermsAndConditions" />
+                <ScalarProperty Name="VerifiedRemarks" ColumnName="VerifiedRemarks" />
+                <ScalarProperty Name="VerifiedByID" ColumnName="VerifiedByID" />
+                <ScalarProperty Name="VerifiedOn" ColumnName="VerifiedOn" />
+                <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+                <ScalarProperty Name="CanceledByID" ColumnName="CanceledByID" />
+                <ScalarProperty Name="CanceledReason" ColumnName="CanceledReason" />
+                <ScalarProperty Name="CanceledOn" ColumnName="CanceledOn" />
+                <ScalarProperty Name="IsCanceled" ColumnName="IsCanceled" />
+                <ScalarProperty Name="ClosedRemarks" ColumnName="ClosedRemarks" />
+                <ScalarProperty Name="ClosedOn" ColumnName="ClosedOn" />
+                <ScalarProperty Name="ClosedByID" ColumnName="ClosedByID" />
+                <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
+                <ScalarProperty Name="ApprovalRemarks" ColumnName="ApprovalRemarks" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="ApprovedByID" ColumnName="ApprovedByID" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="VATAmount" ColumnName="VATAmount" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="BillPaymentTypeID" ColumnName="BillPaymentTypeID" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="RequiredDate" ColumnName="RequiredDate" />
+                <ScalarProperty Name="ManufacturerCode" ColumnName="ManufacturerCode" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="MainGroupID" ColumnName="MainGroupID" />
+                <ScalarProperty Name="InventoryTypeID" ColumnName="InventoryTypeID" />
+                <ScalarProperty Name="POCode" ColumnName="POCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Requisition_AdvancePaid">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Requisition_AdvancePaid">
+              <MappingFragment StoreEntitySet="Inventory_Requisition_AdvancePaid">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="IsUrgent" ColumnName="IsUrgent" />
+                <ScalarProperty Name="AdvanceAmount" ColumnName="AdvanceAmount" />
+                <ScalarProperty Name="RequisitionID" ColumnName="RequisitionID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Quotation_Invitations">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Quotation_Invitations">
+              <MappingFragment StoreEntitySet="Inventory_Quotation_Invitations">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CanceledOn" ColumnName="CanceledOn" />
+                <ScalarProperty Name="CanceledBy" ColumnName="CanceledBy" />
+                <ScalarProperty Name="ReasonToCanceled" ColumnName="ReasonToCanceled" />
+                <ScalarProperty Name="IsEmailSent" ColumnName="IsEmailSent" />
+                <ScalarProperty Name="IsCanceled" ColumnName="IsCanceled" />
+                <ScalarProperty Name="IsQuotationReceived" ColumnName="IsQuotationReceived" />
+                <ScalarProperty Name="LastReceiveDate" ColumnName="LastReceiveDate" />
+                <ScalarProperty Name="MainGroupID" ColumnName="MainGroupID" />
+                <ScalarProperty Name="QuotationCode" ColumnName="QuotationCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Spot_Purchase">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Spot_Purchase">
+              <MappingFragment StoreEntitySet="Inventory_Spot_Purchase">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CanceledRemarks" ColumnName="CanceledRemarks" />
+                <ScalarProperty Name="CanceledOn" ColumnName="CanceledOn" />
+                <ScalarProperty Name="IsCanceled" ColumnName="IsCanceled" />
+                <ScalarProperty Name="ApprovalRemarks" ColumnName="ApprovalRemarks" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="ApprovedByID" ColumnName="ApprovedByID" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="VATAmount" ColumnName="VATAmount" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="PurchaseCode" ColumnName="PurchaseCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Spot_Purchase_Details">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Spot_Purchase_Details">
+              <MappingFragment StoreEntitySet="Inventory_Spot_Purchase_Details">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="VATPercent" ColumnName="VATPercent" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="RequisitionID" ColumnName="RequisitionID" />
+                <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Requisition_Item_Specifications">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Requisition_Item_Specifications">
+              <MappingFragment StoreEntitySet="Inventory_Requisition_Item_Specifications">
+                <ScalarProperty Name="RequisitionItemID" ColumnName="RequisitionItemID" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="SpecificationName" ColumnName="SpecificationName" />
+                <ScalarProperty Name="SpecificationValue" ColumnName="SpecificationValue" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="RequisitionID" ColumnName="RequisitionID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Quotation_Received_OtherCost">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Quotation_Received_OtherCost">
+              <MappingFragment StoreEntitySet="Inventory_Quotation_Received_OtherCost">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="OtherCost" ColumnName="OtherCost" />
+                <ScalarProperty Name="OtherCostName" ColumnName="OtherCostName" />
+                <ScalarProperty Name="LabourCost" ColumnName="LabourCost" />
+                <ScalarProperty Name="CarryingCost" ColumnName="CarryingCost" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="QuotationID" ColumnName="QuotationID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Purchase_Order_AdvancePaid">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Purchase_Order_AdvancePaid">
+              <MappingFragment StoreEntitySet="Inventory_Purchase_Order_AdvancePaid">
+                <ScalarProperty Name="CancelRemarks" ColumnName="CancelRemarks" />
+                <ScalarProperty Name="IsCanceled" ColumnName="IsCanceled" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="RollBackRemarks" ColumnName="RollBackRemarks" />
+                <ScalarProperty Name="RollBackOn" ColumnName="RollBackOn" />
+                <ScalarProperty Name="RollBackById" ColumnName="RollBackById" />
+                <ScalarProperty Name="ApprovalRemarks" ColumnName="ApprovalRemarks" />
+                <ScalarProperty Name="ApprovedById" ColumnName="ApprovedById" />
+                <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="IsReceivedFromAccounts" ColumnName="IsReceivedFromAccounts" />
+                <ScalarProperty Name="IsUrgent" ColumnName="IsUrgent" />
+                <ScalarProperty Name="AdvanceAmount" ColumnName="AdvanceAmount" />
+                <ScalarProperty Name="AdvancePercent" ColumnName="AdvancePercent" />
+                <ScalarProperty Name="POID" ColumnName="POID" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CheckCancelledLists">
+            <EntityTypeMapping TypeName="NonProductionCSModel.CheckCancelledList">
+              <MappingFragment StoreEntitySet="CheckCancelledList">
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="VoucherDate" ColumnName="VoucherDate" />
+                <ScalarProperty Name="VoucherNo" ColumnName="VoucherNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Quotation_Received">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Quotation_Received">
+              <MappingFragment StoreEntitySet="Inventory_Quotation_Received">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CanceledOn" ColumnName="CanceledOn" />
+                <ScalarProperty Name="CanceledBy" ColumnName="CanceledBy" />
+                <ScalarProperty Name="ReasonToCanceled" ColumnName="ReasonToCanceled" />
+                <ScalarProperty Name="IsCanceled" ColumnName="IsCanceled" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="IsReceiveComplete" ColumnName="IsReceiveComplete" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Quotation_Received_Details">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Quotation_Received_Details">
+              <MappingFragment StoreEntitySet="Inventory_Quotation_Received_Details">
+                <ScalarProperty Name="RemarksForSupplierSpec" ColumnName="RemarksForSupplierSpec" />
+                <ScalarProperty Name="IsSpecificationMatched" ColumnName="IsSpecificationMatched" />
+                <ScalarProperty Name="SupplierSpecification" ColumnName="SupplierSpecification" />
+                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="VendorRemarks" ColumnName="VendorRemarks" />
+                <ScalarProperty Name="BillPaymentTypeID" ColumnName="BillPaymentTypeID" />
+                <ScalarProperty Name="CreditDays" ColumnName="CreditDays" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ManufacturerCode" ColumnName="ManufacturerCode" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="RequisitionID" ColumnName="RequisitionID" />
+                <ScalarProperty Name="ReceiveID" ColumnName="ReceiveID" />
+                <ScalarProperty Name="QuotationID" ColumnName="QuotationID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Comparative_Study_Details">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Comparative_Study_Details">
+              <MappingFragment StoreEntitySet="Inventory_Comparative_Study_Details">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ManufacturerCode" ColumnName="ManufacturerCode" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="RequisitionID" ColumnName="RequisitionID" />
+                <ScalarProperty Name="CSID" ColumnName="CSID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Comparative_Study">
+            <EntityTypeMapping TypeName="NonProductionCSModel.Inventory_Comparative_Study">
+              <MappingFragment StoreEntitySet="Inventory_Comparative_Study">
+                <ScalarProperty Name="RollBackRemark" ColumnName="RollBackRemark" />
+                <ScalarProperty Name="RollBackByID" ColumnName="RollBackByID" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CanceledOn" ColumnName="CanceledOn" />
+                <ScalarProperty Name="CanceledByID" ColumnName="CanceledByID" />
+                <ScalarProperty Name="ReasonToCancel" ColumnName="ReasonToCancel" />
+                <ScalarProperty Name="IsCanceled" ColumnName="IsCanceled" />
+                <ScalarProperty Name="AuditRemarks" ColumnName="AuditRemarks" />
+                <ScalarProperty Name="AuditOn" ColumnName="AuditOn" />
+                <ScalarProperty Name="AuditById" ColumnName="AuditById" />
+                <ScalarProperty Name="IsAuditDone" ColumnName="IsAuditDone" />
+                <ScalarProperty Name="ManagementApprovalRemarks" ColumnName="ManagementApprovalRemarks" />
+                <ScalarProperty Name="ManagementApprovedById" ColumnName="ManagementApprovedById" />
+                <ScalarProperty Name="ManagementApprovedOn" ColumnName="ManagementApprovedOn" />
+                <ScalarProperty Name="RecommendedByID" ColumnName="RecommendedByID" />
+                <ScalarProperty Name="RecommendationRemarks" ColumnName="RecommendationRemarks" />
+                <ScalarProperty Name="RecommendedOn" ColumnName="RecommendedOn" />
+                <ScalarProperty Name="VerifiedByID" ColumnName="VerifiedByID" />
+                <ScalarProperty Name="VerifiedRemarks" ColumnName="VerifiedRemarks" />
+                <ScalarProperty Name="VerifiedOn" ColumnName="VerifiedOn" />
+                <ScalarProperty Name="ReviewedByID" ColumnName="ReviewedByID" />
+                <ScalarProperty Name="ReviewedOn" ColumnName="ReviewedOn" />
+                <ScalarProperty Name="ReviewRemarks" ColumnName="ReviewRemarks" />
+                <ScalarProperty Name="IsRecommended" ColumnName="IsRecommended" />
+                <ScalarProperty Name="IsReviewed" ColumnName="IsReviewed" />
+                <ScalarProperty Name="IsManagementApproved" ColumnName="IsManagementApproved" />
+                <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+                <ScalarProperty Name="CheckedRemarks" ColumnName="CheckedRemarks" />
+                <ScalarProperty Name="CheckedOn" ColumnName="CheckedOn" />
+                <ScalarProperty Name="CheckedByID" ColumnName="CheckedByID" />
+                <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CSCode" ColumnName="CSCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

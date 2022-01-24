@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MISProductModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="BrandId" />
+          </Key>
+          <Property Name="BrandId" Type="int" Nullable="false" />
+          <Property Name="BrandName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="2" />
+          <Property Name="IsTopBrand" Type="bit" />
+          <Property Name="ShowingStatus" Type="bit" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductionLocationID" Type="int" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyID" Type="varchar" MaxLength="50" />
+          <Property Name="ProductName" Type="varchar" MaxLength="200" />
+          <Property Name="ProductType" Type="varchar" MaxLength="50" />
+          <Property Name="ProductPriorityID" Type="int" />
+          <Property Name="ProductCategoryID" Type="int" />
+          <Property Name="ProductForm" Type="varchar" MaxLength="50" />
+          <Property Name="DosageForm" Type="varchar" MaxLength="50" />
+          <Property Name="GenericName" Type="varchar" MaxLength="500" />
+          <Property Name="DarNo" Type="varchar" MaxLength="50" />
+          <Property Name="PackSize" Type="varchar" MaxLength="50" />
+          <Property Name="UOM" Type="varchar" MaxLength="20" />
+          <Property Name="SalesCode" Type="varchar" MaxLength="4" />
+          <Property Name="PPS" Type="varchar" MaxLength="20" />
+          <Property Name="SPS" Type="varchar" MaxLength="20" />
+          <Property Name="MPS" Type="varchar" MaxLength="20" />
+          <Property Name="Strength" Type="varchar" MaxLength="10" />
+          <Property Name="TP" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="VatPayable" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MRP" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ShelfMonth" Type="int" />
+          <Property Name="ShelfYear" Type="int" />
+          <Property Name="ProductionLeadTime" Type="int" />
+          <Property Name="QALeadTime" Type="int" />
+          <Property Name="QAValidLeadTime" Type="int" />
+          <Property Name="QAComLeadTime" Type="int" />
+          <Property Name="QATenBatchLeadTime" Type="int" />
+          <Property Name="QAReleaseValidLeadTime" Type="int" />
+          <Property Name="QAReleaseComLeadTime" Type="int" />
+          <Property Name="Location" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MachinenameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="ShowingStatus" Type="bit" />
+          <Property Name="Addedby" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="MISProductModelStoreContainer">
+          <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MISProductModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MISProductEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Brands" EntityType="MISProductModel.Brand" />
+          <EntitySet Name="Products" EntityType="MISProductModel.Product" />
+        </EntityContainer>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="BrandId" />
+          </Key>
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <Property Name="BrandName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="IsTopBrand" Type="Boolean" />
+          <Property Name="ShowingStatus" Type="Boolean" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductionLocationID" Type="Int32" />
+          <Property Name="ProductCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductPriorityID" Type="Int32" />
+          <Property Name="ProductCategoryID" Type="Int32" />
+          <Property Name="ProductForm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DosageForm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GenericName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DarNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PackSize" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UOM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SalesCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="PPS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SPS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MPS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Strength" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VatPayable" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MRP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ShelfMonth" Type="Int32" />
+          <Property Name="ShelfYear" Type="Int32" />
+          <Property Name="ProductionLeadTime" Type="Int32" />
+          <Property Name="QALeadTime" Type="Int32" />
+          <Property Name="QAValidLeadTime" Type="Int32" />
+          <Property Name="QAComLeadTime" Type="Int32" />
+          <Property Name="QATenBatchLeadTime" Type="Int32" />
+          <Property Name="QAReleaseValidLeadTime" Type="Int32" />
+          <Property Name="QAReleaseComLeadTime" Type="Int32" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MachinenameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="ShowingStatus" Type="Boolean" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MISProductModelStoreContainer" CdmEntityContainer="MISProductEntities">
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="MISProductModel.Brand">
+              <MappingFragment StoreEntitySet="Brands">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="ShowingStatus" ColumnName="ShowingStatus" />
+                <ScalarProperty Name="IsTopBrand" ColumnName="IsTopBrand" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="MISProductModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="ShowingStatus" ColumnName="ShowingStatus" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachinenameIP" ColumnName="MachinenameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="QAReleaseComLeadTime" ColumnName="QAReleaseComLeadTime" />
+                <ScalarProperty Name="QAReleaseValidLeadTime" ColumnName="QAReleaseValidLeadTime" />
+                <ScalarProperty Name="QATenBatchLeadTime" ColumnName="QATenBatchLeadTime" />
+                <ScalarProperty Name="QAComLeadTime" ColumnName="QAComLeadTime" />
+                <ScalarProperty Name="QAValidLeadTime" ColumnName="QAValidLeadTime" />
+                <ScalarProperty Name="QALeadTime" ColumnName="QALeadTime" />
+                <ScalarProperty Name="ProductionLeadTime" ColumnName="ProductionLeadTime" />
+                <ScalarProperty Name="ShelfYear" ColumnName="ShelfYear" />
+                <ScalarProperty Name="ShelfMonth" ColumnName="ShelfMonth" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="VatPayable" ColumnName="VatPayable" />
+                <ScalarProperty Name="Vat" ColumnName="Vat" />
+                <ScalarProperty Name="TP" ColumnName="TP" />
+                <ScalarProperty Name="Strength" ColumnName="Strength" />
+                <ScalarProperty Name="MPS" ColumnName="MPS" />
+                <ScalarProperty Name="SPS" ColumnName="SPS" />
+                <ScalarProperty Name="PPS" ColumnName="PPS" />
+                <ScalarProperty Name="SalesCode" ColumnName="SalesCode" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="PackSize" ColumnName="PackSize" />
+                <ScalarProperty Name="DarNo" ColumnName="DarNo" />
+                <ScalarProperty Name="GenericName" ColumnName="GenericName" />
+                <ScalarProperty Name="DosageForm" ColumnName="DosageForm" />
+                <ScalarProperty Name="ProductForm" ColumnName="ProductForm" />
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+                <ScalarProperty Name="ProductPriorityID" ColumnName="ProductPriorityID" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductionLocationID" ColumnName="ProductionLocationID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

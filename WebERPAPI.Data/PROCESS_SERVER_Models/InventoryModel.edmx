@@ -1,0 +1,956 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InventoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BankInfo">
+          <Key>
+            <PropertyRef Name="BankID" />
+          </Key>
+          <Property Name="BankID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BankName" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Bill_Payment_Details">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BillID" Type="varchar" MaxLength="15" />
+          <Property Name="PaymentDate" Type="datetime" />
+          <Property Name="PaymentTypeId" Type="int" />
+          <Property Name="PaymentStatusId" Type="int" />
+          <Property Name="BankID" Type="varchar" MaxLength="10" />
+          <Property Name="CheckNo" Type="varchar" MaxLength="50" />
+          <Property Name="BankBranchName" Type="varchar" MaxLength="150" />
+          <Property Name="PaymentBy" Type="varchar" MaxLength="15" />
+          <Property Name="PaymentAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Remarks" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Bill_Payment_Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BillStatusName" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="date" />
+        </EntityType>
+        <EntityType Name="Bill_PaymentType">
+          <Key>
+            <PropertyRef Name="PaymentTypeID" />
+          </Key>
+          <Property Name="PaymentTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentTypeName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BillDetails">
+          <Key>
+            <PropertyRef Name="BillID" />
+            <PropertyRef Name="ChallanID" />
+            <PropertyRef Name="SLNo" />
+          </Key>
+          <Property Name="BillID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChallanID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SLNo" Type="int" Nullable="false" />
+          <Property Name="POID" Type="varchar" MaxLength="50" />
+          <Property Name="GRNID" Type="varchar" MaxLength="50" />
+          <Property Name="ItemID" Type="varchar" MaxLength="50" />
+          <Property Name="BillQty" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Rate" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="BillAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="VatAmt" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AITAmt" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="BillRemarks" Type="varchar" MaxLength="500" />
+          <Property Name="AddedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BillMaster">
+          <Key>
+            <PropertyRef Name="BillID" />
+          </Key>
+          <Property Name="BillID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BillDate" Type="datetime" Nullable="false" />
+          <Property Name="SubmittedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BillGroup" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SupplierID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SupplierBillNo" Type="varchar" MaxLength="500" />
+          <Property Name="BillDescription" Type="varchar" MaxLength="200" />
+          <Property Name="Remarks" Type="varchar" MaxLength="500" />
+          <Property Name="AccountsReceived" Type="bit" Nullable="false" />
+          <Property Name="AccountsReceiveDate" Type="datetime" />
+          <Property Name="AccountsReceiveBy" Type="varchar" MaxLength="50" />
+          <Property Name="AccountsRemarks" Type="varchar" MaxLength="500" />
+          <Property Name="CarryingCharge" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="LoadingCharge" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="OtherCharge" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Transferred" Type="bit" Nullable="false" />
+          <Property Name="HOTransferred" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AddedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="MaterialCode" />
+          </Key>
+          <Property Name="CompanyID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaterialCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductType" Type="varchar" MaxLength="20" />
+          <Property Name="ProductCategory" Type="varchar" MaxLength="50" />
+          <Property Name="MaterialName" Type="varchar" MaxLength="2000" />
+          <Property Name="MaterialGrade" Type="varchar" MaxLength="500" />
+          <Property Name="InventoryLocation" Type="varchar" MaxLength="50" />
+          <Property Name="Source" Type="varchar" MaxLength="20" />
+          <Property Name="MSL" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="MOQ" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="UOM" Type="varchar" MaxLength="20" />
+          <Property Name="PharmaRef" Type="varchar" MaxLength="500" />
+          <Property Name="VendorLeadTime" Type="int" />
+          <Property Name="BlockListLeadTime" Type="int" />
+          <Property Name="SCLeadTime" Type="int" />
+          <Property Name="QCLeadTime" Type="int" />
+          <Property Name="ShortSpec" Type="varchar" MaxLength="1000" />
+          <Property Name="Location" Type="varchar" MaxLength="20" />
+          <Property Name="MachinenameIP" Type="varchar" MaxLength="100" />
+          <Property Name="Transfered" Type="bit" />
+          <Property Name="HOTransfered" Type="bit" />
+          <Property Name="Addedby" Type="varchar" MaxLength="20" />
+          <Property Name="DateAdded" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="POReq">
+          <Key>
+            <PropertyRef Name="RequisitionID" />
+          </Key>
+          <Property Name="RequisitionID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReqDate" Type="datetime" Nullable="false" />
+          <Property Name="Raisedby" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReqFor" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Remarks" Type="varchar" MaxLength="500" />
+          <Property Name="IsEmailSent" Type="bit" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="ApprovedBY" Type="varchar" MaxLength="50" />
+          <Property Name="ApprovedDate" Type="datetime" />
+          <Property Name="ApprovedComment" Type="varchar" MaxLength="100" />
+          <Property Name="Location" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MachinenameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyID" Type="varchar" MaxLength="50" />
+          <Property Name="ProductName" Type="varchar" MaxLength="200" />
+          <Property Name="ProductType" Type="varchar" MaxLength="50" />
+          <Property Name="ProductForm" Type="varchar" MaxLength="50" />
+          <Property Name="DosageForm" Type="varchar" MaxLength="50" />
+          <Property Name="GenericName" Type="varchar" MaxLength="500" />
+          <Property Name="DarNo" Type="varchar" MaxLength="50" />
+          <Property Name="PackSize" Type="varchar" MaxLength="50" />
+          <Property Name="UOM" Type="varchar" MaxLength="20" />
+          <Property Name="SalesCode" Type="varchar" MaxLength="4" />
+          <Property Name="PPS" Type="varchar" MaxLength="20" />
+          <Property Name="SPS" Type="varchar" MaxLength="20" />
+          <Property Name="MPS" Type="varchar" MaxLength="20" />
+          <Property Name="Strength" Type="varchar" MaxLength="10" />
+          <Property Name="TP" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="VatPayable" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MRP" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ShelfMonth" Type="int" />
+          <Property Name="ShelfYear" Type="int" />
+          <Property Name="ProductionLeadTime" Type="int" />
+          <Property Name="QALeadTime" Type="int" />
+          <Property Name="Location" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MachinenameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Quotation_Invitation_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuotationInvitationID" Type="int" Nullable="false" />
+          <Property Name="RequisitionID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="MaterialCode" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Quotation_Invitations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuotationCode" Type="varchar" MaxLength="25" />
+          <Property Name="SupplierID" Type="varchar" MaxLength="15" />
+          <Property Name="SentByID" Type="varchar" MaxLength="15" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SupplierName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="SupplierType" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SupplierCategory" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ContactPerson" Type="varchar" MaxLength="200" />
+          <Property Name="Fax" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Country" Type="varchar" MaxLength="500" />
+          <Property Name="Webaddress" Type="varchar" MaxLength="500" />
+          <Property Name="Remarks" Type="varchar" MaxLength="5000" />
+          <Property Name="Location" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WHIssue">
+          <Key>
+            <PropertyRef Name="ChallanID" />
+          </Key>
+          <Property Name="ChallanID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChallanDate" Type="datetime" Nullable="false" />
+          <Property Name="IssueTo" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="IssueFrom" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="IssueType" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="IssueCause" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Remarks" Type="varchar" MaxLength="500" />
+          <Property Name="VehicleNo" Type="varchar" MaxLength="500" />
+          <Property Name="VatChallanNo" Type="varchar" MaxLength="100" />
+          <Property Name="AllocationID" Type="varchar" MaxLength="50" />
+          <Property Name="IsLocked" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MachinenameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="IsApproved" Type="bit" />
+          <Property Name="ApprovedById" Type="int" />
+          <Property Name="ApprovedOn" Type="date" />
+          <Property Name="ApprovalRemarks" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_BillDetails_BillMaster">
+          <End Role="BillMaster" Type="Self.BillMaster" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BillDetails" Type="Self.BillDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillMaster">
+              <PropertyRef Name="BillID" />
+            </Principal>
+            <Dependent Role="BillDetails">
+              <PropertyRef Name="BillID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quotation_Invitation_Details_Quotation_Invitations">
+          <End Role="Quotation_Invitations" Type="Self.Quotation_Invitations" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Quotation_Invitation_Details" Type="Self.Quotation_Invitation_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quotation_Invitations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Quotation_Invitation_Details">
+              <PropertyRef Name="QuotationInvitationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InventoryModelStoreContainer">
+          <EntitySet Name="BankInfo" EntityType="Self.BankInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bill_Payment_Details" EntityType="Self.Bill_Payment_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bill_Payment_Status" EntityType="Self.Bill_Payment_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bill_PaymentType" EntityType="Self.Bill_PaymentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillDetails" EntityType="Self.BillDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillMaster" EntityType="Self.BillMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POReq" EntityType="Self.POReq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quotation_Invitation_Details" EntityType="Self.Quotation_Invitation_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quotation_Invitations" EntityType="Self.Quotation_Invitations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WHIssue" EntityType="Self.WHIssue" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BillDetails_BillMaster" Association="Self.FK_BillDetails_BillMaster">
+            <End Role="BillMaster" EntitySet="BillMaster" />
+            <End Role="BillDetails" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quotation_Invitation_Details_Quotation_Invitations" Association="Self.FK_Quotation_Invitation_Details_Quotation_Invitations">
+            <End Role="Quotation_Invitations" EntitySet="Quotation_Invitations" />
+            <End Role="Quotation_Invitation_Details" EntitySet="Quotation_Invitation_Details" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InventoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CompanyID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductForm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DosageForm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GenericName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DarNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PackSize" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UOM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SalesCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="PPS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SPS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MPS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Strength" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VatPayable" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MRP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ShelfMonth" Type="Int32" />
+          <Property Name="ShelfYear" Type="Int32" />
+          <Property Name="ProductionLeadTime" Type="Int32" />
+          <Property Name="QALeadTime" Type="Int32" />
+          <Property Name="Location" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MachinenameIP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="InventoryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="WHIssues" EntityType="InventoryModel.WHIssue" />
+          <EntitySet Name="BillDetails" EntityType="InventoryModel.BillDetail" />
+          <EntitySet Name="BillMasters" EntityType="InventoryModel.BillMaster" />
+          <AssociationSet Name="FK_BillDetails_BillMaster" Association="InventoryModel.FK_BillDetails_BillMaster">
+            <End Role="BillMaster" EntitySet="BillMasters" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <EntitySet Name="Suppliers" EntityType="InventoryModel.Supplier" />
+          <EntitySet Name="Bill_Payment_Status" EntityType="InventoryModel.Bill_Payment_Status" />
+          <EntitySet Name="Bill_PaymentType" EntityType="InventoryModel.Bill_PaymentType" />
+          <EntitySet Name="Bill_Payment_Details" EntityType="InventoryModel.Bill_Payment_Details" />
+          <EntitySet Name="BankInfoes" EntityType="InventoryModel.BankInfo" />
+          <EntitySet Name="Materials" EntityType="InventoryModel.Material" />
+          <EntitySet Name="POReqs" EntityType="InventoryModel.POReq" />
+          <EntitySet Name="Quotation_Invitation_Details" EntityType="InventoryModel.Quotation_Invitation_Details" />
+          <EntitySet Name="Quotation_Invitations" EntityType="InventoryModel.Quotation_Invitations" />
+          <AssociationSet Name="FK_Quotation_Invitation_Details_Quotation_Invitations" Association="InventoryModel.FK_Quotation_Invitation_Details_Quotation_Invitations">
+            <End Role="Quotation_Invitations" EntitySet="Quotation_Invitations" />
+            <End Role="Quotation_Invitation_Details" EntitySet="Quotation_Invitation_Details" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="WHIssue">
+          <Key>
+            <PropertyRef Name="ChallanID" />
+          </Key>
+          <Property Name="ChallanID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChallanDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IssueTo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IssueFrom" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IssueType" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IssueCause" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="VehicleNo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="VatChallanNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AllocationID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MachinenameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="IsApproved" Type="Boolean" />
+          <Property Name="ApprovedById" Type="Int32" />
+          <Property Name="ApprovedOn" Type="DateTime" Precision="0" />
+          <Property Name="ApprovalRemarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BillDetail">
+          <Key>
+            <PropertyRef Name="BillID" />
+            <PropertyRef Name="ChallanID" />
+            <PropertyRef Name="SLNo" />
+          </Key>
+          <Property Name="BillID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChallanID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SLNo" Type="Int32" Nullable="false" />
+          <Property Name="POID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GRNID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ItemID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BillQty" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="Rate" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="BillAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="VatAmt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="AITAmt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="BillRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BillMaster" Relationship="InventoryModel.FK_BillDetails_BillMaster" FromRole="BillDetail" ToRole="BillMaster" />
+        </EntityType>
+        <EntityType Name="BillMaster">
+          <Key>
+            <PropertyRef Name="BillID" />
+          </Key>
+          <Property Name="BillID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BillDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SubmittedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BillGroup" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierBillNo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="BillDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AccountsReceived" Type="Boolean" Nullable="false" />
+          <Property Name="AccountsReceiveDate" Type="DateTime" Precision="3" />
+          <Property Name="AccountsReceiveBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccountsRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Transferred" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransferred" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BillDetails" Relationship="InventoryModel.FK_BillDetails_BillMaster" FromRole="BillMaster" ToRole="BillDetail" />
+          <Property Name="CarryingCharge" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="LoadingCharge" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="OtherCharge" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+        </EntityType>
+        <Association Name="FK_BillDetails_BillMaster">
+          <End Type="InventoryModel.BillMaster" Role="BillMaster" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="InventoryModel.BillDetail" Role="BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillMaster">
+              <PropertyRef Name="BillID" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="BillID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierCategory" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPerson" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Webaddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Bill_Payment_Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BillStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Bill_PaymentType">
+          <Key>
+            <PropertyRef Name="PaymentTypeID" />
+          </Key>
+          <Property Name="PaymentTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Bill_Payment_Details">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BillID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+          <Property Name="PaymentTypeId" Type="Int32" />
+          <Property Name="PaymentStatusId" Type="Int32" />
+          <Property Name="CheckNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentBy" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="BankBranchName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BankInfo">
+          <Key>
+            <PropertyRef Name="BankID" />
+          </Key>
+          <Property Name="BankID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="MaterialCode" />
+          </Key>
+          <Property Name="CompanyID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaterialCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ProductCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaterialName" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="MaterialGrade" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="InventoryLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MSL" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="MOQ" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="UOM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PharmaRef" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="VendorLeadTime" Type="Int32" />
+          <Property Name="BlockListLeadTime" Type="Int32" />
+          <Property Name="SCLeadTime" Type="Int32" />
+          <Property Name="QCLeadTime" Type="Int32" />
+          <Property Name="ShortSpec" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MachinenameIP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" />
+          <Property Name="HOTransfered" Type="Boolean" />
+          <Property Name="Addedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="POReq">
+          <Key>
+            <PropertyRef Name="RequisitionID" />
+          </Key>
+          <Property Name="RequisitionID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReqDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Raisedby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReqFor" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsEmailSent" Type="Boolean" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="ApprovedBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedComment" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MachinenameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Quotation_Invitation_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuotationInvitationID" Type="Int32" Nullable="false" />
+          <Property Name="RequisitionID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="MaterialCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Quotation_Invitations" Relationship="InventoryModel.FK_Quotation_Invitation_Details_Quotation_Invitations" FromRole="Quotation_Invitation_Details" ToRole="Quotation_Invitations" />
+        </EntityType>
+        <EntityType Name="Quotation_Invitations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuotationCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SentByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Quotation_Invitation_Details" Relationship="InventoryModel.FK_Quotation_Invitation_Details_Quotation_Invitations" FromRole="Quotation_Invitations" ToRole="Quotation_Invitation_Details" />
+        </EntityType>
+        <Association Name="FK_Quotation_Invitation_Details_Quotation_Invitations">
+          <End Type="InventoryModel.Quotation_Invitations" Role="Quotation_Invitations" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="InventoryModel.Quotation_Invitation_Details" Role="Quotation_Invitation_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quotation_Invitations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Quotation_Invitation_Details">
+              <PropertyRef Name="QuotationInvitationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InventoryModelStoreContainer" CdmEntityContainer="InventoryEntities">
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="InventoryModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ProductForm" ColumnName="ProductForm" />
+                <ScalarProperty Name="DosageForm" ColumnName="DosageForm" />
+                <ScalarProperty Name="GenericName" ColumnName="GenericName" />
+                <ScalarProperty Name="DarNo" ColumnName="DarNo" />
+                <ScalarProperty Name="PackSize" ColumnName="PackSize" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="SalesCode" ColumnName="SalesCode" />
+                <ScalarProperty Name="PPS" ColumnName="PPS" />
+                <ScalarProperty Name="SPS" ColumnName="SPS" />
+                <ScalarProperty Name="MPS" ColumnName="MPS" />
+                <ScalarProperty Name="Strength" ColumnName="Strength" />
+                <ScalarProperty Name="TP" ColumnName="TP" />
+                <ScalarProperty Name="Vat" ColumnName="Vat" />
+                <ScalarProperty Name="VatPayable" ColumnName="VatPayable" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="ShelfMonth" ColumnName="ShelfMonth" />
+                <ScalarProperty Name="ShelfYear" ColumnName="ShelfYear" />
+                <ScalarProperty Name="ProductionLeadTime" ColumnName="ProductionLeadTime" />
+                <ScalarProperty Name="QALeadTime" ColumnName="QALeadTime" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="MachinenameIP" ColumnName="MachinenameIP" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WHIssues">
+            <EntityTypeMapping TypeName="InventoryModel.WHIssue">
+              <MappingFragment StoreEntitySet="WHIssue">
+                <ScalarProperty Name="ApprovalRemarks" ColumnName="ApprovalRemarks" />
+                <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
+                <ScalarProperty Name="ApprovedById" ColumnName="ApprovedById" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachinenameIP" ColumnName="MachinenameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+                <ScalarProperty Name="AllocationID" ColumnName="AllocationID" />
+                <ScalarProperty Name="VatChallanNo" ColumnName="VatChallanNo" />
+                <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="IssueCause" ColumnName="IssueCause" />
+                <ScalarProperty Name="IssueType" ColumnName="IssueType" />
+                <ScalarProperty Name="IssueFrom" ColumnName="IssueFrom" />
+                <ScalarProperty Name="IssueTo" ColumnName="IssueTo" />
+                <ScalarProperty Name="ChallanDate" ColumnName="ChallanDate" />
+                <ScalarProperty Name="ChallanID" ColumnName="ChallanID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillDetails">
+            <EntityTypeMapping TypeName="InventoryModel.BillDetail">
+              <MappingFragment StoreEntitySet="BillDetails">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="BillRemarks" ColumnName="BillRemarks" />
+                <ScalarProperty Name="AITAmt" ColumnName="AITAmt" />
+                <ScalarProperty Name="VatAmt" ColumnName="VatAmt" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="BillQty" ColumnName="BillQty" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="GRNID" ColumnName="GRNID" />
+                <ScalarProperty Name="POID" ColumnName="POID" />
+                <ScalarProperty Name="SLNo" ColumnName="SLNo" />
+                <ScalarProperty Name="ChallanID" ColumnName="ChallanID" />
+                <ScalarProperty Name="BillID" ColumnName="BillID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillMasters">
+            <EntityTypeMapping TypeName="InventoryModel.BillMaster">
+              <MappingFragment StoreEntitySet="BillMaster">
+                <ScalarProperty Name="OtherCharge" ColumnName="OtherCharge" />
+                <ScalarProperty Name="LoadingCharge" ColumnName="LoadingCharge" />
+                <ScalarProperty Name="CarryingCharge" ColumnName="CarryingCharge" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="HOTransferred" ColumnName="HOTransferred" />
+                <ScalarProperty Name="Transferred" ColumnName="Transferred" />
+                <ScalarProperty Name="AccountsRemarks" ColumnName="AccountsRemarks" />
+                <ScalarProperty Name="AccountsReceiveBy" ColumnName="AccountsReceiveBy" />
+                <ScalarProperty Name="AccountsReceiveDate" ColumnName="AccountsReceiveDate" />
+                <ScalarProperty Name="AccountsReceived" ColumnName="AccountsReceived" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="BillDescription" ColumnName="BillDescription" />
+                <ScalarProperty Name="SupplierBillNo" ColumnName="SupplierBillNo" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="BillGroup" ColumnName="BillGroup" />
+                <ScalarProperty Name="SubmittedBy" ColumnName="SubmittedBy" />
+                <ScalarProperty Name="BillDate" ColumnName="BillDate" />
+                <ScalarProperty Name="BillID" ColumnName="BillID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="InventoryModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Webaddress" ColumnName="Webaddress" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="SupplierCategory" ColumnName="SupplierCategory" />
+                <ScalarProperty Name="SupplierType" ColumnName="SupplierType" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bill_Payment_Status">
+            <EntityTypeMapping TypeName="InventoryModel.Bill_Payment_Status">
+              <MappingFragment StoreEntitySet="Bill_Payment_Status">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="BillStatusName" ColumnName="BillStatusName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bill_PaymentType">
+            <EntityTypeMapping TypeName="InventoryModel.Bill_PaymentType">
+              <MappingFragment StoreEntitySet="Bill_PaymentType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="PaymentTypeName" ColumnName="PaymentTypeName" />
+                <ScalarProperty Name="PaymentTypeID" ColumnName="PaymentTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bill_Payment_Details">
+            <EntityTypeMapping TypeName="InventoryModel.Bill_Payment_Details">
+              <MappingFragment StoreEntitySet="Bill_Payment_Details">
+                <ScalarProperty Name="BankBranchName" ColumnName="BankBranchName" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+                <ScalarProperty Name="PaymentBy" ColumnName="PaymentBy" />
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="CheckNo" ColumnName="CheckNo" />
+                <ScalarProperty Name="PaymentStatusId" ColumnName="PaymentStatusId" />
+                <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="BillID" ColumnName="BillID" />
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BankInfoes">
+            <EntityTypeMapping TypeName="InventoryModel.BankInfo">
+              <MappingFragment StoreEntitySet="BankInfo">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materials">
+            <EntityTypeMapping TypeName="InventoryModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachinenameIP" ColumnName="MachinenameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="ShortSpec" ColumnName="ShortSpec" />
+                <ScalarProperty Name="QCLeadTime" ColumnName="QCLeadTime" />
+                <ScalarProperty Name="SCLeadTime" ColumnName="SCLeadTime" />
+                <ScalarProperty Name="BlockListLeadTime" ColumnName="BlockListLeadTime" />
+                <ScalarProperty Name="VendorLeadTime" ColumnName="VendorLeadTime" />
+                <ScalarProperty Name="PharmaRef" ColumnName="PharmaRef" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="MOQ" ColumnName="MOQ" />
+                <ScalarProperty Name="MSL" ColumnName="MSL" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="InventoryLocation" ColumnName="InventoryLocation" />
+                <ScalarProperty Name="MaterialGrade" ColumnName="MaterialGrade" />
+                <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+                <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POReqs">
+            <EntityTypeMapping TypeName="InventoryModel.POReq">
+              <MappingFragment StoreEntitySet="POReq">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachinenameIP" ColumnName="MachinenameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="ApprovedComment" ColumnName="ApprovedComment" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="ApprovedBY" ColumnName="ApprovedBY" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="IsEmailSent" ColumnName="IsEmailSent" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="ReqFor" ColumnName="ReqFor" />
+                <ScalarProperty Name="Raisedby" ColumnName="Raisedby" />
+                <ScalarProperty Name="ReqDate" ColumnName="ReqDate" />
+                <ScalarProperty Name="RequisitionID" ColumnName="RequisitionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quotation_Invitation_Details">
+            <EntityTypeMapping TypeName="InventoryModel.Quotation_Invitation_Details">
+              <MappingFragment StoreEntitySet="Quotation_Invitation_Details">
+                <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+                <ScalarProperty Name="RequisitionID" ColumnName="RequisitionID" />
+                <ScalarProperty Name="QuotationInvitationID" ColumnName="QuotationInvitationID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quotation_Invitations">
+            <EntityTypeMapping TypeName="InventoryModel.Quotation_Invitations">
+              <MappingFragment StoreEntitySet="Quotation_Invitations">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="SentByID" ColumnName="SentByID" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="QuotationCode" ColumnName="QuotationCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

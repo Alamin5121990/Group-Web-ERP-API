@@ -1,0 +1,718 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MISModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CardNo" Type="int" />
+          <Property Name="Salutation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MName" Type="varchar" MaxLength="100" />
+          <Property Name="LName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NickName" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="100" />
+          <Property Name="FatherName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MotherName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DOB" Type="datetime" Nullable="false" />
+          <Property Name="JoiningPosition" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="JoiningPositionID" Type="int" />
+          <Property Name="EmployeePositionID" Type="int" />
+          <Property Name="BloodGroup" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Height" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Weight" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nationality" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Religion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sex" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaritalStatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="PresentAddress" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PermanentAddress" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="NationalIDNo" Type="varchar" MaxLength="50" />
+          <Property Name="EPersonName" Type="varchar" MaxLength="100" />
+          <Property Name="EPersonAddress" Type="varchar" MaxLength="500" />
+          <Property Name="EPersonTelephone" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeStatus" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubDepartment" Type="varchar" MaxLength="50" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Zone" Type="varchar" MaxLength="50" />
+          <Property Name="Region" Type="varchar" MaxLength="50" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
+          <Property Name="Territory" Type="varchar" MaxLength="50" />
+          <Property Name="DOJ" Type="datetime" Nullable="false" />
+          <Property Name="DOS" Type="datetime" />
+          <Property Name="JoiningGrade" Type="varchar" MaxLength="50" />
+          <Property Name="AcademicAward" Type="varchar" MaxLength="1000" />
+          <Property Name="DrivingLicence" Type="varchar" MaxLength="100" />
+          <Property Name="Passport" Type="varchar" MaxLength="20" />
+          <Property Name="VisitCountry" Type="varchar" MaxLength="1000" />
+          <Property Name="ExtraActivities" Type="varchar" MaxLength="1000" />
+          <Property Name="MajorIllness" Type="varchar" MaxLength="1000" />
+          <Property Name="SuperVisorID" Type="varchar" MaxLength="50" />
+          <Property Name="ConfirmationDate" Type="datetime" />
+          <Property Name="ConfirmationStatus" Type="varchar" MaxLength="50" />
+          <Property Name="Certification" Type="bit" Nullable="false" />
+          <Property Name="LastAppDate" Type="datetime" />
+          <Property Name="LastAppType" Type="varchar" MaxLength="50" />
+          <Property Name="CostCenter" Type="varchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="500" />
+          <Property Name="LeaveRuleID" Type="varchar" MaxLength="50" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Inventory_ProductionPlanning_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MPSID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="BatchUnitQuantity" Type="int" />
+          <Property Name="DayCoverForecast" Type="int" />
+          <Property Name="DayCoverSale" Type="int" />
+          <Property Name="ForecastMonth1CommercialQty" Type="int" />
+          <Property Name="ForecastMonth1SampleQty" Type="int" />
+          <Property Name="ForecastMonth2CommercialQty" Type="int" />
+          <Property Name="ForecastMonth2SampleQty" Type="int" />
+          <Property Name="ForecastCurrentMonthCommercialQty" Type="int" />
+          <Property Name="ForecastCurrentMonthSampleQty" Type="int" />
+          <Property Name="ForecastMonth3SampleQty" Type="int" />
+          <Property Name="ForecastMonth3CommercialQty" Type="int" />
+          <Property Name="LastMonthSalesQty" Type="int" />
+          <Property Name="NoOfBatchRequired" Type="int" />
+          <Property Name="NoOfBatchRequiredOutput" Type="int" />
+          <Property Name="SalesUptoQty" Type="int" />
+          <Property Name="TotalBatchInProgress" Type="int" />
+          <Property Name="TotalBatchOutputInProgress" Type="int" />
+          <Property Name="TotalFreeStock" Type="int" />
+          <Property Name="TotalInProgress" Type="int" />
+          <Property Name="TotalQuantityDayCoverForecast" Type="int" />
+          <Property Name="TotalQuantityDayCoverSale" Type="int" />
+          <Property Name="TwoMonthsAgoSalesQty" Type="int" />
+        </EntityType>
+        <EntityType Name="Inventory_ProductionPlanning_Master">
+          <Key>
+            <PropertyRef Name="MPSID" />
+          </Key>
+          <Property Name="MPSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MPSCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="YearNo" Type="int" />
+          <Property Name="MonthNo" Type="int" />
+          <Property Name="ScheduleDate" Type="date" Nullable="false" />
+          <Property Name="BatchInProgress" Type="int" Nullable="false" />
+          <Property Name="TotalBatchRequired" Type="int" Nullable="false" />
+          <Property Name="ShortagePercent" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inventory_ProductionPlanning_MaterialDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DetailsID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="MaterialCode" Type="varchar" MaxLength="15" />
+          <Property Name="TotalBatchQuantity" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="FreeStock" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="RequisitionQuantity" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="BookingQuantity" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="QuarantineQuantity" Type="decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="Material_Shortage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="YearNo" Type="int" />
+          <Property Name="MonthNo" Type="int" />
+          <Property Name="FreeStockOnReportDate" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="BookingQuantity" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="QuarantineQuantity" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="FreeStockAfterBatch" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedByID" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductionLocation" Type="varchar" MaxLength="50" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyID" Type="varchar" MaxLength="50" />
+          <Property Name="ProductName" Type="varchar" MaxLength="200" />
+          <Property Name="ProductType" Type="varchar" MaxLength="50" />
+          <Property Name="ProductPriorityID" Type="int" />
+          <Property Name="ProductForm" Type="varchar" MaxLength="50" />
+          <Property Name="DosageForm" Type="varchar" MaxLength="50" />
+          <Property Name="GenericName" Type="varchar" MaxLength="500" />
+          <Property Name="DarNo" Type="varchar" MaxLength="50" />
+          <Property Name="PackSize" Type="varchar" MaxLength="50" />
+          <Property Name="UOM" Type="varchar" MaxLength="20" />
+          <Property Name="SalesCode" Type="varchar" MaxLength="4" />
+          <Property Name="PPS" Type="varchar" MaxLength="20" />
+          <Property Name="SPS" Type="varchar" MaxLength="20" />
+          <Property Name="MPS" Type="varchar" MaxLength="20" />
+          <Property Name="Strength" Type="varchar" MaxLength="10" />
+          <Property Name="TP" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="VatPayable" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MRP" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ShelfMonth" Type="int" />
+          <Property Name="ShelfYear" Type="int" />
+          <Property Name="ProductionLeadTime" Type="int" />
+          <Property Name="QALeadTime" Type="int" />
+          <Property Name="QAValidLeadTime" Type="int" />
+          <Property Name="QAComLeadTime" Type="int" />
+          <Property Name="QATenBatchLeadTime" Type="int" />
+          <Property Name="QAReleaseValidLeadTime" Type="int" />
+          <Property Name="QAReleaseComLeadTime" Type="int" />
+          <Property Name="Location" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MachinenameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="ShowingStatus" Type="bit" />
+          <Property Name="Addedby" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Inventory_ProductionPlanning_MaterialDetails_Inventory_ProductionPlanning_Details">
+          <End Role="Inventory_ProductionPlanning_Details" Type="Self.Inventory_ProductionPlanning_Details" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Inventory_ProductionPlanning_MaterialDetails" Type="Self.Inventory_ProductionPlanning_MaterialDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_ProductionPlanning_Details">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory_ProductionPlanning_MaterialDetails">
+              <PropertyRef Name="DetailsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductionPlanning_Details_ProductionPlanning_Master">
+          <End Role="Inventory_ProductionPlanning_Master" Type="Self.Inventory_ProductionPlanning_Master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Inventory_ProductionPlanning_Details" Type="Self.Inventory_ProductionPlanning_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_ProductionPlanning_Master">
+              <PropertyRef Name="MPSID" />
+            </Principal>
+            <Dependent Role="Inventory_ProductionPlanning_Details">
+              <PropertyRef Name="MPSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MISModel2StoreContainer">
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_ProductionPlanning_Details" EntityType="Self.Inventory_ProductionPlanning_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_ProductionPlanning_Master" EntityType="Self.Inventory_ProductionPlanning_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_ProductionPlanning_MaterialDetails" EntityType="Self.Inventory_ProductionPlanning_MaterialDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material_Shortage" EntityType="Self.Material_Shortage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Inventory_ProductionPlanning_MaterialDetails_Inventory_ProductionPlanning_Details" Association="Self.FK_Inventory_ProductionPlanning_MaterialDetails_Inventory_ProductionPlanning_Details">
+            <End Role="Inventory_ProductionPlanning_Details" EntitySet="Inventory_ProductionPlanning_Details" />
+            <End Role="Inventory_ProductionPlanning_MaterialDetails" EntitySet="Inventory_ProductionPlanning_MaterialDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductionPlanning_Details_ProductionPlanning_Master" Association="Self.FK_ProductionPlanning_Details_ProductionPlanning_Master">
+            <End Role="Inventory_ProductionPlanning_Master" EntitySet="Inventory_ProductionPlanning_Master" />
+            <End Role="Inventory_ProductionPlanning_Details" EntitySet="Inventory_ProductionPlanning_Details" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MISModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ProductionPlanningEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Inventory_ProductionPlanning_Master" EntityType="MISModel2.Inventory_ProductionPlanning_Master" />
+          <EntitySet Name="Inventory_ProductionPlanning_MaterialDetails" EntityType="MISModel2.Inventory_ProductionPlanning_MaterialDetails" />
+          <EntitySet Name="Inventory_ProductionPlanning_Details" EntityType="MISModel2.Inventory_ProductionPlanning_Details" />
+          <AssociationSet Name="FK_Inventory_ProductionPlanning_MaterialDetails_Inventory_ProductionPlanning_Details" Association="MISModel2.FK_Inventory_ProductionPlanning_MaterialDetails_Inventory_ProductionPlanning_Details">
+            <End Role="Inventory_ProductionPlanning_Details" EntitySet="Inventory_ProductionPlanning_Details" />
+            <End Role="Inventory_ProductionPlanning_MaterialDetails" EntitySet="Inventory_ProductionPlanning_MaterialDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductionPlanning_Details_ProductionPlanning_Master" Association="MISModel2.FK_ProductionPlanning_Details_ProductionPlanning_Master">
+            <End Role="Inventory_ProductionPlanning_Master" EntitySet="Inventory_ProductionPlanning_Master" />
+            <End Role="Inventory_ProductionPlanning_Details" EntitySet="Inventory_ProductionPlanning_Details" />
+          </AssociationSet>
+          <EntitySet Name="Employees" EntityType="MISModel2.Employees" />
+          <EntitySet Name="Material_Shortage" EntityType="MISModel2.Material_Shortage" />
+          <EntitySet Name="Products" EntityType="MISModel2.Products" />
+        </EntityContainer>
+        <EntityType Name="Inventory_ProductionPlanning_Master">
+          <Key>
+            <PropertyRef Name="MPSID" />
+          </Key>
+          <Property Name="MPSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MPSCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BatchInProgress" Type="Int32" Nullable="false" />
+          <Property Name="TotalBatchRequired" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="ShortagePercent" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Inventory_ProductionPlanning_Details" Relationship="MISModel2.FK_ProductionPlanning_Details_ProductionPlanning_Master" FromRole="Inventory_ProductionPlanning_Master" ToRole="Inventory_ProductionPlanning_Details" />
+          <Property Name="YearNo" Type="Int32" />
+          <Property Name="MonthNo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Inventory_ProductionPlanning_MaterialDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DetailsID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="MaterialCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TotalBatchQuantity" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FreeStock" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="RequisitionQuantity" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="BookingQuantity" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="QuarantineQuantity" Type="Decimal" Precision="18" Scale="4" />
+          <NavigationProperty Name="Inventory_ProductionPlanning_Details" Relationship="MISModel2.FK_Inventory_ProductionPlanning_MaterialDetails_Inventory_ProductionPlanning_Details" FromRole="Inventory_ProductionPlanning_MaterialDetails" ToRole="Inventory_ProductionPlanning_Details" />
+        </EntityType>
+        <EntityType Name="Inventory_ProductionPlanning_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MPSID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="BatchUnitQuantity" Type="Int32" />
+          <Property Name="DayCoverForecast" Type="Int32" />
+          <Property Name="DayCoverSale" Type="Int32" />
+          <Property Name="ForecastMonth1CommercialQty" Type="Int32" />
+          <Property Name="ForecastMonth1SampleQty" Type="Int32" />
+          <Property Name="ForecastMonth2CommercialQty" Type="Int32" />
+          <Property Name="ForecastMonth2SampleQty" Type="Int32" />
+          <Property Name="ForecastCurrentMonthCommercialQty" Type="Int32" />
+          <Property Name="ForecastCurrentMonthSampleQty" Type="Int32" />
+          <Property Name="ForecastMonth3SampleQty" Type="Int32" />
+          <Property Name="ForecastMonth3CommercialQty" Type="Int32" />
+          <Property Name="LastMonthSalesQty" Type="Int32" />
+          <Property Name="NoOfBatchRequired" Type="Int32" />
+          <Property Name="NoOfBatchRequiredOutput" Type="Int32" />
+          <Property Name="SalesUptoQty" Type="Int32" />
+          <Property Name="TotalBatchInProgress" Type="Int32" />
+          <Property Name="TotalBatchOutputInProgress" Type="Int32" />
+          <Property Name="TotalFreeStock" Type="Int32" />
+          <Property Name="TotalInProgress" Type="Int32" />
+          <Property Name="TotalQuantityDayCoverForecast" Type="Int32" />
+          <Property Name="TotalQuantityDayCoverSale" Type="Int32" />
+          <Property Name="TwoMonthsAgoSalesQty" Type="Int32" />
+          <NavigationProperty Name="Inventory_ProductionPlanning_MaterialDetails" Relationship="MISModel2.FK_Inventory_ProductionPlanning_MaterialDetails_Inventory_ProductionPlanning_Details" FromRole="Inventory_ProductionPlanning_Details" ToRole="Inventory_ProductionPlanning_MaterialDetails" />
+          <NavigationProperty Name="Inventory_ProductionPlanning_Master" Relationship="MISModel2.FK_ProductionPlanning_Details_ProductionPlanning_Master" FromRole="Inventory_ProductionPlanning_Details" ToRole="Inventory_ProductionPlanning_Master" />
+        </EntityType>
+        <Association Name="FK_Inventory_ProductionPlanning_MaterialDetails_Inventory_ProductionPlanning_Details">
+          <End Type="MISModel2.Inventory_ProductionPlanning_Details" Role="Inventory_ProductionPlanning_Details" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MISModel2.Inventory_ProductionPlanning_MaterialDetails" Role="Inventory_ProductionPlanning_MaterialDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_ProductionPlanning_Details">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory_ProductionPlanning_MaterialDetails">
+              <PropertyRef Name="DetailsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductionPlanning_Details_ProductionPlanning_Master">
+          <End Type="MISModel2.Inventory_ProductionPlanning_Master" Role="Inventory_ProductionPlanning_Master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MISModel2.Inventory_ProductionPlanning_Details" Role="Inventory_ProductionPlanning_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_ProductionPlanning_Master">
+              <PropertyRef Name="MPSID" />
+            </Principal>
+            <Dependent Role="Inventory_ProductionPlanning_Details">
+              <PropertyRef Name="MPSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="EmployeeID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CardNo" Type="Int32" />
+          <Property Name="Salutation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FatherName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MotherName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="JoiningPosition" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JoiningPositionID" Type="Int32" />
+          <Property Name="EmployeePositionID" Type="Int32" />
+          <Property Name="BloodGroup" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Weight" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Religion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaritalStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PresentAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PermanentAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="NationalIDNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EPersonName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EPersonAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EPersonTelephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Territory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOJ" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DOS" Type="DateTime" Precision="3" />
+          <Property Name="JoiningGrade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AcademicAward" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DrivingLicence" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Passport" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VisitCountry" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ExtraActivities" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="MajorIllness" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="SuperVisorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ConfirmationDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Certification" Type="Boolean" Nullable="false" />
+          <Property Name="LastAppDate" Type="DateTime" Precision="3" />
+          <Property Name="LastAppType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CostCenter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LeaveRuleID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Material_Shortage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="YearNo" Type="Int32" />
+          <Property Name="MonthNo" Type="Int32" />
+          <Property Name="FreeStockOnReportDate" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FreeStockAfterBatch" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BookingQuantity" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="QuarantineQuantity" Type="Decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductionLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductPriorityID" Type="Int32" />
+          <Property Name="ProductForm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DosageForm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GenericName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DarNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PackSize" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UOM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SalesCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="PPS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SPS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MPS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Strength" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VatPayable" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MRP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ShelfMonth" Type="Int32" />
+          <Property Name="ShelfYear" Type="Int32" />
+          <Property Name="ProductionLeadTime" Type="Int32" />
+          <Property Name="QALeadTime" Type="Int32" />
+          <Property Name="QAValidLeadTime" Type="Int32" />
+          <Property Name="QAComLeadTime" Type="Int32" />
+          <Property Name="QATenBatchLeadTime" Type="Int32" />
+          <Property Name="QAReleaseValidLeadTime" Type="Int32" />
+          <Property Name="QAReleaseComLeadTime" Type="Int32" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MachinenameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="ShowingStatus" Type="Boolean" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MISModel2StoreContainer" CdmEntityContainer="ProductionPlanningEntities">
+          <EntitySetMapping Name="Inventory_ProductionPlanning_Master">
+            <EntityTypeMapping TypeName="MISModel2.Inventory_ProductionPlanning_Master">
+              <MappingFragment StoreEntitySet="Inventory_ProductionPlanning_Master">
+                <ScalarProperty Name="MonthNo" ColumnName="MonthNo" />
+                <ScalarProperty Name="YearNo" ColumnName="YearNo" />
+                <ScalarProperty Name="ShortagePercent" ColumnName="ShortagePercent" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="TotalBatchRequired" ColumnName="TotalBatchRequired" />
+                <ScalarProperty Name="BatchInProgress" ColumnName="BatchInProgress" />
+                <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+                <ScalarProperty Name="MPSCode" ColumnName="MPSCode" />
+                <ScalarProperty Name="MPSID" ColumnName="MPSID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_ProductionPlanning_MaterialDetails">
+            <EntityTypeMapping TypeName="MISModel2.Inventory_ProductionPlanning_MaterialDetails">
+              <MappingFragment StoreEntitySet="Inventory_ProductionPlanning_MaterialDetails">
+                <ScalarProperty Name="QuarantineQuantity" ColumnName="QuarantineQuantity" />
+                <ScalarProperty Name="BookingQuantity" ColumnName="BookingQuantity" />
+                <ScalarProperty Name="RequisitionQuantity" ColumnName="RequisitionQuantity" />
+                <ScalarProperty Name="FreeStock" ColumnName="FreeStock" />
+                <ScalarProperty Name="TotalBatchQuantity" ColumnName="TotalBatchQuantity" />
+                <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="DetailsID" ColumnName="DetailsID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_ProductionPlanning_Details">
+            <EntityTypeMapping TypeName="MISModel2.Inventory_ProductionPlanning_Details">
+              <MappingFragment StoreEntitySet="Inventory_ProductionPlanning_Details">
+                <ScalarProperty Name="TwoMonthsAgoSalesQty" ColumnName="TwoMonthsAgoSalesQty" />
+                <ScalarProperty Name="TotalQuantityDayCoverSale" ColumnName="TotalQuantityDayCoverSale" />
+                <ScalarProperty Name="TotalQuantityDayCoverForecast" ColumnName="TotalQuantityDayCoverForecast" />
+                <ScalarProperty Name="TotalInProgress" ColumnName="TotalInProgress" />
+                <ScalarProperty Name="TotalFreeStock" ColumnName="TotalFreeStock" />
+                <ScalarProperty Name="TotalBatchOutputInProgress" ColumnName="TotalBatchOutputInProgress" />
+                <ScalarProperty Name="TotalBatchInProgress" ColumnName="TotalBatchInProgress" />
+                <ScalarProperty Name="SalesUptoQty" ColumnName="SalesUptoQty" />
+                <ScalarProperty Name="NoOfBatchRequiredOutput" ColumnName="NoOfBatchRequiredOutput" />
+                <ScalarProperty Name="NoOfBatchRequired" ColumnName="NoOfBatchRequired" />
+                <ScalarProperty Name="LastMonthSalesQty" ColumnName="LastMonthSalesQty" />
+                <ScalarProperty Name="ForecastMonth3CommercialQty" ColumnName="ForecastMonth3CommercialQty" />
+                <ScalarProperty Name="ForecastMonth3SampleQty" ColumnName="ForecastMonth3SampleQty" />
+                <ScalarProperty Name="ForecastCurrentMonthSampleQty" ColumnName="ForecastCurrentMonthSampleQty" />
+                <ScalarProperty Name="ForecastCurrentMonthCommercialQty" ColumnName="ForecastCurrentMonthCommercialQty" />
+                <ScalarProperty Name="ForecastMonth2SampleQty" ColumnName="ForecastMonth2SampleQty" />
+                <ScalarProperty Name="ForecastMonth2CommercialQty" ColumnName="ForecastMonth2CommercialQty" />
+                <ScalarProperty Name="ForecastMonth1SampleQty" ColumnName="ForecastMonth1SampleQty" />
+                <ScalarProperty Name="ForecastMonth1CommercialQty" ColumnName="ForecastMonth1CommercialQty" />
+                <ScalarProperty Name="DayCoverSale" ColumnName="DayCoverSale" />
+                <ScalarProperty Name="DayCoverForecast" ColumnName="DayCoverForecast" />
+                <ScalarProperty Name="BatchUnitQuantity" ColumnName="BatchUnitQuantity" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="MPSID" ColumnName="MPSID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="MISModel2.Employees">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="LeaveRuleID" ColumnName="LeaveRuleID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CostCenter" ColumnName="CostCenter" />
+                <ScalarProperty Name="LastAppType" ColumnName="LastAppType" />
+                <ScalarProperty Name="LastAppDate" ColumnName="LastAppDate" />
+                <ScalarProperty Name="Certification" ColumnName="Certification" />
+                <ScalarProperty Name="ConfirmationStatus" ColumnName="ConfirmationStatus" />
+                <ScalarProperty Name="ConfirmationDate" ColumnName="ConfirmationDate" />
+                <ScalarProperty Name="SuperVisorID" ColumnName="SuperVisorID" />
+                <ScalarProperty Name="MajorIllness" ColumnName="MajorIllness" />
+                <ScalarProperty Name="ExtraActivities" ColumnName="ExtraActivities" />
+                <ScalarProperty Name="VisitCountry" ColumnName="VisitCountry" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="DrivingLicence" ColumnName="DrivingLicence" />
+                <ScalarProperty Name="AcademicAward" ColumnName="AcademicAward" />
+                <ScalarProperty Name="JoiningGrade" ColumnName="JoiningGrade" />
+                <ScalarProperty Name="DOS" ColumnName="DOS" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="Territory" ColumnName="Territory" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="SubDepartment" ColumnName="SubDepartment" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+                <ScalarProperty Name="EmployeeStatus" ColumnName="EmployeeStatus" />
+                <ScalarProperty Name="EPersonTelephone" ColumnName="EPersonTelephone" />
+                <ScalarProperty Name="EPersonAddress" ColumnName="EPersonAddress" />
+                <ScalarProperty Name="EPersonName" ColumnName="EPersonName" />
+                <ScalarProperty Name="NationalIDNo" ColumnName="NationalIDNo" />
+                <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+                <ScalarProperty Name="PresentAddress" ColumnName="PresentAddress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="EmployeePositionID" ColumnName="EmployeePositionID" />
+                <ScalarProperty Name="JoiningPositionID" ColumnName="JoiningPositionID" />
+                <ScalarProperty Name="JoiningPosition" ColumnName="JoiningPosition" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material_Shortage">
+            <EntityTypeMapping TypeName="MISModel2.Material_Shortage">
+              <MappingFragment StoreEntitySet="Material_Shortage">
+                <ScalarProperty Name="QuarantineQuantity" ColumnName="QuarantineQuantity" />
+                <ScalarProperty Name="BookingQuantity" ColumnName="BookingQuantity" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="FreeStockAfterBatch" ColumnName="FreeStockAfterBatch" />
+                <ScalarProperty Name="FreeStockOnReportDate" ColumnName="FreeStockOnReportDate" />
+                <ScalarProperty Name="MonthNo" ColumnName="MonthNo" />
+                <ScalarProperty Name="YearNo" ColumnName="YearNo" />
+                <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="MISModel2.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="ShowingStatus" ColumnName="ShowingStatus" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachinenameIP" ColumnName="MachinenameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="QAReleaseComLeadTime" ColumnName="QAReleaseComLeadTime" />
+                <ScalarProperty Name="QAReleaseValidLeadTime" ColumnName="QAReleaseValidLeadTime" />
+                <ScalarProperty Name="QATenBatchLeadTime" ColumnName="QATenBatchLeadTime" />
+                <ScalarProperty Name="QAComLeadTime" ColumnName="QAComLeadTime" />
+                <ScalarProperty Name="QAValidLeadTime" ColumnName="QAValidLeadTime" />
+                <ScalarProperty Name="QALeadTime" ColumnName="QALeadTime" />
+                <ScalarProperty Name="ProductionLeadTime" ColumnName="ProductionLeadTime" />
+                <ScalarProperty Name="ShelfYear" ColumnName="ShelfYear" />
+                <ScalarProperty Name="ShelfMonth" ColumnName="ShelfMonth" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="VatPayable" ColumnName="VatPayable" />
+                <ScalarProperty Name="Vat" ColumnName="Vat" />
+                <ScalarProperty Name="TP" ColumnName="TP" />
+                <ScalarProperty Name="Strength" ColumnName="Strength" />
+                <ScalarProperty Name="MPS" ColumnName="MPS" />
+                <ScalarProperty Name="SPS" ColumnName="SPS" />
+                <ScalarProperty Name="PPS" ColumnName="PPS" />
+                <ScalarProperty Name="SalesCode" ColumnName="SalesCode" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="PackSize" ColumnName="PackSize" />
+                <ScalarProperty Name="DarNo" ColumnName="DarNo" />
+                <ScalarProperty Name="GenericName" ColumnName="GenericName" />
+                <ScalarProperty Name="DosageForm" ColumnName="DosageForm" />
+                <ScalarProperty Name="ProductForm" ColumnName="ProductForm" />
+                <ScalarProperty Name="ProductPriorityID" ColumnName="ProductPriorityID" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductionLocation" ColumnName="ProductionLocation" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

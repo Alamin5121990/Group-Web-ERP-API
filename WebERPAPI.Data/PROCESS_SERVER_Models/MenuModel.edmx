@@ -1,0 +1,1053 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SystemManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+          </Key>
+          <Property Name="ApplicationID" Type="int" Nullable="false" />
+          <Property Name="ApplicationName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApplicationDescription" Type="varchar" MaxLength="500" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+          <Property Name="ApplicationLogo" Type="image" />
+          <Property Name="ApplicationLogoPath" Type="varchar" MaxLength="250" />
+          <Property Name="SequenceNo" Type="int" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="AddedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ApplicationUser">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+            <PropertyRef Name="UserCode" />
+          </Key>
+          <Property Name="ApplicationID" Type="int" Nullable="false" />
+          <Property Name="UserCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IsDefault" Type="bit" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LocationName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="LocationType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsCurrent" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="AddedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ValueMember" Type="int" />
+          <Property Name="DisplayMember" Type="varchar" MaxLength="50" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="IsVisible" Type="bit" Nullable="false" />
+          <Property Name="Type" Type="int" />
+          <Property Name="UDID" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="FormName" Type="varchar" MaxLength="50" />
+          <Property Name="MenuType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MenuSequence" Type="int" Nullable="false" />
+          <Property Name="DataType" Type="varchar" MaxLength="50" />
+          <Property Name="RestrictionLimit" Type="int" />
+          <Property Name="Assembly" Type="varchar" MaxLength="255" />
+          <Property Name="NameSpace" Type="varchar" MaxLength="250" />
+          <Property Name="MethodName" Type="varchar" MaxLength="250" />
+          <Property Name="IsAdminOnly" Type="bit" Nullable="false" />
+          <Property Name="ParameterSQL" Type="varchar" MaxLength="8000" />
+          <Property Name="IsSP" Type="bit" Nullable="false" />
+          <Property Name="ResourcePath" Type="varchar" MaxLength="4000" />
+          <Property Name="FileName" Type="varchar" MaxLength="500" />
+          <Property Name="AttachReport" Type="bit" Nullable="false" />
+          <Property Name="DefaultReport" Type="varchar" MaxLength="100" />
+          <Property Name="ChartType" Type="varchar" MaxLength="50" />
+          <Property Name="ReportSourceName" Type="varchar" MaxLength="50" />
+          <Property Name="CrossTab" Type="bit" />
+          <Property Name="ColumnData" Type="varchar" MaxLength="50" />
+          <Property Name="LineData" Type="varchar" MaxLength="50" />
+          <Property Name="TitleBottom" Type="varchar" MaxLength="250" />
+          <Property Name="TitleTop" Type="varchar" MaxLength="250" />
+          <Property Name="TitleRight" Type="varchar" MaxLength="250" />
+          <Property Name="TitleLeft" Type="varchar" MaxLength="250" />
+          <Property Name="LegendVisible" Type="bit" Nullable="false" />
+          <Property Name="YExtent" Type="int" />
+          <Property Name="Y2Extent" Type="int" />
+          <Property Name="XExtent" Type="int" />
+          <Property Name="RowLabelsColumn" Type="int" />
+          <Property Name="ReportType" Type="int" Nullable="false" />
+          <Property Name="ExcludeColumns" Type="varchar" MaxLength="8000" />
+          <Property Name="IsWebMenu" Type="bit" Nullable="false" />
+          <Property Name="Route" Type="varchar" MaxLength="100" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" />
+          <Property Name="AddedBy" Type="varchar" MaxLength="20" />
+          <Property Name="DateAdded" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="UserCode" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="250" />
+          <Property Name="UserName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsLoggedIn" Type="bit" Nullable="false" />
+          <Property Name="LogonTime" Type="datetime" />
+          <Property Name="EmployeeCode" Type="varchar" MaxLength="20" />
+          <Property Name="UserTypeId" Type="int" />
+          <Property Name="IsInternal" Type="bit" />
+          <Property Name="DefaultLocation" Type="varchar" MaxLength="50" />
+          <Property Name="Signature" Type="image" />
+          <Property Name="AddedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="IsWebAppAllowed" Type="bit" Nullable="false" />
+          <Property Name="EmailPassword" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="UserLocation">
+          <Key>
+            <PropertyRef Name="UserCode" />
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="UserCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="LocationID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Web_Menus">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="varchar" MaxLength="100" />
+          <Property Name="ParentMenuId" Type="int" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="Route" Type="varchar" MaxLength="250" />
+          <Property Name="ShowingStatus" Type="bit" />
+          <Property Name="IsNonPrivilegedMenu" Type="bit" />
+          <Property Name="CreatedById" Type="int" />
+          <Property Name="Createdon" Type="date" />
+          <Property Name="UpdatedById" Type="int" />
+          <Property Name="Updatedon" Type="date" />
+        </EntityType>
+        <EntityType Name="Web_UserLogDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Logtime" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="25" />
+          <Property Name="Workstation" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Web_UserPrivileges">
+          <Key>
+            <PropertyRef Name="PrivilegeId" />
+          </Key>
+          <Property Name="PrivilegeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="MenuId" Type="int" />
+          <Property Name="HasInsert" Type="bit" />
+          <Property Name="HasUpdate" Type="bit" />
+          <Property Name="HasDelete" Type="bit" />
+          <Property Name="HasPrint" Type="bit" />
+          <Property Name="HasFullAccess" Type="bit" />
+          <Property Name="UpdatedById" Type="int" />
+          <Property Name="UpdatedOn" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SystemManager.dbo.v_ApplicationMenus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_ApplicationMenus">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+            <PropertyRef Name="ApplicationName" />
+            <PropertyRef Name="IsDefault" />
+            <PropertyRef Name="SequenceNo" />
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="MachineNameIP" />
+            <PropertyRef Name="Transfered" />
+            <PropertyRef Name="HOTransfered" />
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="IsVisible" />
+            <PropertyRef Name="UDID" />
+            <PropertyRef Name="MenuType" />
+            <PropertyRef Name="MenuSequence" />
+            <PropertyRef Name="IsAdminOnly" />
+            <PropertyRef Name="IsSP" />
+            <PropertyRef Name="AttachReport" />
+            <PropertyRef Name="LegendVisible" />
+            <PropertyRef Name="ReportType" />
+            <PropertyRef Name="IsWebMenu" />
+            <PropertyRef Name="MenuTransfered" />
+            <PropertyRef Name="MenuHOTransfered" />
+          </Key>
+          <Property Name="ApplicationID" Type="int" Nullable="false" />
+          <Property Name="ApplicationName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApplicationDescription" Type="varchar" MaxLength="500" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+          <Property Name="ApplicationLogo" Type="image" />
+          <Property Name="ApplicationLogoPath" Type="varchar" MaxLength="250" />
+          <Property Name="SequenceNo" Type="int" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="ValueMember" Type="int" />
+          <Property Name="DisplayMember" Type="varchar" MaxLength="50" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="IsVisible" Type="bit" Nullable="false" />
+          <Property Name="Type" Type="int" />
+          <Property Name="UDID" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="FormName" Type="varchar" MaxLength="50" />
+          <Property Name="MenuType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MenuSequence" Type="int" Nullable="false" />
+          <Property Name="DataType" Type="varchar" MaxLength="50" />
+          <Property Name="RestrictionLimit" Type="int" />
+          <Property Name="Assembly" Type="varchar" MaxLength="255" />
+          <Property Name="NameSpace" Type="varchar" MaxLength="250" />
+          <Property Name="MethodName" Type="varchar" MaxLength="250" />
+          <Property Name="IsAdminOnly" Type="bit" Nullable="false" />
+          <Property Name="ParameterSQL" Type="varchar" MaxLength="8000" />
+          <Property Name="IsSP" Type="bit" Nullable="false" />
+          <Property Name="ResourcePath" Type="varchar" MaxLength="4000" />
+          <Property Name="FileName" Type="varchar" MaxLength="500" />
+          <Property Name="AttachReport" Type="bit" Nullable="false" />
+          <Property Name="DefaultReport" Type="varchar" MaxLength="100" />
+          <Property Name="ChartType" Type="varchar" MaxLength="50" />
+          <Property Name="ReportSourceName" Type="varchar" MaxLength="50" />
+          <Property Name="CrossTab" Type="bit" />
+          <Property Name="ColumnData" Type="varchar" MaxLength="50" />
+          <Property Name="LineData" Type="varchar" MaxLength="50" />
+          <Property Name="TitleBottom" Type="varchar" MaxLength="250" />
+          <Property Name="TitleTop" Type="varchar" MaxLength="250" />
+          <Property Name="TitleRight" Type="varchar" MaxLength="250" />
+          <Property Name="TitleLeft" Type="varchar" MaxLength="250" />
+          <Property Name="LegendVisible" Type="bit" Nullable="false" />
+          <Property Name="YExtent" Type="int" />
+          <Property Name="Y2Extent" Type="int" />
+          <Property Name="XExtent" Type="int" />
+          <Property Name="RowLabelsColumn" Type="int" />
+          <Property Name="ReportType" Type="int" Nullable="false" />
+          <Property Name="ExcludeColumns" Type="varchar" MaxLength="8000" />
+          <Property Name="IsWebMenu" Type="bit" Nullable="false" />
+          <Property Name="MenuTransfered" Type="bit" Nullable="false" />
+          <Property Name="MenuHOTransfered" Type="bit" Nullable="false" />
+          <Property Name="MenuLocation" Type="varchar" MaxLength="50" />
+          <Property Name="Route" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SystemManager.dbo.v_WebApplicationMenus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_WebApplicationMenus">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="ApplicationId" Type="int" />
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="MenuName" Type="varchar" MaxLength="100" />
+          <Property Name="ParentMenuId" Type="int" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="Route" Type="varchar" MaxLength="250" />
+          <Property Name="Createdby" Type="varchar" MaxLength="250" />
+          <Property Name="IsNonPrivilegedMenu" Type="bit" />
+        </EntityType>
+        <Association Name="FK_ApplicationUser_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ApplicationUser" Type="Self.ApplicationUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="ApplicationUser">
+              <PropertyRef Name="UserCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLocation_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserLocation" Type="Self.UserLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="UserLocation">
+              <PropertyRef Name="UserCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Web_UserPrivileges_Web_Menus">
+          <End Role="Web_Menus" Type="Self.Web_Menus" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Web_UserPrivileges" Type="Self.Web_UserPrivileges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Web_Menus">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="Web_UserPrivileges">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SystemManagerModelStoreContainer">
+          <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApplicationUser" EntityType="Self.ApplicationUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLocation" EntityType="Self.UserLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Web_Menus" EntityType="Self.Web_Menus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Web_UserLogDetails" EntityType="Self.Web_UserLogDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Web_UserPrivileges" EntityType="Self.Web_UserPrivileges" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_ApplicationMenus" EntityType="Self.v_ApplicationMenus" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_ApplicationMenus].[ApplicationID] AS [ApplicationID], 
+    [v_ApplicationMenus].[ApplicationName] AS [ApplicationName], 
+    [v_ApplicationMenus].[ApplicationDescription] AS [ApplicationDescription], 
+    [v_ApplicationMenus].[IsDefault] AS [IsDefault], 
+    [v_ApplicationMenus].[ApplicationLogo] AS [ApplicationLogo], 
+    [v_ApplicationMenus].[ApplicationLogoPath] AS [ApplicationLogoPath], 
+    [v_ApplicationMenus].[SequenceNo] AS [SequenceNo], 
+    [v_ApplicationMenus].[Location] AS [Location], 
+    [v_ApplicationMenus].[MachineNameIP] AS [MachineNameIP], 
+    [v_ApplicationMenus].[Transfered] AS [Transfered], 
+    [v_ApplicationMenus].[HOTransfered] AS [HOTransfered], 
+    [v_ApplicationMenus].[MenuID] AS [MenuID], 
+    [v_ApplicationMenus].[ValueMember] AS [ValueMember], 
+    [v_ApplicationMenus].[DisplayMember] AS [DisplayMember], 
+    [v_ApplicationMenus].[ParentID] AS [ParentID], 
+    [v_ApplicationMenus].[IsVisible] AS [IsVisible], 
+    [v_ApplicationMenus].[Type] AS [Type], 
+    [v_ApplicationMenus].[UDID] AS [UDID], 
+    [v_ApplicationMenus].[Description] AS [Description], 
+    [v_ApplicationMenus].[FormName] AS [FormName], 
+    [v_ApplicationMenus].[MenuType] AS [MenuType], 
+    [v_ApplicationMenus].[MenuSequence] AS [MenuSequence], 
+    [v_ApplicationMenus].[DataType] AS [DataType], 
+    [v_ApplicationMenus].[RestrictionLimit] AS [RestrictionLimit], 
+    [v_ApplicationMenus].[Assembly] AS [Assembly], 
+    [v_ApplicationMenus].[NameSpace] AS [NameSpace], 
+    [v_ApplicationMenus].[MethodName] AS [MethodName], 
+    [v_ApplicationMenus].[IsAdminOnly] AS [IsAdminOnly], 
+    [v_ApplicationMenus].[ParameterSQL] AS [ParameterSQL], 
+    [v_ApplicationMenus].[IsSP] AS [IsSP], 
+    [v_ApplicationMenus].[ResourcePath] AS [ResourcePath], 
+    [v_ApplicationMenus].[FileName] AS [FileName], 
+    [v_ApplicationMenus].[AttachReport] AS [AttachReport], 
+    [v_ApplicationMenus].[DefaultReport] AS [DefaultReport], 
+    [v_ApplicationMenus].[ChartType] AS [ChartType], 
+    [v_ApplicationMenus].[ReportSourceName] AS [ReportSourceName], 
+    [v_ApplicationMenus].[CrossTab] AS [CrossTab], 
+    [v_ApplicationMenus].[ColumnData] AS [ColumnData], 
+    [v_ApplicationMenus].[LineData] AS [LineData], 
+    [v_ApplicationMenus].[TitleBottom] AS [TitleBottom], 
+    [v_ApplicationMenus].[TitleTop] AS [TitleTop], 
+    [v_ApplicationMenus].[TitleRight] AS [TitleRight], 
+    [v_ApplicationMenus].[TitleLeft] AS [TitleLeft], 
+    [v_ApplicationMenus].[LegendVisible] AS [LegendVisible], 
+    [v_ApplicationMenus].[YExtent] AS [YExtent], 
+    [v_ApplicationMenus].[Y2Extent] AS [Y2Extent], 
+    [v_ApplicationMenus].[XExtent] AS [XExtent], 
+    [v_ApplicationMenus].[RowLabelsColumn] AS [RowLabelsColumn], 
+    [v_ApplicationMenus].[ReportType] AS [ReportType], 
+    [v_ApplicationMenus].[ExcludeColumns] AS [ExcludeColumns], 
+    [v_ApplicationMenus].[IsWebMenu] AS [IsWebMenu], 
+    [v_ApplicationMenus].[MenuTransfered] AS [MenuTransfered], 
+    [v_ApplicationMenus].[MenuHOTransfered] AS [MenuHOTransfered], 
+    [v_ApplicationMenus].[MenuLocation] AS [MenuLocation], 
+    [v_ApplicationMenus].[Route] AS [Route]
+    FROM [dbo].[v_ApplicationMenus] AS [v_ApplicationMenus]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_WebApplicationMenus" EntityType="Self.v_WebApplicationMenus" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_WebApplicationMenus].[ApplicationId] AS [ApplicationId], 
+    [v_WebApplicationMenus].[MenuID] AS [MenuID], 
+    [v_WebApplicationMenus].[MenuName] AS [MenuName], 
+    [v_WebApplicationMenus].[ParentMenuId] AS [ParentMenuId], 
+    [v_WebApplicationMenus].[OrderId] AS [OrderId], 
+    [v_WebApplicationMenus].[Route] AS [Route], 
+    [v_WebApplicationMenus].[Createdby] AS [Createdby], 
+    [v_WebApplicationMenus].[IsNonPrivilegedMenu] AS [IsNonPrivilegedMenu]
+    FROM [dbo].[v_WebApplicationMenus] AS [v_WebApplicationMenus]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ApplicationUser_tblUser" Association="Self.FK_ApplicationUser_tblUser">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="ApplicationUser" EntitySet="ApplicationUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLocation_tblUser" Association="Self.FK_UserLocation_tblUser">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="UserLocation" EntitySet="UserLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Web_UserPrivileges_Web_Menus" Association="Self.FK_Web_UserPrivileges_Web_Menus">
+            <End Role="Web_Menus" EntitySet="Web_Menus" />
+            <End Role="Web_UserPrivileges" EntitySet="Web_UserPrivileges" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SystemManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+          </Key>
+          <Property Name="ApplicationID" Type="Int32" Nullable="false" />
+          <Property Name="ApplicationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApplicationDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+          <Property Name="ApplicationLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ApplicationLogoPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SequenceNo" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MachineNameIP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="AddedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ApplicationUser">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+            <PropertyRef Name="UserCode" />
+          </Key>
+          <Property Name="ApplicationID" Type="Int32" Nullable="false" />
+          <Property Name="UserCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDefault" Type="Boolean" />
+          <NavigationProperty Name="tblUser" Relationship="SystemManagerModel.FK_ApplicationUser_tblUser" FromRole="ApplicationUser" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ValueMember" Type="Int32" />
+          <Property Name="DisplayMember" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="IsVisible" Type="Boolean" Nullable="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="UDID" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FormName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MenuType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MenuSequence" Type="Int32" Nullable="false" />
+          <Property Name="DataType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RestrictionLimit" Type="Int32" />
+          <Property Name="Assembly" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NameSpace" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MethodName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IsAdminOnly" Type="Boolean" Nullable="false" />
+          <Property Name="ParameterSQL" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="IsSP" Type="Boolean" Nullable="false" />
+          <Property Name="ResourcePath" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AttachReport" Type="Boolean" Nullable="false" />
+          <Property Name="DefaultReport" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ChartType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReportSourceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CrossTab" Type="Boolean" />
+          <Property Name="ColumnData" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineData" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TitleBottom" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TitleTop" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TitleRight" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TitleLeft" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LegendVisible" Type="Boolean" Nullable="false" />
+          <Property Name="YExtent" Type="Int32" />
+          <Property Name="Y2Extent" Type="Int32" />
+          <Property Name="XExtent" Type="Int32" />
+          <Property Name="RowLabelsColumn" Type="Int32" />
+          <Property Name="ReportType" Type="Int32" Nullable="false" />
+          <Property Name="ExcludeColumns" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="IsWebMenu" Type="Boolean" Nullable="false" />
+          <Property Name="Route" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AddedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserLocation">
+          <Key>
+            <PropertyRef Name="UserCode" />
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="UserCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LocationID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblUser" Relationship="SystemManagerModel.FK_UserLocation_tblUser" FromRole="UserLocation" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="Web_Menus">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ParentMenuId" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="Route" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ShowingStatus" Type="Boolean" />
+          <Property Name="CreatedById" Type="Int32" />
+          <Property Name="Createdon" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedById" Type="Int32" />
+          <Property Name="Updatedon" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Web_UserPrivileges" Relationship="Self.FK_Web_UserPrivileges_Web_Menus" FromRole="Web_Menus" ToRole="Web_UserPrivileges" />
+          <Property Name="IsNonPrivilegedMenu" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Web_UserPrivileges">
+          <Key>
+            <PropertyRef Name="PrivilegeId" />
+          </Key>
+          <Property Name="PrivilegeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="MenuId" Type="Int32" />
+          <Property Name="HasInsert" Type="Boolean" />
+          <Property Name="HasUpdate" Type="Boolean" />
+          <Property Name="HasDelete" Type="Boolean" />
+          <Property Name="HasPrint" Type="Boolean" />
+          <Property Name="HasFullAccess" Type="Boolean" />
+          <Property Name="UpdatedById" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Web_Menus" Relationship="Self.FK_Web_UserPrivileges_Web_Menus" FromRole="Web_UserPrivileges" ToRole="Web_Menus" />
+        </EntityType>
+        <EntityType Name="v_ApplicationMenus">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+            <PropertyRef Name="ApplicationName" />
+            <PropertyRef Name="IsDefault" />
+            <PropertyRef Name="SequenceNo" />
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="MachineNameIP" />
+            <PropertyRef Name="Transfered" />
+            <PropertyRef Name="HOTransfered" />
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="IsVisible" />
+            <PropertyRef Name="UDID" />
+            <PropertyRef Name="MenuType" />
+            <PropertyRef Name="MenuSequence" />
+            <PropertyRef Name="IsAdminOnly" />
+            <PropertyRef Name="IsSP" />
+            <PropertyRef Name="AttachReport" />
+            <PropertyRef Name="LegendVisible" />
+            <PropertyRef Name="ReportType" />
+            <PropertyRef Name="IsWebMenu" />
+            <PropertyRef Name="MenuTransfered" />
+            <PropertyRef Name="MenuHOTransfered" />
+          </Key>
+          <Property Name="ApplicationID" Type="Int32" Nullable="false" />
+          <Property Name="ApplicationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApplicationDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+          <Property Name="ApplicationLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ApplicationLogoPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SequenceNo" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MachineNameIP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="ValueMember" Type="Int32" />
+          <Property Name="DisplayMember" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="IsVisible" Type="Boolean" Nullable="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="UDID" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FormName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MenuType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MenuSequence" Type="Int32" Nullable="false" />
+          <Property Name="DataType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RestrictionLimit" Type="Int32" />
+          <Property Name="Assembly" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NameSpace" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MethodName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IsAdminOnly" Type="Boolean" Nullable="false" />
+          <Property Name="ParameterSQL" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="IsSP" Type="Boolean" Nullable="false" />
+          <Property Name="ResourcePath" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AttachReport" Type="Boolean" Nullable="false" />
+          <Property Name="DefaultReport" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ChartType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReportSourceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CrossTab" Type="Boolean" />
+          <Property Name="ColumnData" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineData" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TitleBottom" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TitleTop" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TitleRight" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TitleLeft" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LegendVisible" Type="Boolean" Nullable="false" />
+          <Property Name="YExtent" Type="Int32" />
+          <Property Name="Y2Extent" Type="Int32" />
+          <Property Name="XExtent" Type="Int32" />
+          <Property Name="RowLabelsColumn" Type="Int32" />
+          <Property Name="ReportType" Type="Int32" Nullable="false" />
+          <Property Name="ExcludeColumns" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="IsWebMenu" Type="Boolean" Nullable="false" />
+          <Property Name="MenuTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="MenuHOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="MenuLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Route" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Web_UserPrivileges_Web_Menus">
+          <End Role="Web_Menus" Type="Self.Web_Menus" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Web_UserPrivileges" Type="Self.Web_UserPrivileges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Web_Menus">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="Web_UserPrivileges">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SystemManagerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Applications" EntityType="Self.Application" />
+          <EntitySet Name="ApplicationUsers" EntityType="Self.ApplicationUser" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="UserLocations" EntityType="Self.UserLocation" />
+          <EntitySet Name="Web_Menus" EntityType="Self.Web_Menus" />
+          <EntitySet Name="Web_UserPrivileges" EntityType="Self.Web_UserPrivileges" />
+          <EntitySet Name="v_ApplicationMenus" EntityType="Self.v_ApplicationMenus" />
+          <AssociationSet Name="FK_Web_UserPrivileges_Web_Menus" Association="Self.FK_Web_UserPrivileges_Web_Menus">
+            <End Role="Web_Menus" EntitySet="Web_Menus" />
+            <End Role="Web_UserPrivileges" EntitySet="Web_UserPrivileges" />
+          </AssociationSet>
+          <EntitySet Name="v_WebApplicationMenus" EntityType="SystemManagerModel.v_WebApplicationMenus" />
+          <EntitySet Name="Web_UserLogDetails" EntityType="SystemManagerModel.Web_UserLogDetails" />
+          <EntitySet Name="Locations" EntityType="SystemManagerModel.Location" />
+          <EntitySet Name="tblUsers" EntityType="SystemManagerModel.tblUser" />
+          <AssociationSet Name="FK_ApplicationUser_tblUser" Association="SystemManagerModel.FK_ApplicationUser_tblUser">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="ApplicationUser" EntitySet="ApplicationUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLocation_tblUser" Association="SystemManagerModel.FK_UserLocation_tblUser">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="UserLocation" EntitySet="UserLocations" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="v_WebApplicationMenus">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="ApplicationId" Type="Int32" />
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="MenuName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ParentMenuId" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="Route" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Createdby" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IsNonPrivilegedMenu" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Web_UserLogDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Logtime" Type="DateTime" Precision="3" />
+          <Property Name="Workstation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IPAddress" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LocationName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LocationType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsCurrent" Type="Boolean" Nullable="false" />
+          <Property Name="Location1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="UserCode" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsLoggedIn" Type="Boolean" Nullable="false" />
+          <Property Name="LogonTime" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserTypeId" Type="Int32" />
+          <Property Name="IsInternal" Type="Boolean" />
+          <Property Name="DefaultLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Signature" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="IsWebAppAllowed" Type="Boolean" Nullable="false" />
+          <Property Name="EmailPassword" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ApplicationUsers" Relationship="SystemManagerModel.FK_ApplicationUser_tblUser" FromRole="tblUser" ToRole="ApplicationUser" />
+          <NavigationProperty Name="UserLocations" Relationship="SystemManagerModel.FK_UserLocation_tblUser" FromRole="tblUser" ToRole="UserLocation" />
+        </EntityType>
+        <Association Name="FK_ApplicationUser_tblUser">
+          <End Type="SystemManagerModel.tblUser" Role="tblUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SystemManagerModel.ApplicationUser" Role="ApplicationUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="ApplicationUser">
+              <PropertyRef Name="UserCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLocation_tblUser">
+          <End Type="SystemManagerModel.tblUser" Role="tblUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SystemManagerModel.UserLocation" Role="UserLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="UserLocation">
+              <PropertyRef Name="UserCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SystemManagerModelStoreContainer" CdmEntityContainer="SystemManagerEntities">
+          <EntitySetMapping Name="Applications">
+            <EntityTypeMapping TypeName="SystemManagerModel.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="ApplicationDescription" ColumnName="ApplicationDescription" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="ApplicationLogo" ColumnName="ApplicationLogo" />
+                <ScalarProperty Name="ApplicationLogoPath" ColumnName="ApplicationLogoPath" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationUsers">
+            <EntityTypeMapping TypeName="SystemManagerModel.ApplicationUser">
+              <MappingFragment StoreEntitySet="ApplicationUser">
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="SystemManagerModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="ValueMember" ColumnName="ValueMember" />
+                <ScalarProperty Name="DisplayMember" ColumnName="DisplayMember" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="UDID" ColumnName="UDID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FormName" ColumnName="FormName" />
+                <ScalarProperty Name="MenuType" ColumnName="MenuType" />
+                <ScalarProperty Name="MenuSequence" ColumnName="MenuSequence" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="RestrictionLimit" ColumnName="RestrictionLimit" />
+                <ScalarProperty Name="Assembly" ColumnName="Assembly" />
+                <ScalarProperty Name="NameSpace" ColumnName="NameSpace" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="IsAdminOnly" ColumnName="IsAdminOnly" />
+                <ScalarProperty Name="ParameterSQL" ColumnName="ParameterSQL" />
+                <ScalarProperty Name="IsSP" ColumnName="IsSP" />
+                <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="AttachReport" ColumnName="AttachReport" />
+                <ScalarProperty Name="DefaultReport" ColumnName="DefaultReport" />
+                <ScalarProperty Name="ChartType" ColumnName="ChartType" />
+                <ScalarProperty Name="ReportSourceName" ColumnName="ReportSourceName" />
+                <ScalarProperty Name="CrossTab" ColumnName="CrossTab" />
+                <ScalarProperty Name="ColumnData" ColumnName="ColumnData" />
+                <ScalarProperty Name="LineData" ColumnName="LineData" />
+                <ScalarProperty Name="TitleBottom" ColumnName="TitleBottom" />
+                <ScalarProperty Name="TitleTop" ColumnName="TitleTop" />
+                <ScalarProperty Name="TitleRight" ColumnName="TitleRight" />
+                <ScalarProperty Name="TitleLeft" ColumnName="TitleLeft" />
+                <ScalarProperty Name="LegendVisible" ColumnName="LegendVisible" />
+                <ScalarProperty Name="YExtent" ColumnName="YExtent" />
+                <ScalarProperty Name="Y2Extent" ColumnName="Y2Extent" />
+                <ScalarProperty Name="XExtent" ColumnName="XExtent" />
+                <ScalarProperty Name="RowLabelsColumn" ColumnName="RowLabelsColumn" />
+                <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+                <ScalarProperty Name="ExcludeColumns" ColumnName="ExcludeColumns" />
+                <ScalarProperty Name="IsWebMenu" ColumnName="IsWebMenu" />
+                <ScalarProperty Name="Route" ColumnName="Route" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLocations">
+            <EntityTypeMapping TypeName="SystemManagerModel.UserLocation">
+              <MappingFragment StoreEntitySet="UserLocation">
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Web_Menus">
+            <EntityTypeMapping TypeName="SystemManagerModel.Web_Menus">
+              <MappingFragment StoreEntitySet="Web_Menus">
+                <ScalarProperty Name="IsNonPrivilegedMenu" ColumnName="IsNonPrivilegedMenu" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Route" ColumnName="Route" />
+                <ScalarProperty Name="ShowingStatus" ColumnName="ShowingStatus" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="Createdon" ColumnName="Createdon" />
+                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
+                <ScalarProperty Name="Updatedon" ColumnName="Updatedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Web_UserPrivileges">
+            <EntityTypeMapping TypeName="SystemManagerModel.Web_UserPrivileges">
+              <MappingFragment StoreEntitySet="Web_UserPrivileges">
+                <ScalarProperty Name="PrivilegeId" ColumnName="PrivilegeId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="HasInsert" ColumnName="HasInsert" />
+                <ScalarProperty Name="HasUpdate" ColumnName="HasUpdate" />
+                <ScalarProperty Name="HasDelete" ColumnName="HasDelete" />
+                <ScalarProperty Name="HasPrint" ColumnName="HasPrint" />
+                <ScalarProperty Name="HasFullAccess" ColumnName="HasFullAccess" />
+                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_ApplicationMenus">
+            <EntityTypeMapping TypeName="SystemManagerModel.v_ApplicationMenus">
+              <MappingFragment StoreEntitySet="v_ApplicationMenus">
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="ApplicationDescription" ColumnName="ApplicationDescription" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="ApplicationLogo" ColumnName="ApplicationLogo" />
+                <ScalarProperty Name="ApplicationLogoPath" ColumnName="ApplicationLogoPath" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="ValueMember" ColumnName="ValueMember" />
+                <ScalarProperty Name="DisplayMember" ColumnName="DisplayMember" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="UDID" ColumnName="UDID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FormName" ColumnName="FormName" />
+                <ScalarProperty Name="MenuType" ColumnName="MenuType" />
+                <ScalarProperty Name="MenuSequence" ColumnName="MenuSequence" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="RestrictionLimit" ColumnName="RestrictionLimit" />
+                <ScalarProperty Name="Assembly" ColumnName="Assembly" />
+                <ScalarProperty Name="NameSpace" ColumnName="NameSpace" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="IsAdminOnly" ColumnName="IsAdminOnly" />
+                <ScalarProperty Name="ParameterSQL" ColumnName="ParameterSQL" />
+                <ScalarProperty Name="IsSP" ColumnName="IsSP" />
+                <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="AttachReport" ColumnName="AttachReport" />
+                <ScalarProperty Name="DefaultReport" ColumnName="DefaultReport" />
+                <ScalarProperty Name="ChartType" ColumnName="ChartType" />
+                <ScalarProperty Name="ReportSourceName" ColumnName="ReportSourceName" />
+                <ScalarProperty Name="CrossTab" ColumnName="CrossTab" />
+                <ScalarProperty Name="ColumnData" ColumnName="ColumnData" />
+                <ScalarProperty Name="LineData" ColumnName="LineData" />
+                <ScalarProperty Name="TitleBottom" ColumnName="TitleBottom" />
+                <ScalarProperty Name="TitleTop" ColumnName="TitleTop" />
+                <ScalarProperty Name="TitleRight" ColumnName="TitleRight" />
+                <ScalarProperty Name="TitleLeft" ColumnName="TitleLeft" />
+                <ScalarProperty Name="LegendVisible" ColumnName="LegendVisible" />
+                <ScalarProperty Name="YExtent" ColumnName="YExtent" />
+                <ScalarProperty Name="Y2Extent" ColumnName="Y2Extent" />
+                <ScalarProperty Name="XExtent" ColumnName="XExtent" />
+                <ScalarProperty Name="RowLabelsColumn" ColumnName="RowLabelsColumn" />
+                <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+                <ScalarProperty Name="ExcludeColumns" ColumnName="ExcludeColumns" />
+                <ScalarProperty Name="IsWebMenu" ColumnName="IsWebMenu" />
+                <ScalarProperty Name="MenuTransfered" ColumnName="MenuTransfered" />
+                <ScalarProperty Name="MenuHOTransfered" ColumnName="MenuHOTransfered" />
+                <ScalarProperty Name="MenuLocation" ColumnName="MenuLocation" />
+                <ScalarProperty Name="Route" ColumnName="Route" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_WebApplicationMenus">
+            <EntityTypeMapping TypeName="SystemManagerModel.v_WebApplicationMenus">
+              <MappingFragment StoreEntitySet="v_WebApplicationMenus">
+                <ScalarProperty Name="IsNonPrivilegedMenu" ColumnName="IsNonPrivilegedMenu" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Route" ColumnName="Route" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Web_UserLogDetails">
+            <EntityTypeMapping TypeName="SystemManagerModel.Web_UserLogDetails">
+              <MappingFragment StoreEntitySet="Web_UserLogDetails">
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="Workstation" ColumnName="Workstation" />
+                <ScalarProperty Name="Logtime" ColumnName="Logtime" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="SystemManagerModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="Location1" ColumnName="Location" />
+                <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
+                <ScalarProperty Name="LocationType" ColumnName="LocationType" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="SystemManagerModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="EmailPassword" ColumnName="EmailPassword" />
+                <ScalarProperty Name="IsWebAppAllowed" ColumnName="IsWebAppAllowed" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="Signature" ColumnName="Signature" />
+                <ScalarProperty Name="DefaultLocation" ColumnName="DefaultLocation" />
+                <ScalarProperty Name="IsInternal" ColumnName="IsInternal" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="LogonTime" ColumnName="LogonTime" />
+                <ScalarProperty Name="IsLoggedIn" ColumnName="IsLoggedIn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

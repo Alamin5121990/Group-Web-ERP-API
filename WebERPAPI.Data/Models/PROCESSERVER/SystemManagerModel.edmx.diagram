@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f62528eb701245a98a5f38919701969b" Name="Diagram1">
+        <EntityTypeShape EntityType="SystemManagerModel.Application" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemManagerModel.ApplicationList" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemManagerModel.Default_Application_Department" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemManagerModel.Default_Application_User" Width="1.5" PointX="2.875" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemManagerModel.tblUser" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemManagerModel.Web_Applications" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemManagerModel.Web_MenuBrowsing_History" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemManagerModel.Web_MenuRequestLog" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemManagerModel.Web_Menus" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemManagerModel.Web_UserFavoriteMenus" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemManagerModel.Web_UserPrivileges" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemManagerModel.v_ApplicationMenus" Width="1.5" PointX="9.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemManagerModel.v_WebApplicationMenus" Width="1.5" PointX="7.125" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="SystemManagerModel.FK_Web_UserPrivileges_Web_Menus" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SystemManagerModel.Notification" Width="1.5" PointX="2.75" PointY="9.625" />
+        <EntityTypeShape EntityType="SystemManagerModel.Notification_Module" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SystemManagerModel.Notification_ModuleRecepients" Width="1.5" PointX="0.625" PointY="11.75" />
+        <EntityTypeShape EntityType="SystemManagerModel.WebTokenManager" Width="1.5" PointX="12.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SystemManagerModel.User_Complain_Recepients" Width="1.5" PointX="12.375" PointY="8.75" />
+        <EntityTypeShape EntityType="SystemManagerModel.User_Complain_Types" Width="1.5" PointX="12.375" PointY="11.75" />
+        <EntityTypeShape EntityType="SystemManagerModel.User_Complain_Actions" Width="1.5" PointX="16.625" PointY="6" />
+        <EntityTypeShape EntityType="SystemManagerModel.User_Complain_Attachments" Width="1.5" PointX="16.625" PointY="3.25" />
+        <EntityTypeShape EntityType="SystemManagerModel.User_Complain_SolutionStatus" Width="1.5" PointX="6.375" PointY="14.75" />
+        <EntityTypeShape EntityType="SystemManagerModel.Web_UserDevices" Width="1.5" PointX="14.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SystemManagerModel.Web_Menu_Privilege_Group" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="SystemManagerModel.User_Complains" Width="1.5" PointX="14.5" PointY="7.875" />
+        <AssociationConnector Association="SystemManagerModel.FK_User_Complain_Actions_User_Complains" />
+        <AssociationConnector Association="SystemManagerModel.FK_User_Complain_Attachments_User_Complains" />
+        <AssociationConnector Association="SystemManagerModel.FK_User_Complain_Recepients_User_Complains" />
+        <AssociationConnector Association="SystemManagerModel.FK_User_Complains_User_Complain_Types" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

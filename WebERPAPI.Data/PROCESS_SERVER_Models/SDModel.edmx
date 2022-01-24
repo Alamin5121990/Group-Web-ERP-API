@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bak_VWTargetInfo">
+          <Key>
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="Month" />
+            <PropertyRef Name="TerritoryID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Month" Type="int" Nullable="false" />
+          <Property Name="TerritoryID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TerritoryName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="50" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+          <Property Name="ProductID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="productName" Type="varchar" MaxLength="200" />
+          <Property Name="PackSize" Type="varchar" MaxLength="20" />
+          <Property Name="TradePrice" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TargetQty" Type="int" />
+          <Property Name="AreaID" Type="varchar" MaxLength="50" />
+          <Property Name="AreaName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ASMID" Type="varchar" MaxLength="50" />
+          <Property Name="ASMName" Type="varchar" MaxLength="50" />
+          <Property Name="RegionID" Type="varchar" MaxLength="50" />
+          <Property Name="RegionName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RSMID" Type="varchar" MaxLength="50" />
+          <Property Name="RSMName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SD.dbo.Sales_Return_detail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Sales_Return_detail">
+          <Key>
+            <PropertyRef Name="InvoiceDate" />
+            <PropertyRef Name="ChemistID" />
+            <PropertyRef Name="InvoiceType" />
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="BrandName" />
+            <PropertyRef Name="PackSize" />
+            <PropertyRef Name="Tradeprice" />
+            <PropertyRef Name="Vat" />
+            <PropertyRef Name="Transfered" />
+          </Key>
+          <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+          <Property Name="ChemistID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChemistName" Type="varchar" MaxLength="500" />
+          <Property Name="ChemistAddress" Type="varchar" MaxLength="255" />
+          <Property Name="DAID" Type="varchar" MaxLength="50" />
+          <Property Name="DepotID" Type="varchar" MaxLength="50" />
+          <Property Name="InvoiceType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Receivable" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="InvoiceID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BrandName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PackSize" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tradeprice" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Vat" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="orderQuantity" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TransitQty" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TransitBonus" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="SoldQty" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="SBonusQty" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ReturnQuantity" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="BonusReturnQty" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="SID_DAmount" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="STotalTP" Type="numeric" Precision="37" Scale="4" />
+          <Property Name="STotalVat" Type="numeric" Precision="37" Scale="4" />
+          <Property Name="PD" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="TerritoryID" Type="varchar" MaxLength="50" />
+          <Property Name="TerritoryName" Type="varchar" MaxLength="500" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="50" />
+          <Property Name="AreaID" Type="varchar" MaxLength="50" />
+          <Property Name="AreaName" Type="varchar" MaxLength="50" />
+          <Property Name="RegionID" Type="varchar" MaxLength="50" />
+          <Property Name="RegionName" Type="varchar" MaxLength="500" />
+          <Property Name="ccReturnQty" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="ccReturnTP" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="ccReturnVat" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="ccReturnDiscount" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesOrder">
+          <Key>
+            <PropertyRef Name="OrderNo" />
+          </Key>
+          <Property Name="OrderNo" Type="int" Nullable="false" />
+          <Property Name="ChemistID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="DeliveryShift" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="200" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="InvoiceType" Type="varchar" MaxLength="50" />
+          <Property Name="DepoID" Type="varchar" MaxLength="50" />
+          <Property Name="DAID" Type="varchar" MaxLength="50" />
+          <Property Name="FileName" Type="varchar" MaxLength="500" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsProblem" Type="bit" Nullable="false" />
+          <Property Name="Error" Type="varchar" MaxLength="50" />
+          <Property Name="IsLocked" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="SDModelStoreContainer">
+          <EntitySet Name="bak_VWTargetInfo" EntityType="Self.bak_VWTargetInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesOrder" EntityType="Self.SalesOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales_Return_detail" EntityType="Self.Sales_Return_detail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Sales_Return_detail].[InvoiceDate] AS [InvoiceDate], 
+    [Sales_Return_detail].[ChemistID] AS [ChemistID], 
+    [Sales_Return_detail].[ChemistName] AS [ChemistName], 
+    [Sales_Return_detail].[ChemistAddress] AS [ChemistAddress], 
+    [Sales_Return_detail].[DAID] AS [DAID], 
+    [Sales_Return_detail].[DepotID] AS [DepotID], 
+    [Sales_Return_detail].[InvoiceType] AS [InvoiceType], 
+    [Sales_Return_detail].[Receivable] AS [Receivable], 
+    [Sales_Return_detail].[InvoiceID] AS [InvoiceID], 
+    [Sales_Return_detail].[ProductID] AS [ProductID], 
+    [Sales_Return_detail].[BrandName] AS [BrandName], 
+    [Sales_Return_detail].[PackSize] AS [PackSize], 
+    [Sales_Return_detail].[Tradeprice] AS [Tradeprice], 
+    [Sales_Return_detail].[Vat] AS [Vat], 
+    [Sales_Return_detail].[orderQuantity] AS [orderQuantity], 
+    [Sales_Return_detail].[TransitQty] AS [TransitQty], 
+    [Sales_Return_detail].[TransitBonus] AS [TransitBonus], 
+    [Sales_Return_detail].[SoldQty] AS [SoldQty], 
+    [Sales_Return_detail].[SBonusQty] AS [SBonusQty], 
+    [Sales_Return_detail].[ReturnQuantity] AS [ReturnQuantity], 
+    [Sales_Return_detail].[BonusReturnQty] AS [BonusReturnQty], 
+    [Sales_Return_detail].[SID_DAmount] AS [SID_DAmount], 
+    [Sales_Return_detail].[STotalTP] AS [STotalTP], 
+    [Sales_Return_detail].[STotalVat] AS [STotalVat], 
+    [Sales_Return_detail].[PD] AS [PD], 
+    [Sales_Return_detail].[TerritoryID] AS [TerritoryID], 
+    [Sales_Return_detail].[TerritoryName] AS [TerritoryName], 
+    [Sales_Return_detail].[EmployeeID] AS [EmployeeID], 
+    [Sales_Return_detail].[AreaID] AS [AreaID], 
+    [Sales_Return_detail].[AreaName] AS [AreaName], 
+    [Sales_Return_detail].[RegionID] AS [RegionID], 
+    [Sales_Return_detail].[RegionName] AS [RegionName], 
+    [Sales_Return_detail].[ccReturnQty] AS [ccReturnQty], 
+    [Sales_Return_detail].[ccReturnTP] AS [ccReturnTP], 
+    [Sales_Return_detail].[ccReturnVat] AS [ccReturnVat], 
+    [Sales_Return_detail].[ccReturnDiscount] AS [ccReturnDiscount], 
+    [Sales_Return_detail].[Transfered] AS [Transfered]
+    FROM [dbo].[Sales_Return_detail] AS [Sales_Return_detail]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bak_VWTargetInfo">
+          <Key>
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="Month" />
+            <PropertyRef Name="TerritoryID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Month" Type="Int32" Nullable="false" />
+          <Property Name="TerritoryID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TerritoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="productName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PackSize" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TradePrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TargetQty" Type="Int32" />
+          <Property Name="AreaID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASMID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ASMName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegionID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RSMID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RSMName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="SDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bak_VWTargetInfo" EntityType="Self.bak_VWTargetInfo" />
+          <EntitySet Name="SalesOrders" EntityType="SDModel.SalesOrder" />
+          <EntitySet Name="Sales_Return_detail" EntityType="SDModel.Sales_Return_detail" />
+        </EntityContainer>
+        <EntityType Name="SalesOrder">
+          <Key>
+            <PropertyRef Name="OrderNo" />
+          </Key>
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="ChemistID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="DeliveryShift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="InvoiceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepoID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DAID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="IsProblem" Type="Boolean" Nullable="false" />
+          <Property Name="Error" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Sales_Return_detail">
+          <Key>
+            <PropertyRef Name="InvoiceDate" />
+            <PropertyRef Name="ChemistID" />
+            <PropertyRef Name="InvoiceType" />
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="BrandName" />
+            <PropertyRef Name="PackSize" />
+            <PropertyRef Name="Tradeprice" />
+            <PropertyRef Name="Vat" />
+            <PropertyRef Name="Transfered" />
+          </Key>
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChemistID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChemistName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ChemistAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DAID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepotID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceType" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Receivable" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="InvoiceID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BrandName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PackSize" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tradeprice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="orderQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TransitQty" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TransitBonus" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SoldQty" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="SBonusQty" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ReturnQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BonusReturnQty" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SID_DAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="STotalTP" Type="Decimal" Precision="37" Scale="4" />
+          <Property Name="STotalVat" Type="Decimal" Precision="37" Scale="4" />
+          <Property Name="PD" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="TerritoryID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TerritoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AreaID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegionID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegionName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ccReturnQty" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="ccReturnTP" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="ccReturnVat" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="ccReturnDiscount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SDModelStoreContainer" CdmEntityContainer="SDEntities">
+          <EntitySetMapping Name="bak_VWTargetInfo">
+            <EntityTypeMapping TypeName="SDModel.bak_VWTargetInfo">
+              <MappingFragment StoreEntitySet="bak_VWTargetInfo">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+                <ScalarProperty Name="TerritoryName" ColumnName="TerritoryName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="PackSize" ColumnName="PackSize" />
+                <ScalarProperty Name="TradePrice" ColumnName="TradePrice" />
+                <ScalarProperty Name="TargetQty" ColumnName="TargetQty" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="ASMID" ColumnName="ASMID" />
+                <ScalarProperty Name="ASMName" ColumnName="ASMName" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+                <ScalarProperty Name="RSMID" ColumnName="RSMID" />
+                <ScalarProperty Name="RSMName" ColumnName="RSMName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesOrders">
+            <EntityTypeMapping TypeName="SDModel.SalesOrder">
+              <MappingFragment StoreEntitySet="SalesOrder">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+                <ScalarProperty Name="Error" ColumnName="Error" />
+                <ScalarProperty Name="IsProblem" ColumnName="IsProblem" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="DAID" ColumnName="DAID" />
+                <ScalarProperty Name="DepoID" ColumnName="DepoID" />
+                <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="DeliveryShift" ColumnName="DeliveryShift" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="ChemistID" ColumnName="ChemistID" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales_Return_detail">
+            <EntityTypeMapping TypeName="SDModel.Sales_Return_detail">
+              <MappingFragment StoreEntitySet="Sales_Return_detail">
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="ccReturnDiscount" ColumnName="ccReturnDiscount" />
+                <ScalarProperty Name="ccReturnVat" ColumnName="ccReturnVat" />
+                <ScalarProperty Name="ccReturnTP" ColumnName="ccReturnTP" />
+                <ScalarProperty Name="ccReturnQty" ColumnName="ccReturnQty" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="TerritoryName" ColumnName="TerritoryName" />
+                <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+                <ScalarProperty Name="PD" ColumnName="PD" />
+                <ScalarProperty Name="STotalVat" ColumnName="STotalVat" />
+                <ScalarProperty Name="STotalTP" ColumnName="STotalTP" />
+                <ScalarProperty Name="SID_DAmount" ColumnName="SID_DAmount" />
+                <ScalarProperty Name="BonusReturnQty" ColumnName="BonusReturnQty" />
+                <ScalarProperty Name="ReturnQuantity" ColumnName="ReturnQuantity" />
+                <ScalarProperty Name="SBonusQty" ColumnName="SBonusQty" />
+                <ScalarProperty Name="SoldQty" ColumnName="SoldQty" />
+                <ScalarProperty Name="TransitBonus" ColumnName="TransitBonus" />
+                <ScalarProperty Name="TransitQty" ColumnName="TransitQty" />
+                <ScalarProperty Name="orderQuantity" ColumnName="orderQuantity" />
+                <ScalarProperty Name="Vat" ColumnName="Vat" />
+                <ScalarProperty Name="Tradeprice" ColumnName="Tradeprice" />
+                <ScalarProperty Name="PackSize" ColumnName="PackSize" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="Receivable" ColumnName="Receivable" />
+                <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+                <ScalarProperty Name="DepotID" ColumnName="DepotID" />
+                <ScalarProperty Name="DAID" ColumnName="DAID" />
+                <ScalarProperty Name="ChemistAddress" ColumnName="ChemistAddress" />
+                <ScalarProperty Name="ChemistName" ColumnName="ChemistName" />
+                <ScalarProperty Name="ChemistID" ColumnName="ChemistID" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

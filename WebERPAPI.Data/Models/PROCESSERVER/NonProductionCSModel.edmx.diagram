@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e69095b64c1746429c471192cbbe58b6" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="NonProductionCSModel.Bill_PaymentType" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Purchase_Order_Detail" Width="2.75" PointX="3" PointY="4.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Quotation_Invitation_Details" Width="2.25" PointX="3" PointY="2.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Purchase_Orders" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="false" />
+        <AssociationConnector Association="NonProductionCSModel.FK_Inventory_Purchase_Order_Detail_Inventory_Purchase_Orders" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Requisition_AdvancePaid" Width="2.875" PointX="5.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Quotation_Invitations" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="false" />
+        <AssociationConnector Association="NonProductionCSModel.FK_Inventory_Quotation_Invitation_Details_Inventory_Quotation_Invitations" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Spot_Purchase" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Spot_Purchase_Details" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Requisition_Item_Specifications" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Quotation_Received_OtherCost" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Purchase_Order_AdvancePaid" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="NonProductionCSModel.CheckCancelledList" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Quotation_Received" Width="2.75" PointX="10.25" PointY="0.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Quotation_Received_Details" Width="1.5" PointX="13.75" PointY="0.75" />
+        <AssociationConnector Association="NonProductionCSModel.FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Invitations" />
+        <AssociationConnector Association="NonProductionCSModel.FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Received" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Comparative_Study_Details" Width="1.5" PointX="3" PointY="12.375" />
+        <EntityTypeShape EntityType="NonProductionCSModel.Inventory_Comparative_Study" Width="1.5" PointX="0.75" PointY="10.125" />
+        <AssociationConnector Association="NonProductionCSModel.FK_Inventory_Comparative_Study_Details_Inventory_Comparative_Study" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

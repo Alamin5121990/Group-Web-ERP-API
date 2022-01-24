@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GRN Notification</title>
+
+    <style>
+
+        .etable {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            .etable td, .etable th {
+                border: 1px solid #1E1E1E;
+                padding: 2px 6px;
+            }
+
+            .etable tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .etable th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: center;
+                background-color: white;
+                color: black;
+                font-size: 14px;
+            }
+
+            .etable td {
+                font-size: 14px;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div id="materials" style="max-width: 100%; max-height: auto; border: 1px solid white;">
+
+        <div style="margin:20px;margin-left:50px;font-size:18px;">LAST GRN DETAILS</div>
+
+        <div style="width:1050px; text-align: center; margin-left: 45px;">
+            <table class="etable">
+                <thead>
+                    <tr>
+                        <th style="max-width: 50px;">SL.</th>
+                        <th style="max-width: 100px;">GRN ID</th>
+                        <th style="max-width: 500px;">Material Name</th>
+                        <th style="max-width: 100px;">Quantity</th>
+                        <th style="max-width: 120px;">Date</th>
+                        <th style="max-width: 100px;">PO ID</th>
+                        <th style="max-width: 100px;">LC ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    [GRN_DETAILS]
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin:100px 20px 0px;margin-left:50px;font-size:18px;">LATEST GRN DETAILS</div>
+
+        <div style="width:1050px; text-align: center; margin-left: 45px;">
+            <table class="etable">
+                <thead>
+                    <tr>
+                        <th style="max-width: 50px;">SL.</th>
+                        <th style="max-width: 100px;">GRN ID</th>
+                        <th style="max-width: 500px;">Material Name</th>
+                        <th style="max-width: 100px;">Quantity</th>
+                        <th style="max-width: 120px;">Date</th>
+                        <th style="max-width: 100px;">PO ID</th>
+                        <th style="max-width: 100px;">LC ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    [LATEST_GRN_DETAILS]
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

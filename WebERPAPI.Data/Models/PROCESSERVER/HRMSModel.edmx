@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HRMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="ShortName" Type="varchar" MaxLength="5" />
+          <Property Name="ShowingStatus" Type="bit" />
+          <Property Name="CreatedOn" Type="date" />
+          <Property Name="CreatedByID" Type="int" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CardNo" Type="int" />
+          <Property Name="Salutation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MName" Type="varchar" MaxLength="100" />
+          <Property Name="LName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NickName" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="100" />
+          <Property Name="FatherName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MotherName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DOB" Type="datetime" Nullable="false" />
+          <Property Name="BloodGroup" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Height" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Weight" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nationality" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Religion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sex" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaritalStatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="PresentAddress" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PermanentAddress" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="NationalIDNo" Type="varchar" MaxLength="50" />
+          <Property Name="EPersonName" Type="varchar" MaxLength="100" />
+          <Property Name="EPersonAddress" Type="varchar" MaxLength="500" />
+          <Property Name="EPersonTelephone" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeStatus" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubDepartment" Type="varchar" MaxLength="50" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Zone" Type="varchar" MaxLength="50" />
+          <Property Name="Region" Type="varchar" MaxLength="50" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
+          <Property Name="Territory" Type="varchar" MaxLength="50" />
+          <Property Name="DOJ" Type="datetime" Nullable="false" />
+          <Property Name="DOS" Type="datetime" />
+          <Property Name="JoiningPosition" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="JoiningGrade" Type="varchar" MaxLength="50" />
+          <Property Name="AcademicAward" Type="varchar" MaxLength="1000" />
+          <Property Name="DrivingLicence" Type="varchar" MaxLength="100" />
+          <Property Name="Passport" Type="varchar" MaxLength="20" />
+          <Property Name="VisitCountry" Type="varchar" MaxLength="1000" />
+          <Property Name="ExtraActivities" Type="varchar" MaxLength="1000" />
+          <Property Name="MajorIllness" Type="varchar" MaxLength="1000" />
+          <Property Name="SuperVisorID" Type="varchar" MaxLength="50" />
+          <Property Name="ConfirmationDate" Type="datetime" />
+          <Property Name="ConfirmationStatus" Type="varchar" MaxLength="50" />
+          <Property Name="Certification" Type="bit" Nullable="false" />
+          <Property Name="LastAppDate" Type="datetime" />
+          <Property Name="LastAppType" Type="varchar" MaxLength="50" />
+          <Property Name="CostCenter" Type="varchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="500" />
+          <Property Name="LeaveRuleID" Type="varchar" MaxLength="50" />
+          <Property Name="MachineNameIP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transfered" Type="bit" Nullable="false" />
+          <Property Name="HOTransfered" Type="bit" Nullable="false" />
+          <Property Name="Addedby" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="20" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentID" Type="int" />
+          <Property Name="DesignationID" Type="int" />
+          <Property Name="OfficeLocationID" Type="int" />
+        </EntityType>
+        <EntityContainer Name="HRMSModelStoreContainer">
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HRMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HRMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employees" EntityType="HRMSModel.Employee" />
+          <EntitySet Name="Department" EntityType="HRMSModel.Department" />
+        </EntityContainer>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CardNo" Type="Int32" />
+          <Property Name="Salutation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FatherName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MotherName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BloodGroup" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Weight" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Religion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaritalStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PresentAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PermanentAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="NationalIDNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EPersonName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EPersonAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EPersonTelephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Territory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOJ" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DOS" Type="DateTime" Precision="3" />
+          <Property Name="JoiningPosition" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JoiningGrade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AcademicAward" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DrivingLicence" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Passport" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VisitCountry" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ExtraActivities" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="MajorIllness" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="SuperVisorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ConfirmationDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Certification" Type="Boolean" Nullable="false" />
+          <Property Name="LastAppDate" Type="DateTime" Precision="3" />
+          <Property Name="LastAppType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CostCenter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LeaveRuleID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachineNameIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Boolean" Nullable="false" />
+          <Property Name="HOTransfered" Type="Boolean" Nullable="false" />
+          <Property Name="Addedby" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentID" Type="Int32" />
+          <Property Name="DesignationID" Type="Int32" />
+          <Property Name="OfficeLocationID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="ShortName" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ShowingStatus" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <Property Name="CreatedByID" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HRMSModelStoreContainer" CdmEntityContainer="HRMSEntities">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="HRMSModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="OfficeLocationID" ColumnName="OfficeLocationID" />
+                <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Addedby" ColumnName="Addedby" />
+                <ScalarProperty Name="HOTransfered" ColumnName="HOTransfered" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MachineNameIP" ColumnName="MachineNameIP" />
+                <ScalarProperty Name="LeaveRuleID" ColumnName="LeaveRuleID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CostCenter" ColumnName="CostCenter" />
+                <ScalarProperty Name="LastAppType" ColumnName="LastAppType" />
+                <ScalarProperty Name="LastAppDate" ColumnName="LastAppDate" />
+                <ScalarProperty Name="Certification" ColumnName="Certification" />
+                <ScalarProperty Name="ConfirmationStatus" ColumnName="ConfirmationStatus" />
+                <ScalarProperty Name="ConfirmationDate" ColumnName="ConfirmationDate" />
+                <ScalarProperty Name="SuperVisorID" ColumnName="SuperVisorID" />
+                <ScalarProperty Name="MajorIllness" ColumnName="MajorIllness" />
+                <ScalarProperty Name="ExtraActivities" ColumnName="ExtraActivities" />
+                <ScalarProperty Name="VisitCountry" ColumnName="VisitCountry" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="DrivingLicence" ColumnName="DrivingLicence" />
+                <ScalarProperty Name="AcademicAward" ColumnName="AcademicAward" />
+                <ScalarProperty Name="JoiningGrade" ColumnName="JoiningGrade" />
+                <ScalarProperty Name="JoiningPosition" ColumnName="JoiningPosition" />
+                <ScalarProperty Name="DOS" ColumnName="DOS" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="Territory" ColumnName="Territory" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="SubDepartment" ColumnName="SubDepartment" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+                <ScalarProperty Name="EmployeeStatus" ColumnName="EmployeeStatus" />
+                <ScalarProperty Name="EPersonTelephone" ColumnName="EPersonTelephone" />
+                <ScalarProperty Name="EPersonAddress" ColumnName="EPersonAddress" />
+                <ScalarProperty Name="EPersonName" ColumnName="EPersonName" />
+                <ScalarProperty Name="NationalIDNo" ColumnName="NationalIDNo" />
+                <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+                <ScalarProperty Name="PresentAddress" ColumnName="PresentAddress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Department">
+            <EntityTypeMapping TypeName="HRMSModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ShowingStatus" ColumnName="ShowingStatus" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

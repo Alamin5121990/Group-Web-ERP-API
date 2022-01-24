@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="80c9087e3e764e5f9c029d540eb6eac7" Name="Diagram1" ShowGrid="true" DisplayType="true" ZoomLevel="77">
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_GRN_Items" Width="2.625" PointX="13" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Item_OpeningBalance" Width="2.625" PointX="5.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Item_SubGroup" Width="2.625" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Item_SubGroup_Specifications" Width="2.625" PointX="5.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Item_UsageTypes" Width="2.625" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Item_Version_Details" Width="2.625" PointX="9.75" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Item_Version_State" Width="2.625" PointX="5.25" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Item_Versions" Width="2.625" PointX="7.5" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_ItemIssue_Details" Width="2.625" PointX="20" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_ItemIssues" Width="2.625" PointX="17.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_ItemReceive_Acknowledgement" Width="2.625" PointX="12.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_ItemReceive_Details" Width="2.625" PointX="15" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Items" Width="2.625" PointX="5.25" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Purchase_Order_Detail" Width="2.625" PointX="22.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Purchase_Orders" Width="3.25" PointX="17.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_QRN" Width="2.625" PointX="13" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_QRN_Items" Width="2.625" PointX="15.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Quotation_Invitation_Details" Width="2.625" PointX="13" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Quotation_Invitations" Width="2.625" PointX="10.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Quotation_Received" Width="2.625" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Quotation_Received_Details" Width="2.625" PointX="16" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Requisition_For_Brands" Width="2.625" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Requisition_For_Months" Width="2.625" PointX="8.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Requisition_Items" Width="2.625" PointX="8.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Requisition_Type" Width="2.625" PointX="0.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Stock" Width="2.625" PointX="18.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Stock_ChangeLogs" Width="2.625" PointX="10" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Stock_ChangeTypes" Width="2.625" PointX="7.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Stock_DailyLog" Width="2.625" PointX="18.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Stores" Width="2.625" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Types" Width="2.625" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_TypesAndStore" Width="2.625" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_UserStores" Width="2.625" PointX="20.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProcurementModel.UnitOfMeasurement" Width="2.625" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Item_SubGroup_Specifications_Inventory_Item_SubGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Items_Inventory_Item_SubGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Item_Version_Details_Inventory_Item_Versions" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Item_Version_Inventory_Item_Version_State" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Item_Version_Inventory_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_ItemIssue_Details_Inventory_ItemIssues" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_ItemReceive_Details_Inventory_ItemReceive_Acknowledgement" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Purchase_Order_Detail_Inventory_Purchase_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_QRN_Items_Inventory_QRN" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Quotation_Invitation_Details_Inventory_Quotation_Invitations" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Invitations" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Quotation_Received_Details_Inventory_Quotation_Received" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Stock_ChangeLogs_Inventory_Stock_ChangeTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_TypesAndStore_Inventory_Stores" ManuallyRouted="false" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_TypesAndStore_Inventory_Types" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Item_Specification" Width="1.5" PointX="4.375" PointY="10" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Item_SubGroup_Specifications_Inventory_Item_Specification" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Item_Version_Details_Inventory_Item_Specification" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Item_MainGroup" Width="2.625" PointX="4.125" PointY="34.375" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Item_MainGroup_Inventory_Types" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Item_SubGroup_Inventory_Item_MainGroup" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_SubGroup_Suppliers" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_MainGroup_Users" Width="1.5" PointX="7.5" PointY="35" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_MainGroup_Users_Inventory_Item_MainGroup" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Stock_Opening" Width="1.5" PointX="22.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Stock_InTransit" Width="1.5" PointX="23.375" PointY="9.75" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_Requisitions" Width="1.5" PointX="14.125" PointY="23.5" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Requisition_For_Brands_Inventory_Requisitions" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Requisition_For_Months_Inventory_Requisitions" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Requisition_Items_Inventory_Requisitions" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Requisitions_Inventory_Requisition_Type" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_Requisitions_Inventory_Stores" />
+        <EntityTypeShape EntityType="ProcurementModel.Inventory_GRN" Width="1.5" PointX="4.75" PointY="14.375" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_GRN_Items_Inventory_GRN" />
+        <AssociationConnector Association="ProcurementModel.FK_Inventory_QRN_Inventory_GRN" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

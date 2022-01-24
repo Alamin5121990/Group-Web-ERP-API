@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e9e8272ce1b74d01bb0518febaa854d3" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="InventoryModel.LetterOfCredit" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="InventoryModel.LetterOfCredits_Details" Width="1.5" PointX="3" PointY="2.875" />
+        <AssociationConnector Association="InventoryModel.FK_LetterOfCredit_Details_LetterOfCredit" />
+        <EntityTypeShape EntityType="InventoryModel.Material" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InventoryModel.Supplier" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="InventoryModel.POReq" Width="1.5" PointX="10.75" PointY="12.125" />
+        <EntityTypeShape EntityType="InventoryModel.POReqDetail" Width="1.5" PointX="13" PointY="2" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Invitation_Details" Width="1.5" PointX="3" PointY="18.25" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Invitation_Import_Details" Width="1.5" PointX="18" PointY="1" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Invitations" Width="1.5" PointX="0.75" PointY="18" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Invitations_Import" Width="1.75" PointX="15.75" PointY="1.375" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Received" Width="1.5" PointX="12.75" PointY="15.125" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Received_Details" Width="1.5" PointX="15" PointY="15" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Received_Import" Width="1.5" PointX="12.75" PointY="9" />
+        <EntityTypeShape EntityType="InventoryModel.Quotation_Received_Import_Details" Width="1.5" PointX="15" PointY="8.125" />
+        <AssociationConnector Association="InventoryModel.FK_POReqDetail_Material" />
+        <AssociationConnector Association="InventoryModel.FK_POReqDetail_POReq" />
+        <AssociationConnector Association="InventoryModel.FK_Quotation_Invitation_Details_Quotation_Invitations" />
+        <AssociationConnector Association="InventoryModel.FK_Quotation_Invitation_Import_Details_Quotation_Invitation_Import_Details" />
+        <AssociationConnector Association="InventoryModel.FK_Quotation_Received_Details_Quotation_Received" />
+        <AssociationConnector Association="InventoryModel.FK_Quotation_Received_Import_Details_Quotation_Received_Import" />
+        <EntityTypeShape EntityType="InventoryModel.LC" Width="1.5" PointX="7.625" PointY="20.5" />
+        <EntityTypeShape EntityType="InventoryModel.LCDetail" Width="1.5" PointX="9.875" PointY="22.375" />
+        <EntityTypeShape EntityType="InventoryModel.PODetail" Width="1.5" PointX="18" PointY="9.125" />
+        <EntityTypeShape EntityType="InventoryModel.POMaster" Width="1.5" PointX="7.625" PointY="10.625" />
+        <AssociationConnector Association="InventoryModel.FK_LC_LCDetail" />
+        <AssociationConnector Association="InventoryModel.FK_LC_Suppler" />
+        <AssociationConnector Association="InventoryModel.FK_PODetail_Material" />
+        <AssociationConnector Association="InventoryModel.FK_PODetail_POMaster" />
+        <AssociationConnector Association="InventoryModel.FK_PODetail_POReq" />
+        <AssociationConnector Association="InventoryModel.FK_POMaster_Supplier" />
+        <EntityTypeShape EntityType="InventoryModel.GRNDetail" Width="1.5" PointX="19.625" PointY="16.875" />
+        <EntityTypeShape EntityType="InventoryModel.GRNMaster" Width="1.5" PointX="17.375" PointY="15.25" />
+        <AssociationConnector Association="InventoryModel.FK_GRNDetail_GRNMaster" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Internal_Approval" Width="1.5" PointX="20.375" PointY="1" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Internal_Approval_Details" Width="1.5" PointX="22.625" PointY="1" />
+        <AssociationConnector Association="InventoryModel.FK_Comparative_Study_Internal_Approval_Details_Comparative_Study_Internal_Approval" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Import_InternalApproval" Width="1.5" PointX="20.375" PointY="5" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Import_InternalApproval_Details" Width="1.5" PointX="22.625" PointY="5" />
+        <AssociationConnector Association="InventoryModel.FK_Comparative_Study_Import_InternalApproval_Details_Comparative_Study_Import_InternalApproval" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Remarks" Width="1.5" PointX="13.375" PointY="19.75" />
+        <EntityTypeShape EntityType="InventoryModel.Currency" Width="1.5" PointX="20.375" PointY="8.75" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_StatusComment" Width="1.5" PointX="20.75" PointY="12.75" />
+        <EntityTypeShape EntityType="InventoryModel.Inventory_Comparative_Study" Width="1.5" PointX="0.75" PointY="21.75" />
+        <EntityTypeShape EntityType="InventoryModel.LC_StatusComment" Width="1.5" PointX="2.75" PointY="21.75" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Import_Details" Width="1.5" PointX="8" PointY="0.75" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Import" Width="1.5" PointX="5.75" PointY="3.5" />
+        <AssociationConnector Association="InventoryModel.FK_Comparative_Study_Import_Details_Comparative_Study_Import" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study" Width="1.5" PointX="19.375" PointY="24" />
+        <EntityTypeShape EntityType="InventoryModel.Comparative_Study_Details" Width="1.5" PointX="21.625" PointY="22.125" />
+        <AssociationConnector Association="InventoryModel.FK_Comparative_Study_Details_Comparative_Study" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
